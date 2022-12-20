@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/placeholder.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://games/quiz/alternative/alternative.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=114]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+anti_aliasing_size = 1.0
+
+[sub_resource type="DynamicFont" id=115]
+size = 36
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=116]
+bg_color = Color( 0.27451, 0.27451, 0.27451, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+anti_aliasing_size = 1.0
+
+[sub_resource type="DynamicFont" id=117]
+size = 28
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="Alternative" type="Control"]
+margin_right = 775.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 775, 112 )
+script = ExtResource( 4 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 112 )
+custom_constants/separation = 20
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+margin_right = 663.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+custom_styles/panel = SubResource( 114 )
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 36
+custom_constants/margin_top = 2
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Panel/MarginContainer"]
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 627.0
+margin_bottom = 110.0
+custom_constants/separation = 10
+
+[node name="Number" type="Label" parent="HBoxContainer/Panel/MarginContainer/HBoxContainer"]
+margin_top = 8.0
+margin_right = 92.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 92, 92 )
+custom_fonts/font = SubResource( 115 )
+custom_styles/normal = SubResource( 116 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Message" type="Label" parent="HBoxContainer/Panel/MarginContainer/HBoxContainer"]
+margin_left = 102.0
+margin_right = 617.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 117 )
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+valign = 1
+autowrap = true
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Checker" type="TextureRect" parent="HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 683.0
+margin_top = 10.0
+margin_right = 775.0
+margin_bottom = 102.0
+rect_min_size = Vector2( 92, 92 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+expand = true
+
+[connection signal="pressed" from="HBoxContainer/Panel/TextureButton" to="." method="_on_TextureButton_pressed"]

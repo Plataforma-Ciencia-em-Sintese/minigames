@@ -1,0 +1,136 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Control",
+"class": "Alternative",
+"language": "GDScript",
+"path": "res://games/quiz/alternative/alternative.gd"
+}, {
+"base": "Node",
+"class": "Request",
+"language": "GDScript",
+"path": "res://api/abstract/request.gd"
+}, {
+"base": "Request",
+"class": "RequestCommon",
+"language": "GDScript",
+"path": "res://api/abstract/request_common.gd"
+}, {
+"base": "RequestCommon",
+"class": "RequestCommonOmeka",
+"language": "GDScript",
+"path": "res://api/omeka/request_common_omeka.gd"
+}, {
+"base": "Request",
+"class": "RequestMemoryGame",
+"language": "GDScript",
+"path": "res://api/abstract/request_memory_game.gd"
+}, {
+"base": "RequestMemoryGame",
+"class": "RequestMemoryGameOmeka",
+"language": "GDScript",
+"path": "res://api/omeka/request_memory_game_omeka.gd"
+}, {
+"base": "Request",
+"class": "RequestQuiz",
+"language": "GDScript",
+"path": "res://api/abstract/request_quiz.gd"
+}, {
+"base": "RequestQuiz",
+"class": "RequestQuizOmeka",
+"language": "GDScript",
+"path": "res://api/omeka/request_quiz_omeka.gd"
+}, {
+"base": "Request",
+"class": "RequestTheme",
+"language": "GDScript",
+"path": "res://api/abstract/request_theme.gd"
+}, {
+"base": "RequestTheme",
+"class": "RequestThemeOmeka",
+"language": "GDScript",
+"path": "res://api/omeka/request_theme_omeka.gd"
+}, {
+"base": "Reference",
+"class": "URL",
+"language": "GDScript",
+"path": "res://utils/url/url.gd"
+} ]
+_global_script_class_icons={
+"Alternative": "",
+"Request": "",
+"RequestCommon": "",
+"RequestCommonOmeka": "",
+"RequestMemoryGame": "",
+"RequestMemoryGameOmeka": "",
+"RequestQuiz": "",
+"RequestQuizOmeka": "",
+"RequestTheme": "",
+"RequestThemeOmeka": "",
+"URL": ""
+}
+
+[application]
+
+config/name="MiniGames"
+run/main_scene="res://main/main.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+ChangeLevel="*res://home/change_level.gd"
+API="*res://api/api.gd"
+FullscreenButton="*res://utils/fullscreen/fullscreen_button.tscn"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/test_width=1280
+window/size/test_height=720
+window/stretch/mode="2d"
+window/stretch/aspect="expand"
+
+[editor]
+
+convert_text_resources_to_binary_on_export=true
+
+[global]
+
+ssl=false
+
+[gui]
+
+theme/custom="res://assets/theme.tres"
+
+[input]
+
+dev_mode={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":48,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777350,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false
+environment/default_environment="res://default_env.tres"
