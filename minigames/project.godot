@@ -30,6 +30,16 @@ _global_script_classes=[ {
 "path": "res://api/omeka/request_common_omeka.gd"
 }, {
 "base": "Request",
+"class": "RequestMatchingGame",
+"language": "GDScript",
+"path": "res://api/abstract/request_matching_game.gd"
+}, {
+"base": "RequestMatchingGame",
+"class": "RequestMatchingGameOmeka",
+"language": "GDScript",
+"path": "res://api/omeka/request_matching_game_omeka.gd"
+}, {
+"base": "Request",
 "class": "RequestMemoryGame",
 "language": "GDScript",
 "path": "res://api/abstract/request_memory_game.gd"
@@ -69,6 +79,8 @@ _global_script_class_icons={
 "Request": "",
 "RequestCommon": "",
 "RequestCommonOmeka": "",
+"RequestMatchingGame": "",
+"RequestMatchingGameOmeka": "",
 "RequestMemoryGame": "",
 "RequestMemoryGameOmeka": "",
 "RequestQuiz": "",

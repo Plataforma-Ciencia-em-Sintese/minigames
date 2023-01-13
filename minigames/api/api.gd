@@ -14,6 +14,7 @@ signal all_request_failed
 
 #  [ENUMS]
 enum ResourceID {
+	METCHING_GAME = 29
 	MOMORY_GAME = 19
 	QUIZ = 24
 }
@@ -131,6 +132,9 @@ func _on_all_request_theme_completed() -> void:
 	emit_signal("a_request_completed")
 	
 	match(common.get_resource_id()):
+		ResourceID.METCHING_GAME:
+			game = RequestMatchingGameOmeka.new()
+		
 		ResourceID.MOMORY_GAME:
 			game = RequestMemoryGameOmeka.new()
 		
