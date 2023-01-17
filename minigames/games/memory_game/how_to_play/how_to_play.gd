@@ -28,6 +28,7 @@ signal close
 
 #  [ONREADY_VARIABLES]
 onready var label: Label = $MarginContainer/VBoxContainer/Panel/Label
+onready var margin_container: MarginContainer = $MarginContainer/VBoxContainer/Panel/MarginContainer
 
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
@@ -53,6 +54,8 @@ func _load_theme() -> void:
 	label.set("custom_colors/font_color", API.theme.get_color(API.theme.PD1))
 	var state_normal: StyleBoxFlat = label.get("custom_styles/normal")
 	state_normal.set("border_color", API.theme.get_color(API.theme.PD1))
+	
+	#margin_container.set("modulate", API.theme.get_color(API.theme.SL2))
  
 
 #  [SIGNAL_METHODS]

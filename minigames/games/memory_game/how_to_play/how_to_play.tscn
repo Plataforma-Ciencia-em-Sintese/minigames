@@ -1,18 +1,16 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/components/background/background.tscn" type="PackedScene" id=2]
-[ext_resource path="res://games/memory_game/how_to_play/how_to_play1.png" type="Texture" id=3]
-[ext_resource path="res://games/memory_game/how_to_play/how_to_play2.png" type="Texture" id=4]
-[ext_resource path="res://games/memory_game/how_to_play/how_to_play.gd" type="Script" id=5]
-[ext_resource path="res://assets/components/theme_button_icon/theme_button_icon.tscn" type="PackedScene" id=6]
-[ext_resource path="res://games/memory_game/how_to_play/how_to_play3.png" type="Texture" id=7]
+[ext_resource path="res://assets/components/background/background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://games/memory_game/how_to_play/how_to_play.gd" type="Script" id=2]
+[ext_resource path="res://games/memory_game/how_to_play/texture.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/components/theme_button_icon/theme_button_icon.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=16]
 size = 86
 use_filter = true
 extra_spacing_top = -10
-font_data = ExtResource( 1 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
@@ -198,30 +196,10 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=12]
-bg_color = Color( 0.901961, 0.847059, 0.929412, 1 )
-
-[sub_resource type="DynamicFont" id=13]
-size = 30
-use_filter = true
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=14]
-size = 22
-use_filter = true
-font_data = ExtResource( 1 )
-
-[sub_resource type="StyleBoxFlat" id=15]
-bg_color = Color( 0.721569, 0.835294, 0.301961, 1 )
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [sub_resource type="DynamicFont" id=10]
 size = 40
 use_filter = true
-font_data = ExtResource( 1 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="StyleBoxFlat" id=11]
 bg_color = Color( 1, 1, 1, 1 )
@@ -242,14 +220,14 @@ expand_margin_bottom = 12.0
 [node name="HowToPlay" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 5 )
+script = ExtResource( 2 )
 
 [node name="BackgroundColor" type="Panel" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Background" parent="BackgroundColor" instance=ExtResource( 2 )]
+[node name="Background" parent="BackgroundColor" instance=ExtResource( 1 )]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -269,7 +247,7 @@ margin_right = 1691.0
 margin_bottom = 1030.0
 custom_constants/separation = 30
 
-[node name="Button" parent="MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
+[node name="Button" parent="MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
 margin_left = 1342.0
 margin_right = 1462.0
 hint_tooltip = "Fechar"
@@ -295,167 +273,18 @@ custom_styles/panel = SubResource( 8 )
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
+custom_constants/margin_right = 100
+custom_constants/margin_top = 100
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 100
 
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 1442.0
-margin_bottom = 835.0
-custom_styles/panel = SubResource( 12 )
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -589.0
-margin_top = -259.5
-margin_right = 354.0
-margin_bottom = -219.5
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 13 )
-text = "Seu objetivo é clicar nas cartas e encontrar os pares das figuras."
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -589.0
-margin_top = -161.0
-margin_right = 589.0
-margin_bottom = 97.0
-custom_constants/separation = 40
-
-[node name="Figure1" type="TextureRect" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer"]
-margin_right = 366.0
-margin_bottom = 258.0
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
+margin_left = 100.0
+margin_top = 100.0
+margin_right = 1362.0
+margin_bottom = 755.0
 texture = ExtResource( 3 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer/Figure1"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 22.0
-margin_bottom = 112.0
-custom_constants/separation = 10
-
-[node name="Number" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer/Figure1/HBoxContainer"]
-margin_right = 42.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 42, 40 )
-size_flags_vertical = 2
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 14 )
-custom_styles/normal = SubResource( 15 )
-text = "1"
-align = 1
-valign = 1
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="Text" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer/Figure1/HBoxContainer"]
-margin_left = 52.0
-margin_right = 277.0
-margin_bottom = 90.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 14 )
-text = " Clique numa carta e 
-veja a figura.
-"
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="Figure2" type="TextureRect" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer"]
-margin_left = 406.0
-margin_right = 772.0
-margin_bottom = 258.0
-texture = ExtResource( 4 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer/Figure2"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 22.0
-margin_bottom = 112.0
-custom_constants/separation = 10
-
-[node name="Number" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer/Figure2/HBoxContainer"]
-margin_right = 42.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 42, 40 )
-size_flags_vertical = 2
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 14 )
-custom_styles/normal = SubResource( 15 )
-text = "2"
-align = 1
-valign = 1
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="Text" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer/Figure2/HBoxContainer"]
-margin_left = 52.0
-margin_right = 330.0
-margin_bottom = 121.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 14 )
-text = "Clique em outra carta e 
-tente  encontrar outra 
-figura igual. Se as figuras 
-foremiguais, ótimo!"
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="Figure3" type="TextureRect" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer"]
-margin_left = 812.0
-margin_right = 1178.0
-margin_bottom = 258.0
-texture = ExtResource( 7 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer/Figure3"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 22.0
-margin_bottom = 112.0
-custom_constants/separation = 10
-
-[node name="Number" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer/Figure3/HBoxContainer"]
-margin_right = 42.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 42, 40 )
-size_flags_vertical = 2
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 14 )
-custom_styles/normal = SubResource( 15 )
-text = "3 "
-align = 1
-valign = 1
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="Text" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/Panel/HBoxContainer/Figure3/HBoxContainer"]
-margin_left = 52.0
-margin_right = 311.0
-margin_bottom = 90.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 14 )
-text = "Tudo bem se a imagens 
-forem diferentes, tente 
-de novo!"
-__meta__ = {
-"_editor_description_": ""
-}
+stretch_mode = 6
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Panel"]
 anchor_left = 0.5
