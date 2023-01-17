@@ -159,7 +159,7 @@ func _on_Continue_pressed() -> void:
 
 func _on_Restart_pressed() -> void:
 	#emit_signal("restart_level")
-	get_tree().change_scene("res://game/game.tscn")
+	get_tree().change_scene("res://games/quiz/quiz.tscn")
 
 
 func _on_Share_pressed() -> void:

@@ -42,7 +42,7 @@ func _ready() -> void:
 		color_rect.color = API.theme.get_color(API.theme.PB)
 	else:
 		color_rect.visible = false
-		
+
 	if background_texture:
 		texture_rect.texture = API.theme.get_background_texture()
 		texture_rect.set("modulate", API.theme.get_color(API.theme.PD1))

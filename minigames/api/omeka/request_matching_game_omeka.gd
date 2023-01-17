@@ -205,7 +205,7 @@ func _on_request_cards_final(_result: int, response_code: int, _headers: PoolStr
 				error = image.load_tga_from_buffer(body)
 
 		if error != OK:
-			emit_signal("request_error", "RequestGameOmeka._on_request_cards_final): image format is not supported")
+			emit_signal("request_error", "RequestGameOmeka._on_request_cards_final(): image format is not supported")
 		
 		var image_texture: ImageTexture = ImageTexture.new()
 		image_texture.create_from_image(image)
@@ -214,17 +214,17 @@ func _on_request_cards_final(_result: int, response_code: int, _headers: PoolStr
 			var bullets: Array = get_bullets()
 			bullets.append({"image": image_texture, "subtitle": subtitle, "matching_id": matching_id})
 			set_bullets(bullets)	
-			print("definindo bullets" + str(matching_id))
-			#print(bullets)	
+			#print("definindo bullets" + str(matching_id))
+			
 		else:
 			var targets: Array = get_targets()
 			targets.append({"image": image_texture, "subtitle": subtitle, "matching_id": matching_id})
 			set_targets(targets)			
-			print("definindo targets" + str(matching_id))	
+			#print("definindo targets" + str(matching_id))	
 
-		if (get_targets().size() + get_bullets().size() )== request_counter:
+		if (get_targets().size() + get_bullets().size()) == request_counter:
 			emit_signal("request_cards_completed")
 			
 			
 	else:
-		emit_signal("request_error", str("RequestCommonOmeka._on_request_game_logo_final(): response code return error: ", response_code))
+		emit_signal("request_error", str("RequestCommonOmeka._on_request_cards_final(): response code return error: ", response_code))

@@ -48,7 +48,9 @@ onready var logo: TextureRect = $MarginContainer/AspectRatioContainer/MarginCont
 onready var panel_logo_placeholder: PanelContainer = $MarginContainer/AspectRatioContainer/MarginContainer/GlobalVBoxContainer/Logo/PanelContainer2
 onready var levels_panel: Panel = $MarginContainer/AspectRatioContainer/MarginContainer/GlobalVBoxContainer/Options/Panel
 onready var start_game_button: Button = $MarginContainer/AspectRatioContainer/MarginContainer/GlobalVBoxContainer/Options/StartGame
-
+onready var easy_button: Button = $MarginContainer/AspectRatioContainer/MarginContainer/GlobalVBoxContainer/Options/Panel/MarginContainer/HBoxContainer/Easy
+onready var medium_button: Button = $MarginContainer/AspectRatioContainer/MarginContainer/GlobalVBoxContainer/Options/Panel/MarginContainer/HBoxContainer/Medium
+onready var hard_button: Button = $MarginContainer/AspectRatioContainer/MarginContainer/GlobalVBoxContainer/Options/Panel/MarginContainer/HBoxContainer/Hard
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
 #func _init() -> void:
@@ -62,6 +64,9 @@ func _ready() -> void:
 	game_title.text = API.common.get_short_title().to_upper()
 	
 	match(API.common.get_resource_id()):
+		
+		API.ResourceID.METCHING_GAME:
+			_metching_game_home()
 		
 		API.ResourceID.MOMORY_GAME:
 			_memory_game_home()
@@ -134,12 +139,14 @@ func _load_theme() -> void:
 
 func _memory_game_home() -> void:
 	
-	logo.texture = load("res://assets/images/logo_momory_game.png")
+	logo.texture = load("res://assets/images/logo_memory_game.png")
 	
 	game_name.text = "JOGO DA MEMÓRIA"
 	
 	start_game_button.visible = false
 	levels_panel.visible = true
+	
+	# Check data for levels
 	
 	var path: String = "res://games/memory_game/memory_game.tscn"
 	set_easy_path(path)
@@ -156,6 +163,32 @@ func _quiz_home() -> void:
 	levels_panel.visible = false
 	
 	set_start_game_path("res://games/quiz/quiz.tscn")
+
+
+func _metching_game_home() -> void:
+	
+	logo.texture = load("res://assets/images/logo_matching_game.png")
+	
+	game_name.text = "JOGO DA COMBINAÇÃO"
+	
+	start_game_button.visible = false
+	levels_panel.visible = true
+	
+	# Check data for levels
+	var targets: int = API.game.get_targets().size()
+	var bullets: int = API.game.get_bullets().size()
+	if (targets + bullets) < 12 or targets != bullets:
+		easy_button.disabled = true
+	if (targets + bullets) < 18 or targets != bullets:
+		medium_button.disabled = true
+	if (targets + bullets) < 32 or targets != bullets:
+		hard_button.disabled = true 
+	
+	
+	var path: String = "res://games/matching_game/matching_game.tscn"
+	set_easy_path(path)
+	set_medium_path(path)
+	set_hard_path(path)
 
  
 

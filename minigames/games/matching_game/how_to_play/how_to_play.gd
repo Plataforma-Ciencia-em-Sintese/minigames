@@ -28,7 +28,7 @@ signal close
 
 #  [ONREADY_VARIABLES]
 onready var label: Label = $MarginContainer/VBoxContainer/Panel/Label
-onready var margin_container: MarginContainer = $MarginContainer/VBoxContainer/Panel/MarginContainer
+onready var margin_container_2: MarginContainer = $MarginContainer/VBoxContainer/Panel/MarginContainer2
 
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]

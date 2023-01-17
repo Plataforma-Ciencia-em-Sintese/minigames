@@ -37,6 +37,7 @@ var _current_mode: int = GameMode.EASY \
 var turned_cards: Array = Array()
 var _timer_has_started: bool = false \
 		setget set_timer_has_starded, get_timer_has_started
+
 var _timer_counter: int = int() \
 		setget set_timer_counter, get_timer_counter
 
