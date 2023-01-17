@@ -162,6 +162,8 @@ func _load_theme() -> void:
 
 
 func _load_current_question() -> void:
+	pet_image.texture = get_pet_images_state()["idle"]
+	
 	set_current_question(get_current_question())
 	var dictionary_questions: Dictionary = API.game.get_questions()[get_current_question()]
 	

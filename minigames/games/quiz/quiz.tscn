@@ -684,7 +684,7 @@ use_filter = true
 extra_spacing_char = 1
 font_data = ExtResource( 2 )
 
-[node name="Game" type="Control"]
+[node name="Quiz" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
