@@ -169,20 +169,25 @@ func _check_data_level() -> String:
 		GameMode.EASY:
 			if (targets + bullets) < 18 or targets != bullets:
 				continue_button.text = ""
+				continue_button.hint_tooltip = "Menu Principal"
 			else:
 				continue_button.text = ""
+				continue_button.hint_tooltip = "Continue"
 				home_path = ""
 			
 			
 		GameMode.MEDIUM:
 			if (targets + bullets) < 32 or targets != bullets:
 				continue_button.text = ""
+				continue_button.hint_tooltip = "Menu Principal"
 			else:
 				continue_button.text = ""
+				continue_button.hint_tooltip = "Continue"
 				home_path = ""
 			
 		GameMode.HARD:
 			continue_button.text = ""
+			continue_button.hint_tooltip = "Menu Principal"
 	
 	return home_path
 
