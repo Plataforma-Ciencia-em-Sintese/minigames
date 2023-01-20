@@ -254,7 +254,7 @@ follow_viewport_enable = true
 position = Vector2( 960, 540 )
 frames = SubResource( 43 )
 animation = "New Anim"
-frame = 37
+frame = 10
 playing = true
 
 [node name="PanelError" type="PanelContainer" parent="."]

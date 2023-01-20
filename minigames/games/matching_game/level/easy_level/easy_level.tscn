@@ -106,18 +106,23 @@ margin_left = 60.0
 margin_top = 200.0
 margin_right = 1860.0
 margin_bottom = 880.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/separation = 20
 alignment = 1
 
 [node name="Panel" type="PanelContainer" parent="VBoxContainer"]
 margin_right = 1800.0
 margin_bottom = 330.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Panel"]
 margin_right = 1800.0
 margin_bottom = 322.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
@@ -142,8 +147,6 @@ size_flags_vertical = 3
 margin_top = 3.0
 margin_right = 276.0
 margin_bottom = 279.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_editor_description_": ""
@@ -160,8 +163,6 @@ size_flags_vertical = 3
 margin_top = 2.5
 margin_right = 277.0
 margin_bottom = 279.5
-size_flags_horizontal = 3
-size_flags_vertical = 3
 custom_styles/panel = SubResource( 4 )
 
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="VBoxContainer/Panel/MarginContainer/Targets"]
@@ -175,8 +176,6 @@ size_flags_vertical = 3
 margin_top = 3.0
 margin_right = 276.0
 margin_bottom = 279.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
 custom_styles/panel = SubResource( 5 )
 
 [node name="AspectRatioContainer4" type="AspectRatioContainer" parent="VBoxContainer/Panel/MarginContainer/Targets"]
@@ -190,8 +189,6 @@ size_flags_vertical = 3
 margin_top = 2.5
 margin_right = 277.0
 margin_bottom = 279.5
-size_flags_horizontal = 3
-size_flags_vertical = 3
 custom_styles/panel = SubResource( 6 )
 
 [node name="AspectRatioContainer5" type="AspectRatioContainer" parent="VBoxContainer/Panel/MarginContainer/Targets"]
@@ -205,8 +202,6 @@ size_flags_vertical = 3
 margin_top = 2.5
 margin_right = 277.0
 margin_bottom = 279.5
-size_flags_horizontal = 3
-size_flags_vertical = 3
 custom_styles/panel = SubResource( 7 )
 
 [node name="AspectRatioContainer6" type="AspectRatioContainer" parent="VBoxContainer/Panel/MarginContainer/Targets"]
@@ -220,8 +215,6 @@ size_flags_vertical = 3
 margin_top = 2.5
 margin_right = 277.0
 margin_bottom = 279.5
-size_flags_horizontal = 3
-size_flags_vertical = 3
 custom_styles/panel = SubResource( 8 )
 
 [node name="Bullets" type="HBoxContainer" parent="VBoxContainer"]
