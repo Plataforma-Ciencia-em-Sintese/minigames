@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/texture.png-037b97fabca7c4b32e024746452b99a1.stex"
+path="res://.import/htp_matching_game_2.png-ac932ba06c3fa2c274e54d7e795c0242.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://games/matching_game/how_to_play/texture.png"
-dest_files=[ "res://.import/texture.png-037b97fabca7c4b32e024746452b99a1.stex" ]
+source_file="res://assets/images/htp_matching_game_2.png"
+dest_files=[ "res://.import/htp_matching_game_2.png-ac932ba06c3fa2c274e54d7e795c0242.stex" ]
 
 [params]
 

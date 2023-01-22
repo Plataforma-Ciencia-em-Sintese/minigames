@@ -20,13 +20,22 @@ const MEDIUM_LEVEL: PackedScene = preload("res://games/matching_game/level/mediu
 const HARD_LEVEL: PackedScene = preload("res://games/matching_game/level/hard_level/hard_level.tscn")
 
 const PANEL_INFORMATION: PackedScene = preload("res://games/matching_game/panel_information/panel_information.tscn")
-const HOW_TO_PLAY: PackedScene = preload("res://games/matching_game/how_to_play/how_to_play.tscn")
+const HOW_TO_PLAY: PackedScene = preload("res://how_to_play/how_to_play.tscn")
+const HOW_TO_PLAY_TEXTURES: Array = Array([
+	preload("res://assets/images/htp_matching_game_0.png"),
+	preload("res://assets/images/htp_matching_game_1.png"),
+	preload("res://assets/images/htp_matching_game_2.png"),
+	preload("res://assets/images/htp_matching_game_3.png")
+])
 
 
 #  [EXPORTED_VARIABLES]
 
 
 #  [PUBLIC_VARIABLES]
+#var how_to_play_images: Array = Array([
+#	preload("res://assets/images/htp_matching_game_0.png")
+#])
 
 
 #  [PRIVATE_VARIABLES]
@@ -275,7 +284,7 @@ func _on_PanelInformation_continue_level() -> void:
 				set_current_mode(GameMode.EASY)
 
 
-func _on_HowToPlay_close() -> void:
+func _on_HowToPlay_closed() -> void:
 	timer.start()
 
 
@@ -288,7 +297,8 @@ func _on_Help_pressed() -> void:
 	
 	var how_to_play_instance := HOW_TO_PLAY.instance()
 	add_child(how_to_play_instance)
-	how_to_play_instance.connect("close", self, "_on_HowToPlay_close")
+	how_to_play_instance.set_textures(HOW_TO_PLAY_TEXTURES)
+	how_to_play_instance.connect("closed", self, "_on_HowToPlay_closed")
 
 
 func _on_Timer_timeout() -> void:
