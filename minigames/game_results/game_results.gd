@@ -162,10 +162,12 @@ func _star_rule(stars: int) -> void:
 
 func _check_data_level() -> String:
 	var home_path: String = "res://home/home.tscn"
+	var targets: int = API.game.get_targets().size()
+	var bullets: int = API.game.get_bullets().size()
 	
 	match(get_current_mode()):
 		GameMode.EASY:
-			if API.game.has_locked_levels()["medium"]:
+			if (targets + bullets) < 18 or targets != bullets:
 				continue_button.text = ""
 				continue_button.hint_tooltip = "Menu Principal"
 			else:
@@ -175,7 +177,7 @@ func _check_data_level() -> String:
 			
 			
 		GameMode.MEDIUM:
-			if API.game.has_locked_levels()["hard"]:
+			if (targets + bullets) < 32 or targets != bullets:
 				continue_button.text = ""
 				continue_button.hint_tooltip = "Menu Principal"
 			else:

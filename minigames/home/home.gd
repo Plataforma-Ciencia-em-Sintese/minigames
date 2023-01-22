@@ -175,13 +175,11 @@ func _metching_game_home() -> void:
 	levels_panel.visible = true
 	
 	# Check data for levels
-	var targets: int = API.game.get_targets().size()
-	var bullets: int = API.game.get_bullets().size()
-	if (targets + bullets) < 12 or targets != bullets:
+	if API.game.has_locked_levels()["easy"]:
 		easy_button.disabled = true
-	if (targets + bullets) < 18 or targets != bullets:
+	if API.game.has_locked_levels()["medium"]:
 		medium_button.disabled = true
-	if (targets + bullets) < 32 or targets != bullets:
+	if API.game.has_locked_levels()["hard"]:
 		hard_button.disabled = true 
 	
 	

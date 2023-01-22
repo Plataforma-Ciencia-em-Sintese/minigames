@@ -65,6 +65,46 @@ func get_targets() -> Array:
 	return _targets
 
 
+func has_levels() -> bool:
+	""" 
+	Must return TRUE if HOME scene 
+	is to display level selection 
+	"""
+	return true
+
+
+func has_locked_levels() -> Dictionary:
+	"""
+	Must return TRUE for a level to be 
+	locked. Levels are blocked when the 
+	SERVER doesn't provide enough data for a level.
+	
+	{"easy": true, "medium": true, "hard": true}
+	"""
+	var levels: Dictionary = Dictionary({})
+	
+	# Check all levels
+	var targets: int = get_targets().size()
+	var bullets: int = get_bullets().size()
+	# check easy level
+	if (targets + bullets) < 12 or targets != bullets:
+		levels["easy"] = true
+	else:
+		levels["easy"] = false
+	# check medium level
+	if (targets + bullets) < 18 or targets != bullets:
+		levels["medium"] = true
+	else:
+		levels["medium"] = false
+	# check hard level
+	if (targets + bullets) < 32 or targets != bullets:
+		levels["hard"] = true
+	else:
+		levels["hard"] = false
+	
+	return levels
+
+
 #  [PRIVATE_METHODS]
  
 

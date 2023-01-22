@@ -1,0 +1,747 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/JetBrainsMono/JetBrainsMonoNerdFontCompleteM-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/images/shape-02.png" type="Texture" id=3]
+[ext_resource path="res://assets/placeholder.png" type="Texture" id=4]
+[ext_resource path="res://games/matching_game/panel_information/panel_information.gd" type="Script" id=5]
+[ext_resource path="res://assets/components/theme_button_icon/theme_button_icon.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=111]
+size = 90
+use_filter = true
+extra_spacing_top = -5
+extra_spacing_bottom = -5
+extra_spacing_char = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=112]
+bg_color = Color( 0.65098, 0.65098, 0.65098, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=113]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=114]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_bottom = 4
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=115]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=116]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id=117]
+script/source = "#tool
+#class_name Name #, res://class_name_icon.svg
+extends Button
+
+
+#  [DOCSTRING]
+
+
+#  [SIGNALS]
+
+
+#  [ENUMS]
+enum ColorOptions {PRIMARY, SECUNDARY}
+
+
+#  [CONSTANTS]
+
+
+#  [EXPORTED_VARIABLES]
+export(ColorOptions) var selected_color: int = ColorOptions.PRIMARY
+
+
+#  [PUBLIC_VARIABLES]
+
+
+#  [PRIVATE_VARIABLES]
+
+
+#  [ONREADY_VARIABLES]
+
+
+#  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
+#func _init() -> void:
+#	pass
+
+
+#  [BUILT-IN_VURTUAL_METHOD]
+func _ready() -> void:
+	match(selected_color):
+		ColorOptions.PRIMARY:
+			set_primary_color()
+		ColorOptions.SECUNDARY:
+			set_secondary_color()
+		_:
+			set_primary_color()
+	
+
+
+#  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
+#func _process(_delta: float) -> void:
+#	pass
+
+
+#  [PUBLIC_METHODS]
+func set_primary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.PB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+
+
+func set_secondary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.SB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+
+
+#  [PRIVATE_METHODS]
+ 
+
+#  [SIGNAL_METHODS]
+"
+
+[sub_resource type="StyleBoxFlat" id=42]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=49]
+size = 94
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=68]
+size = 42
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=67]
+size = 42
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=51]
+size = 42
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=52]
+size = 110
+extra_spacing_top = -32
+extra_spacing_bottom = -32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=50]
+size = 42
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=53]
+size = 42
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=54]
+size = 42
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 86
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=110]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=118]
+size = 90
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=119]
+bg_color = Color( 0.619608, 0.619608, 0.619608, 1 )
+border_color = Color( 0.396078, 0.458824, 0.164706, 1 )
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id=120]
+bg_color = Color( 1, 1, 1, 1 )
+border_color = Color( 0.396078, 0.458824, 0.164706, 1 )
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id=121]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_color = Color( 0.396078, 0.458824, 0.164706, 1 )
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id=122]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_color = Color( 0.396078, 0.458824, 0.164706, 1 )
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="StyleBoxFlat" id=123]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_color = Color( 0.396078, 0.458824, 0.164706, 1 )
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+
+[sub_resource type="GDScript" id=124]
+script/source = "#tool
+#class_name Name #, res://class_name_icon.svg
+extends Button
+
+
+#  [DOCSTRING]
+
+
+#  [SIGNALS]
+
+
+#  [ENUMS]
+enum ColorOptions {PRIMARY, SECUNDARY}
+
+
+#  [CONSTANTS]
+
+
+#  [EXPORTED_VARIABLES]
+export(ColorOptions) var selected_color: int = ColorOptions.PRIMARY
+
+
+#  [PUBLIC_VARIABLES]
+
+
+#  [PRIVATE_VARIABLES]
+
+
+#  [ONREADY_VARIABLES]
+
+
+#  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
+#func _init() -> void:
+#	pass
+
+
+#  [BUILT-IN_VURTUAL_METHOD]
+func _ready() -> void:
+	match(selected_color):
+		ColorOptions.PRIMARY:
+			set_primary_color()
+		ColorOptions.SECUNDARY:
+			set_secondary_color()
+		_:
+			set_primary_color()
+	
+
+
+#  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
+#func _process(_delta: float) -> void:
+#	pass
+
+
+#  [PUBLIC_METHODS]
+func set_primary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.PB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+
+
+func set_secondary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.SB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+
+
+#  [PRIVATE_METHODS]
+ 
+
+#  [SIGNAL_METHODS]
+"
+
+[node name="GameResults" type="Panel"]
+self_modulate = Color( 1, 1, 1, 0.611765 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="ShowPanel" parent="." instance=ExtResource( 6 )]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -456.48
+margin_right = 0.0
+margin_bottom = 456.48
+hint_tooltip = "Mostrar"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 111 )
+custom_styles/hover = SubResource( 112 )
+custom_styles/pressed = SubResource( 113 )
+custom_styles/focus = SubResource( 114 )
+custom_styles/disabled = SubResource( 115 )
+custom_styles/normal = SubResource( 116 )
+text = ""
+script = SubResource( 117 )
+selected_color = 1
+
+[node name="MainPanel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -700.0
+margin_top = -456.48
+margin_right = 700.0
+margin_bottom = 456.48
+rect_min_size = Vector2( 1400, 912.96 )
+rect_clip_content = true
+custom_styles/panel = SubResource( 42 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MainPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 140
+custom_constants/margin_top = 54
+custom_constants/margin_left = 70
+custom_constants/margin_bottom = 40
+
+[node name="GlobalContainer" type="VBoxContainer" parent="MainPanel/MarginContainer"]
+margin_left = 70.0
+margin_top = 54.0
+margin_right = 1260.0
+margin_bottom = 872.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="MainContainer" type="HBoxContainer" parent="MainPanel/MarginContainer/GlobalContainer"]
+margin_right = 1190.0
+margin_bottom = 688.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 24
+alignment = 1
+
+[node name="MessageContainer" type="VBoxContainer" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer"]
+margin_right = 583.0
+margin_bottom = 688.0
+size_flags_horizontal = 3
+custom_constants/separation = 80
+
+[node name="CongratulationsContainer" type="VBoxContainer" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer"]
+margin_right = 583.0
+margin_bottom = 229.0
+custom_constants/separation = 10
+
+[node name="Title" type="Label" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/CongratulationsContainer"]
+margin_right = 583.0
+margin_bottom = 115.0
+custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
+custom_fonts/font = SubResource( 49 )
+text = "Parabéns!"
+
+[node name="TotalRecord" type="RichTextLabel" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/CongratulationsContainer"]
+margin_top = 125.0
+margin_right = 583.0
+margin_bottom = 229.0
+rect_min_size = Vector2( 334, 59 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/bold_font = SubResource( 68 )
+custom_fonts/normal_font = SubResource( 67 )
+bbcode_enabled = true
+bbcode_text = "Você completou o nível! Conseguiu [color=#666666][b]0[/b][/color] estrelas."
+text = "Você completou o nível! Conseguiu 0 estrelas."
+fit_content_height = true
+scroll_active = false
+
+[node name="RecordContainer" type="VBoxContainer" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer"]
+margin_top = 309.0
+margin_right = 583.0
+margin_bottom = 380.0
+alignment = 1
+
+[node name="NewRecord" type="Label" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/RecordContainer"]
+visible = false
+margin_right = 583.0
+margin_bottom = 51.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 51 )
+text = "Seu novo recorde!"
+
+[node name="Stars" type="HBoxContainer" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/RecordContainer"]
+margin_right = 583.0
+margin_bottom = 71.0
+custom_constants/separation = 12
+
+[node name="First" type="Label" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/RecordContainer/Stars"]
+margin_right = 66.0
+margin_bottom = 71.0
+custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
+custom_fonts/font = SubResource( 52 )
+text = ""
+
+[node name="Second" type="Label" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/RecordContainer/Stars"]
+margin_left = 78.0
+margin_right = 144.0
+margin_bottom = 71.0
+custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
+custom_fonts/font = SubResource( 52 )
+text = ""
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Third" type="Label" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/RecordContainer/Stars"]
+margin_left = 156.0
+margin_right = 222.0
+margin_bottom = 71.0
+custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
+custom_fonts/font = SubResource( 52 )
+text = ""
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="StatisticsContainer" type="VBoxContainer" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer"]
+margin_top = 460.0
+margin_right = 583.0
+margin_bottom = 564.0
+custom_constants/separation = 2
+alignment = 2
+
+[node name="TimeContainer" type="HBoxContainer" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/StatisticsContainer"]
+margin_right = 583.0
+margin_bottom = 51.0
+custom_constants/separation = 10
+
+[node name="Message" type="Label" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/StatisticsContainer/TimeContainer"]
+margin_right = 150.0
+margin_bottom = 51.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 50 )
+text = "Tempo:"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="TotalTime" type="Label" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/StatisticsContainer/TimeContainer"]
+margin_left = 160.0
+margin_right = 274.0
+margin_bottom = 51.0
+custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
+custom_fonts/font = SubResource( 53 )
+text = "00:00"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AttemptsContainer" type="HBoxContainer" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/StatisticsContainer"]
+margin_top = 53.0
+margin_right = 583.0
+margin_bottom = 104.0
+custom_constants/separation = 10
+
+[node name="Message" type="Label" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/StatisticsContainer/AttemptsContainer"]
+margin_right = 237.0
+margin_bottom = 51.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 50 )
+text = "Tentativas:"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="TotalAttempts" type="Label" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/MessageContainer/StatisticsContainer/AttemptsContainer"]
+margin_left = 247.0
+margin_right = 299.0
+margin_bottom = 51.0
+custom_colors/font_color = Color( 0.4, 0.4, 0.4, 1 )
+custom_fonts/font = SubResource( 54 )
+text = "00"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer"]
+margin_left = 607.0
+margin_right = 1190.0
+margin_bottom = 688.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MascotBackground" type="TextureRect" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/AspectRatioContainer"]
+modulate = Color( 0.658824, 0.658824, 0.658824, 1 )
+margin_top = 52.5
+margin_right = 583.0
+margin_bottom = 635.5
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="MascotImage" type="TextureRect" parent="MainPanel/MarginContainer/GlobalContainer/MainContainer/AspectRatioContainer"]
+margin_top = 52.5
+margin_right = 583.0
+margin_bottom = 635.5
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="MainPanel/MarginContainer/GlobalContainer"]
+margin_top = 698.0
+margin_right = 1190.0
+margin_bottom = 818.0
+size_flags_horizontal = 3
+size_flags_vertical = 9
+custom_constants/separation = 20
+alignment = 2
+
+[node name="Share" parent="MainPanel/MarginContainer/GlobalContainer/ButtonsContainer" instance=ExtResource( 6 )]
+modulate = Color( 1, 1, 1, 0 )
+hint_tooltip = "Compartilhar"
+size_flags_horizontal = 2
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 110 )
+custom_styles/normal = SubResource( 6 )
+disabled = true
+text = ""
+
+[node name="Restart" parent="MainPanel/MarginContainer/GlobalContainer/ButtonsContainer" instance=ExtResource( 6 )]
+margin_left = 535.0
+margin_right = 655.0
+hint_tooltip = "Recomeçar"
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 110 )
+custom_styles/normal = SubResource( 6 )
+text = ""
+
+[node name="Continue" parent="MainPanel/MarginContainer/GlobalContainer/ButtonsContainer" instance=ExtResource( 6 )]
+margin_left = 675.0
+margin_right = 795.0
+hint_tooltip = "Continue"
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 110 )
+custom_styles/normal = SubResource( 6 )
+
+[node name="HidePanel" parent="MainPanel" instance=ExtResource( 6 )]
+anchor_left = 0.915
+anchor_right = 1.00071
+anchor_bottom = 1.0
+margin_right = 0.0
+margin_bottom = 0.0
+hint_tooltip = "Esconder"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 118 )
+custom_styles/hover = SubResource( 119 )
+custom_styles/pressed = SubResource( 120 )
+custom_styles/focus = SubResource( 121 )
+custom_styles/disabled = SubResource( 122 )
+custom_styles/normal = SubResource( 123 )
+text = ""
+script = SubResource( 124 )
+selected_color = 1
+
+[connection signal="pressed" from="ShowPanel" to="." method="_on_ShowPanel_pressed"]
+[connection signal="pressed" from="MainPanel/MarginContainer/GlobalContainer/ButtonsContainer/Share" to="." method="_on_Share_pressed"]
+[connection signal="pressed" from="MainPanel/MarginContainer/GlobalContainer/ButtonsContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="MainPanel/MarginContainer/GlobalContainer/ButtonsContainer/Continue" to="." method="_on_Continue_pressed"]
+[connection signal="pressed" from="MainPanel/HidePanel" to="." method="_on_HidePanel_pressed"]
