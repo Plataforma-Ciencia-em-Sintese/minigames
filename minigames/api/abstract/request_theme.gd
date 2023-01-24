@@ -77,7 +77,7 @@ var _background_texture: ImageTexture = null \
 #  [PUBLIC_METHODS]
 func set_primary_color(new_value: Color) -> void:
 	_primary_color = new_value
-	#_primary_color = Color("#33DEEC")
+	#_primary_color = Color("#797979")
 
 
 func get_primary_color() -> Color:
@@ -86,7 +86,7 @@ func get_primary_color() -> Color:
 
 func set_secondary_color(new_value: Color) -> void:
 	_secondary_color = new_value
-	#_secondary_color = Color("#EC7333")
+	#_secondary_color = Color("#303030")
 
 
 func get_secondary_color() -> Color:

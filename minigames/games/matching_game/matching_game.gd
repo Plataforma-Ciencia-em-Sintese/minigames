@@ -285,7 +285,8 @@ func _on_PanelInformation_continue_level() -> void:
 
 
 func _on_HowToPlay_closed() -> void:
-	timer.start()
+	if get_timer_counter() > 0:
+		timer.start()
 
 
 func _on_Home_pressed() -> void:
