@@ -19,7 +19,7 @@ const EASY_LEVEL: PackedScene = preload("res://games/matching_game/level/easy_le
 const MEDIUM_LEVEL: PackedScene = preload("res://games/matching_game/level/medium_level/medium_level.tscn")
 const HARD_LEVEL: PackedScene = preload("res://games/matching_game/level/hard_level/hard_level.tscn")
 
-const PANEL_INFORMATION: PackedScene = preload("res://games/matching_game/panel_information/panel_information.tscn")
+const GAME_RESULTS: PackedScene = preload("res://game_results/game_results.tscn")
 const HOW_TO_PLAY: PackedScene = preload("res://how_to_play/how_to_play.tscn")
 const HOW_TO_PLAY_TEXTURES: Array = Array([
 	preload("res://assets/images/htp_matching_game_0.png"),
@@ -252,19 +252,38 @@ func _on_Target_attempt_to_combine() -> void:
 
 
 func _on_MatchingGame_end_game() -> void:
-	var panel_information_instance: Panel = PANEL_INFORMATION.instance()
-	add_child(panel_information_instance)
-	panel_information_instance.init_panel(_scoring_rules(), get_timer_counter(), get_attempts_counter(), get_current_mode())
-	panel_information_instance.connect("restart_level", self, "_on_PanelInformation_restart_level")
-	panel_information_instance.connect("continue_level", self, "_on_PanelInformation_continue_level")
+	var game_results_instance: Panel = GAME_RESULTS.instance()
+	add_child(game_results_instance)
+	
+	var message_game: String = \
+			"Você completou o nível!\n" + \
+			"Conseguiu [color=#{api_color}][b]{value}[/b][/color] estrelas."
+	message_game = message_game.format({
+		"api_color": API.theme.get_color(API.theme.PB).to_html(false), 
+		"value": _scoring_rules()
+	})
+	
+	var seconds: int = get_timer_counter()
+	var message_statistic: String = \
+			"Tempo: [color=#{api_color}][b]{time_counter}[/b][/color]" + \
+			"\nTentativas: [color=#{api_color}][b]{attempt_counter}[/b][/color]"
+	message_statistic = message_statistic.format({
+		"api_color": API.theme.get_color(API.theme.PB).to_html(false),
+		"time_counter": "%02d:%02d" % [(seconds/60) % 60, seconds % 60],
+		"attempt_counter": "%02d" % [get_attempts_counter()]
+	})
+	
+	game_results_instance.update_data(message_game, message_statistic, _scoring_rules(), get_current_mode())
+	game_results_instance.connect("restart_level", self, "_on_GameResults_restart_level")
+	game_results_instance.connect("continue_level", self, "_on_GameResults_continue_level")
 
 
-func _on_PanelInformation_restart_level() -> void:
+func _on_GameResults_restart_level() -> void:
 	_reset_counters()
 	set_current_mode(get_current_mode())
 
 
-func _on_PanelInformation_continue_level() -> void:
+func _on_GameResults_continue_level() -> void:
 	var targets: int = API.game.get_targets().size()
 	var bullets: int = API.game.get_bullets().size()
 	match(get_current_mode()):
