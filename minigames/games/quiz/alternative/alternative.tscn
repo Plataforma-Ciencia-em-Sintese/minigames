@@ -40,13 +40,13 @@ script = ExtResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 0, 112 )
-custom_constants/separation = 20
+custom_constants/separation = 18
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="Panel" type="Panel" parent="HBoxContainer"]
-margin_right = 663.0
+margin_right = 665.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 custom_styles/panel = SubResource( 114 )
@@ -62,7 +62,7 @@ custom_constants/margin_bottom = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Panel/MarginContainer"]
 margin_left = 10.0
 margin_top = 2.0
-margin_right = 627.0
+margin_right = 629.0
 margin_bottom = 110.0
 custom_constants/separation = 10
 
@@ -79,7 +79,7 @@ valign = 1
 
 [node name="Message" type="Label" parent="HBoxContainer/Panel/MarginContainer/HBoxContainer"]
 margin_left = 102.0
-margin_right = 617.0
+margin_right = 619.0
 margin_bottom = 108.0
 size_flags_horizontal = 3
 size_flags_vertical = 7

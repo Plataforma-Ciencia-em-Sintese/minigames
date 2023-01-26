@@ -613,7 +613,7 @@ margin_bottom = 540.0
 custom_constants/margin_right = 229
 custom_constants/margin_top = 25
 custom_constants/margin_left = 229
-custom_constants/margin_bottom = 50
+custom_constants/margin_bottom = 25
 __meta__ = {
 "_editor_description_": ""
 }
@@ -622,8 +622,8 @@ __meta__ = {
 margin_left = 229.0
 margin_top = 25.0
 margin_right = 1691.0
-margin_bottom = 1030.0
-custom_constants/separation = 30
+margin_bottom = 1055.0
+custom_constants/separation = 10
 
 [node name="Button" parent="MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
 margin_left = 1342.0
@@ -641,9 +641,9 @@ script = SubResource( 22 )
 selected_color = 1
 
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer"]
-margin_top = 150.0
+margin_top = 130.0
 margin_right = 1462.0
-margin_bottom = 1005.0
+margin_bottom = 1030.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 8 )
@@ -654,7 +654,7 @@ anchor_bottom = 1.0
 
 [node name="PageTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
 margin_right = 1462.0
-margin_bottom = 855.0
+margin_bottom = 900.0
 expand = true
 stretch_mode = 6
 

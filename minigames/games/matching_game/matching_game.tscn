@@ -392,6 +392,7 @@ corner_radius_bottom_left = 10
 [sub_resource type="DynamicFont" id=69]
 size = 30
 use_filter = true
+extra_spacing_bottom = -2
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=96]
@@ -806,14 +807,12 @@ custom_constants/separation = 10
 
 [node name="BarContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 1462.0
-margin_bottom = 122.0
+margin_bottom = 120.0
 rect_min_size = Vector2( 1462, 120 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="Home" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 4 )]
-margin_top = 1.0
-margin_bottom = 121.0
 hint_tooltip = "Menu Principal"
 size_flags_horizontal = 2
 custom_fonts/font = SubResource( 82 )
@@ -847,7 +846,7 @@ script = SubResource( 95 )
 [node name="Container" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BarContainer"]
 margin_left = 488.0
 margin_right = 973.0
-margin_bottom = 122.0
+margin_bottom = 120.0
 size_flags_horizontal = 3
 alignment = 1
 
@@ -870,7 +869,7 @@ valign = 1
 margin_left = 204.0
 margin_top = 84.0
 margin_right = 280.0
-margin_bottom = 122.0
+margin_bottom = 120.0
 size_flags_horizontal = 4
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
@@ -881,9 +880,7 @@ valign = 1
 
 [node name="Help" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 4 )]
 margin_left = 1342.0
-margin_top = 1.0
 margin_right = 1462.0
-margin_bottom = 121.0
 hint_tooltip = "Como Jogar"
 size_flags_horizontal = 10
 custom_fonts/font = SubResource( 96 )
@@ -917,7 +914,7 @@ selected_color = 1
 
 [node name="GameContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 132.0
+margin_top = 130.0
 margin_right = 1462.0
 margin_bottom = 1030.0
 size_flags_horizontal = 7
@@ -926,7 +923,7 @@ custom_styles/panel = SubResource( 9 )
 
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer"]
 margin_right = 1462.0
-margin_bottom = 898.0
+margin_bottom = 900.0
 custom_styles/panel = SubResource( 10 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

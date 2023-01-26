@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://games/quiz/quiz.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=2]
@@ -295,11 +295,6 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
-
-[sub_resource type="DynamicFont" id=69]
-size = 30
-use_filter = true
-font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=96]
 size = 74
@@ -711,23 +706,21 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 229.0
 margin_top = 25.0
-margin_right = 1692.0
+margin_right = 1691.0
 margin_bottom = 1055.0
-size_flags_horizontal = 3
+size_flags_horizontal = 2
 size_flags_vertical = 3
 custom_constants/separation = 10
 
 [node name="BarContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 1462.0
-margin_bottom = 122.0
+margin_bottom = 120.0
 rect_min_size = Vector2( 1462, 120 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
 custom_constants/separation = 30
 
 [node name="Home" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 6 )]
-margin_top = 1.0
-margin_bottom = 121.0
 hint_tooltip = "Menu Principal"
 size_flags_horizontal = 0
 custom_fonts/font = SubResource( 82 )
@@ -742,11 +735,9 @@ script = SubResource( 88 )
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/BarContainer"]
 margin_left = 150.0
 margin_right = 474.0
-margin_bottom = 122.0
+margin_bottom = 120.0
 
 [node name="Tip" parent="MarginContainer/VBoxContainer/BarContainer/HBoxContainer" instance=ExtResource( 6 )]
-margin_top = 1.0
-margin_bottom = 121.0
 hint_tooltip = "Dicas Restantes"
 size_flags_horizontal = 2
 custom_fonts/font = SubResource( 89 )
@@ -774,9 +765,9 @@ valign = 2
 [node name="Panel" type="PanelContainer" parent="MarginContainer/VBoxContainer/BarContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 124.0
-margin_top = 9.0
+margin_top = 8.0
 margin_right = 324.0
-margin_bottom = 112.0
+margin_bottom = 111.0
 rect_min_size = Vector2( 200, 103 )
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -799,16 +790,17 @@ valign = 1
 [node name="Container" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BarContainer"]
 margin_left = 504.0
 margin_right = 968.0
-margin_bottom = 122.0
+margin_bottom = 120.0
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="Counter" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container"]
 margin_left = 94.0
+margin_top = 20.0
 margin_right = 369.0
-margin_bottom = 80.0
+margin_bottom = 100.0
 rect_min_size = Vector2( 180, 80 )
 size_flags_horizontal = 4
-size_flags_vertical = 1
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 5 )
@@ -817,23 +809,9 @@ text = "Pergunta: */*"
 align = 1
 valign = 1
 
-[node name="Level" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container"]
-margin_left = 232.0
-margin_top = 84.0
-margin_right = 232.0
-margin_bottom = 122.0
-size_flags_horizontal = 4
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 69 )
-align = 1
-valign = 1
-
 [node name="Help" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 6 )]
 margin_left = 1342.0
-margin_top = 1.0
 margin_right = 1462.0
-margin_bottom = 121.0
 hint_tooltip = "Como Jogar"
 size_flags_horizontal = 10
 custom_fonts/font = SubResource( 96 )
@@ -865,39 +843,41 @@ selected_color = 1
 
 [node name="GameContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_top = 132.0
-margin_right = 1463.0
+margin_top = 130.0
+margin_right = 1462.0
 margin_bottom = 1030.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 9 )
 
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer"]
-margin_right = 1463.0
-margin_bottom = 898.0
+margin_right = 1462.0
+margin_bottom = 900.0
 custom_styles/panel = SubResource( 10 )
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/GameContainer"]
-margin_right = 1463.0
-margin_bottom = 898.0
+margin_right = 1462.0
+margin_bottom = 900.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = 80
+custom_constants/margin_right = 60
 custom_constants/margin_top = 100
-custom_constants/margin_left = 80
+custom_constants/margin_left = 60
 custom_constants/margin_bottom = 100
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/GameContainer/MarginContainer"]
-margin_left = 80.0
+margin_left = 60.0
 margin_top = 100.0
-margin_right = 1383.0
-margin_bottom = 798.0
-custom_constants/separation = 38
+margin_right = 1402.0
+margin_bottom = 800.0
+size_flags_horizontal = 3
+custom_constants/separation = 32
+alignment = 1
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer"]
-margin_top = 3.0
+margin_top = 4.0
 margin_right = 476.0
-margin_bottom = 695.0
+margin_bottom = 696.0
 rect_min_size = Vector2( 475.3, 691.18 )
 size_flags_vertical = 4
 
@@ -924,21 +904,21 @@ stretch_mode = 6
 
 [node name="pergunta" type="PanelContainer" parent="MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0 )
-margin_left = 514.0
-margin_right = 1303.0
-margin_bottom = 698.0
+margin_left = 508.0
+margin_right = 1342.0
+margin_bottom = 700.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="QuestionContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/pergunta"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 782.0
-margin_bottom = 691.0
+margin_right = 827.0
+margin_bottom = 693.0
 custom_constants/separation = 20
 
 [node name="Question" type="Label" parent="MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/pergunta/QuestionContainer"]
-margin_right = 775.0
+margin_right = 820.0
 margin_bottom = 140.0
 rect_min_size = Vector2( 0, 140 )
 size_flags_horizontal = 7
@@ -953,18 +933,22 @@ __meta__ = {
 
 [node name="Alternative1" parent="MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/pergunta/QuestionContainer" instance=ExtResource( 7 )]
 margin_top = 160.0
+margin_right = 820.0
 margin_bottom = 272.0
 
 [node name="Alternative2" parent="MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/pergunta/QuestionContainer" instance=ExtResource( 7 )]
 margin_top = 292.0
+margin_right = 820.0
 margin_bottom = 404.0
 
 [node name="Alternative3" parent="MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/pergunta/QuestionContainer" instance=ExtResource( 7 )]
 margin_top = 424.0
+margin_right = 820.0
 margin_bottom = 536.0
 
 [node name="Alternative4" parent="MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/pergunta/QuestionContainer" instance=ExtResource( 7 )]
 margin_top = 556.0
+margin_right = 820.0
 margin_bottom = 668.0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Home" to="." method="_on_Home_pressed"]
