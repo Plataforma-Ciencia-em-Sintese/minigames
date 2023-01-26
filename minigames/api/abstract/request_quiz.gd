@@ -70,6 +70,29 @@ func get_questions() -> Array:
 	return _questions
 
 
+func has_levels() -> bool:
+	""" 
+	Must return TRUE if HOME scene 
+	is to display level selection 
+	"""
+	return false
+
+
+func has_locked_levels() -> Dictionary:
+	"""
+	Must return TRUE for a level to be 
+	locked. Levels are blocked when the 
+	SERVER doesn't provide enough data for a level.
+	
+	{"easy": true, "medium": true, "hard": true}
+	"""
+	var levels: Dictionary = Dictionary({})
+	
+	# Check all levels
+	
+	return levels
+
+
 #  [PRIVATE_METHODS]
  
 
