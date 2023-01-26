@@ -28,6 +28,8 @@ extends Control
 onready var article_summary: Label = $MarginContainer/Panel/VBoxContainer/HBoxContainer2/Panel/MarginContainer/VBoxContainer/Text
 onready var redirect: Button = $MarginContainer/Panel/VBoxContainer/HBoxContainer2/Panel/MarginContainer/VBoxContainer/Redirect
 onready var pet: TextureRect = $MarginContainer/Panel/VBoxContainer/HBoxContainer2/AspectRatioContainer/TextureRect
+onready var line: HSeparator = $MarginContainer/Panel/VBoxContainer/HBoxContainer2/Panel/MarginContainer/VBoxContainer/Line
+
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
 #func _init() -> void:
@@ -43,8 +45,8 @@ func _ready() -> void:
 	article_summary.text = API.common.get_article_summary() #+ "\n\n Bom Divertimento!"
 	
 	if API.common.get_article_link() == "":
-		redirect.disabled = true
-		redirect.set("modulate", Color(1.0, 1.0, 1.0, 0.0))
+		redirect.visible = false
+		line.visible = false
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
