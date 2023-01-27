@@ -18,6 +18,11 @@ enum GameMode {EASY, MEDIUM, HARD}
 
 
 #  [CONSTANTS]
+const GAME_RESULTS: PackedScene = preload("res://game_results/game_results.tscn")
+const HOW_TO_PLAY: PackedScene = preload("res://how_to_play/how_to_play.tscn")
+const HOW_TO_PLAY_TEXTURES: Array = Array([
+	preload("res://assets/images/htp_memory_game_0.png")
+])
 
 
 #  [EXPORTED_VARIABLES]
@@ -501,11 +506,13 @@ func _on_ShowPanelInformation_pressed() -> void:
 
 func _on_Help_pressed() -> void:
 	timer.stop()
-	var how_to_play := HowToPlay.instance()
-	add_child(how_to_play)
-	how_to_play.connect("close", self, "_on_HowToPlay_close")
+	
+	var how_to_play_instance := HOW_TO_PLAY.instance()
+	add_child(how_to_play_instance)
+	how_to_play_instance.set_textures(HOW_TO_PLAY_TEXTURES)
+	how_to_play_instance.connect("closed", self, "_on_HowToPlay_closed")
 
 
-func _on_HowToPlay_close() -> void:
+func _on_HowToPlay_closed() -> void:
 	if get_timer_counter() > 0:
 		timer.start()
