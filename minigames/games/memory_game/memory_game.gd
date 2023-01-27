@@ -11,7 +11,6 @@ signal add_cards
 signal failed_attempt
 signal start_timer
 signal end_game
-signal show_panel_information
 
 
 #  [ENUMS]
@@ -31,7 +30,6 @@ const HOW_TO_PLAY_TEXTURES: Array = Array([
 
 #  [PUBLIC_VARIABLES]
 var failed_attempt: int = 0
-#var panel_information = null
 
 
 #  [PRIVATE_VARIABLES]
@@ -56,12 +54,6 @@ onready var level_label := $"MarginContainer/VBoxContainer/BarContainer/Containe
 onready var timer:= $Timer
 onready var bar_container := $"MarginContainer/VBoxContainer/BarContainer"
 onready var dev_mode = $DevMode
-onready var fullscreen = $"MarginContainer/VBoxContainer/BarContainer/FullScreen"
-onready var panel_information = $PanelInformation
-onready var total_stars = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/CongratulationsContainer/TotalStars
-onready var total_time = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/StatisticsContainer/TimeContainer/TotalTime
-onready var total_attempts = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/StatisticsContainer/AttemptsContainer/TotalAttempts
-onready var show_panel_information := $ShowPanelInformation
 
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
@@ -77,7 +69,6 @@ func _ready() -> void:
 	connect("add_cards", self, "_on_add_cards")
 	connect("failed_attempt", self, "_on_failed_attempt")
 	connect("start_timer", self, "_on_start_timer")
-#	connect("show_panel_information", self, "_on_show_PanelInformation")
 	connect("end_game", self, "_on_Self_end_game")
 	
 	set_current_mode(ChangeLevel.request_mode)
@@ -251,7 +242,6 @@ func _reset_counters() -> void:
 	timer.stop()
 	set_timer_has_starded(false)
 	set_timer_counter(0)
-	yield(get_tree().create_timer(1.0), "timeout") # temporary until set theme template
 	timer_label.text = "00:00"
 	failed_attempt = 0
 
@@ -308,35 +298,7 @@ func _scoring_rules() -> int:
 			stars = 0
 			stars_check = true
 	
-#	var first_star: Label = panel_information.get_node("GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/RecordContainer/Stars/First")
-#	var second_star: Label = panel_information.get_node("GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/RecordContainer/Stars/Second")
-#	var third_star: Label = panel_information.get_node("GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/RecordContainer/Stars/Third")
-#	match(stars):
-#		0:
-#			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-#			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-#			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-#		1:
-#			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
-#			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-#			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-#		2:
-#			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
-#			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
-#			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-#		3:
-#			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
-#			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
-#			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
-	
 	return stars
-
-
-func _update_panel_information() -> void:
-	var color_bbtext: String = str(API.theme.get_color(API.theme.PB).to_html(false))
-	total_stars.bbcode_text = str("Você completou o nível!\nConseguiu [color=#" + color_bbtext + "][b]" + str(_scoring_rules()) + "[/b][/color] estrelas.")
-	total_time.text = timer_label.text
-	total_attempts.text = str(failed_attempt)
 
 
 #  [SIGNAL_METHODS]
@@ -412,7 +374,6 @@ func is_full_level() -> void:
 	
 	if remaining_pairs_counter == 0:
 		yield(get_tree().create_timer(1.0), "timeout")
-		#emit_signal("show_panel_information")
 		timer.stop()
 		emit_signal("end_game")
 
@@ -487,15 +448,8 @@ func _on_Self_end_game() -> void:
 	game_results_instance.connect("continue_level", self, "_on_GameResults_continue_level")
 
 
-func _on_show_PanelInformation() -> void:
-	timer.stop()
-	_update_panel_information()
-	panel_information.visible = true
-
 
 func _on_GameResults_restart_level() -> void:
-#func _on_PanelInformation_Restart_pressed() -> void:
-	panel_information.visible = false
 	yield(get_tree().create_timer(0.5), "timeout")
 	if turned_cards.empty():
 		_reset_counters()
@@ -504,7 +458,6 @@ func _on_GameResults_restart_level() -> void:
 
 
 func _on_GameResults_continue_level() -> void:
-#func _on_PanelInformation_Skip_pressed() -> void:
 	_reset_counters()
 	
 	match(get_current_mode()):
@@ -514,25 +467,6 @@ func _on_GameResults_continue_level() -> void:
 			set_current_mode(GameMode.HARD)
 		GameMode.HARD:
 			set_current_mode(GameMode.EASY)
-	
-	panel_information.visible = false
-
-
-func _on_Hide_pressed() -> void:
-	for child in bar_container.get_children():
-		if child is Button:
-			child.disabled = true
-			
-	panel_information.visible = false
-	show_panel_information.visible = true
-
-
-func _on_ShowPanelInformation_pressed() -> void:
-	for child in bar_container.get_children():
-		if child is Button:
-			child.disabled = false
-	show_panel_information.visible = false
-	panel_information.visible = true
 
 
 func _on_Help_pressed() -> void:
