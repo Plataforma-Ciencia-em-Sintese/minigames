@@ -165,6 +165,30 @@ func _load_theme() -> void:
 	pet_background.set("modulate", API.theme.get_color(API.theme.PL3))
 
 
+func _scoring_rules() -> int:
+	var stars: int = int(0)
+	
+	var value: float = (float(get_point_counter() * 100)) / float(get_total_questions())
+	
+	# 0 estrelas: 0% a 20%
+	if value >= 0.0 and value < 20.0:
+		stars = 0
+	
+	# 1 estrela: 20% a 50%
+	if value >= 20.0 and value < 50.0:
+		stars = 1
+	
+	# 2 estrelas: 50% a 80%
+	if value >= 50.0 and value < 80.0:
+		stars = 2
+	
+	# 3 estrelas: 80% a 100%
+	if value >= 80.0 and value < 100.0:
+		stars = 3
+	
+	return stars
+
+
 func _load_current_question() -> void:
 	pet_image.texture = get_pet_images_state()["idle"]
 	
@@ -350,20 +374,31 @@ func _on_Tip_pressed() -> void:
 
 
 func _on_Self_end_game() -> void:
-	var panel_information: Resource = preload("res://games/quiz/panel_information/panel_information.tscn")
-	var panel_information_instance: Panel = panel_information.instance()
-	self.add_child(panel_information_instance)
-	panel_information_instance.init_panel(get_point_counter(), get_total_questions())
-	panel_information_instance.connect("restart_level", self, "_on_PanelInformation_restart_level")
-	panel_information_instance.connect("continue_level", self, "_on_PanelInformation_continue_level")
+	var game_results_instance: Panel = GAME_RESULTS.instance()
+	add_child(game_results_instance)
+	
+	var message_game: String = String((
+		"Você acertou [color=#{color}][b]{record}[/b][/color]" +
+		" de [color=#{color}][b]{total}[/b][/color]\nperguntas."
+	).format({
+		"color": API.theme.get_color(API.theme.PB).to_html(false),
+		"record": get_point_counter(),
+		"total": get_total_questions()
+	}))
+	
+	var message_statistic: String = String("")
+	
+	game_results_instance.update_data(message_game, message_statistic, _scoring_rules())
+	game_results_instance.connect("restart_level", self, "_on_GameResults_restart_level")
+	game_results_instance.connect("continue_level", self, "_on_GameResults_continue_level")
 
 
-func _on_PanelInformation_restart_level() -> void:
-	pass
+func _on_GameResults_restart_level() -> void:
+	get_tree().change_scene("res://games/quiz/quiz.tscn")
 
 
-func _on_PanelInformation_continue_level() -> void:
-	pass
+func _on_GameResults_continue_level() -> void:
+	get_tree().change_scene("res://home/home.tscn")
 
 
 func _on_Help_pressed() -> void:
