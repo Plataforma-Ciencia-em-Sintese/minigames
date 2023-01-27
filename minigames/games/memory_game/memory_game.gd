@@ -10,6 +10,7 @@ extends Control
 signal add_cards
 signal failed_attempt
 signal start_timer
+signal end_game
 signal show_panel_information
 
 
@@ -76,7 +77,8 @@ func _ready() -> void:
 	connect("add_cards", self, "_on_add_cards")
 	connect("failed_attempt", self, "_on_failed_attempt")
 	connect("start_timer", self, "_on_start_timer")
-	connect("show_panel_information", self, "_on_show_PanelInformation")
+#	connect("show_panel_information", self, "_on_show_PanelInformation")
+	connect("end_game", self, "_on_Self_end_game")
 	
 	set_current_mode(ChangeLevel.request_mode)
 	
@@ -306,26 +308,26 @@ func _scoring_rules() -> int:
 			stars = 0
 			stars_check = true
 	
-	var first_star: Label = panel_information.get_node("GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/RecordContainer/Stars/First")
-	var second_star: Label = panel_information.get_node("GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/RecordContainer/Stars/Second")
-	var third_star: Label = panel_information.get_node("GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/RecordContainer/Stars/Third")
-	match(stars):
-		0:
-			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-		1:
-			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
-			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-		2:
-			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
-			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
-			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
-		3:
-			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
-			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
-			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
+#	var first_star: Label = panel_information.get_node("GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/RecordContainer/Stars/First")
+#	var second_star: Label = panel_information.get_node("GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/RecordContainer/Stars/Second")
+#	var third_star: Label = panel_information.get_node("GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/RecordContainer/Stars/Third")
+#	match(stars):
+#		0:
+#			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
+#			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
+#			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
+#		1:
+#			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
+#			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
+#			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
+#		2:
+#			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
+#			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
+#			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.LIGHTGRAY))
+#		3:
+#			first_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
+#			second_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
+#			third_star.set("custom_colors/font_color", API.theme.get_color(API.theme.GREEN))
 	
 	return stars
 
@@ -410,7 +412,9 @@ func is_full_level() -> void:
 	
 	if remaining_pairs_counter == 0:
 		yield(get_tree().create_timer(1.0), "timeout")
-		emit_signal("show_panel_information")
+		#emit_signal("show_panel_information")
+		timer.stop()
+		emit_signal("end_game")
 
 
 func _on_Restart_pressed() -> void:
@@ -456,6 +460,32 @@ func _on_DevLevel3_pressed() -> void:
 		_reset_counters()
 		set_current_mode(GameMode.HARD)
 
+func _on_Self_end_game() -> void:
+	var game_results_instance: Panel = GAME_RESULTS.instance()
+	add_child(game_results_instance)
+	
+	var message_game: String = String((
+		"Você completou o nível!\nConseguiu " +
+		"[color=#{color}][b]{stars}[/b][/color] estrelas."
+	).format({
+		"color": API.theme.get_color(API.theme.PB).to_html(false), 
+		"stars": _scoring_rules()
+	}))
+	
+	var seconds: int = get_timer_counter()
+	var message_statistic: String = String((
+		"Tempo: [color=#{color}][b]{time}[/b][/color]" +
+		"\nTentativas: [color=#{color}][b]{attempt}[/b][/color]"
+	).format({
+		"color": API.theme.get_color(API.theme.PB).to_html(false),
+		"time": "%02d:%02d" % [(seconds/60) % 60, seconds % 60],
+		"attempt": "%02d" % [failed_attempt]
+	}))
+	
+	game_results_instance.update_data(message_game, message_statistic, _scoring_rules(), get_current_mode())
+	game_results_instance.connect("restart_level", self, "_on_GameResults_restart_level")
+	game_results_instance.connect("continue_level", self, "_on_GameResults_continue_level")
+
 
 func _on_show_PanelInformation() -> void:
 	timer.stop()
@@ -463,7 +493,8 @@ func _on_show_PanelInformation() -> void:
 	panel_information.visible = true
 
 
-func _on_PanelInformation_Restart_pressed() -> void:
+func _on_GameResults_restart_level() -> void:
+#func _on_PanelInformation_Restart_pressed() -> void:
 	panel_information.visible = false
 	yield(get_tree().create_timer(0.5), "timeout")
 	if turned_cards.empty():
@@ -472,7 +503,8 @@ func _on_PanelInformation_Restart_pressed() -> void:
 		set_current_mode(get_current_mode())
 
 
-func _on_PanelInformation_Skip_pressed() -> void:
+func _on_GameResults_continue_level() -> void:
+#func _on_PanelInformation_Skip_pressed() -> void:
 	_reset_counters()
 	
 	match(get_current_mode()):
