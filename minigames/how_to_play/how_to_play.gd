@@ -45,8 +45,8 @@ onready var carousel: MarginContainer = $MarginContainer/VBoxContainer/Panel/Mar
 
 
 #  [BUILT-IN_VURTUAL_METHOD]
-#func _ready() -> void:
-#	pass
+func _ready() -> void:
+	set_textures(get_textures())
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
@@ -58,11 +58,12 @@ onready var carousel: MarginContainer = $MarginContainer/VBoxContainer/Panel/Mar
 func set_textures(new_value: Array) -> void:
 	_textures = new_value
 	
-	_update_page()
-	_create_indicators()
-	_update_indicators()
+	if not _textures.empty():
+		_update_page()
+		_create_indicators()
+		_update_indicators()
 	
-	if get_textures().empty():
+	if _textures.size() <= 1:
 		carousel.visible = false
 	else:
 		carousel.visible = true
