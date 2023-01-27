@@ -56,6 +56,44 @@ func get_cards() -> Array:
 	return _cards
 
 
+func has_levels() -> bool:
+	""" 
+	Must return TRUE if HOME scene 
+	is to display level selection 
+	"""
+	return true
+
+
+func has_locked_levels() -> Dictionary:
+	"""
+	Must return TRUE for a level to be 
+	locked. Levels are blocked when the 
+	SERVER doesn't provide enough data for a level.
+	
+	{"easy": true, "medium": true, "hard": true}
+	"""
+	var levels: Dictionary = Dictionary({})
+	
+	# Check all levels
+	# check easy level
+	if get_cards().size() < 6:
+		levels["easy"] = true
+	else:
+		levels["easy"] = false
+	# check medium level
+	if get_cards().size() < 10:
+		levels["medium"] = true
+	else:
+		levels["medium"] = false
+	# check hard level
+	if get_cards().size() < 12:
+		levels["hard"] = true
+	else:
+		levels["hard"] = false
+	
+	return levels
+
+
 #  [PRIVATE_METHODS]
  
 

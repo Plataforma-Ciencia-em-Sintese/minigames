@@ -147,6 +147,12 @@ func _memory_game_home() -> void:
 	levels_panel.visible = true
 	
 	# Check data for levels
+	if API.game.has_locked_levels()["easy"]:
+		easy_button.disabled = true
+	if API.game.has_locked_levels()["medium"]:
+		medium_button.disabled = true
+	if API.game.has_locked_levels()["hard"]:
+		hard_button.disabled = true 
 	
 	var path: String = "res://games/memory_game/memory_game.tscn"
 	set_easy_path(path)
