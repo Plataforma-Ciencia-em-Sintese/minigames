@@ -71,7 +71,7 @@ onready var timer_label: Label = $MarginContainer/VBoxContainer/BarContainer/Con
 
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
-	connect("end_game", self, "_on_MatchingGame_end_game")
+	connect("end_game", self, "_on_Self_end_game")
 	set_current_mode(ChangeLevel.request_mode)
 
 
@@ -251,27 +251,27 @@ func _on_Target_attempt_to_combine() -> void:
 		set_timer_has_starded(true)
 
 
-func _on_MatchingGame_end_game() -> void:
+func _on_Self_end_game() -> void:
 	var game_results_instance: Panel = GAME_RESULTS.instance()
 	add_child(game_results_instance)
 	
-	var message_game: String = \
-			"Você completou o nível!\n" + \
-			"Conseguiu [color=#{api_color}][b]{value}[/b][/color] estrelas."
-	message_game = message_game.format({
-		"api_color": API.theme.get_color(API.theme.PB).to_html(false), 
-		"value": _scoring_rules()
-	})
+	var message_game: String = String((
+		"Você completou o nível!\nConseguiu " +
+		"[color=#{color}][b]{stars}[/b][/color] estrelas."
+	).format({
+		"color": API.theme.get_color(API.theme.PB).to_html(false), 
+		"stars": _scoring_rules()
+	}))
 	
 	var seconds: int = get_timer_counter()
-	var message_statistic: String = \
-			"Tempo: [color=#{api_color}][b]{time_counter}[/b][/color]" + \
-			"\nTentativas: [color=#{api_color}][b]{attempt_counter}[/b][/color]"
-	message_statistic = message_statistic.format({
-		"api_color": API.theme.get_color(API.theme.PB).to_html(false),
-		"time_counter": "%02d:%02d" % [(seconds/60) % 60, seconds % 60],
-		"attempt_counter": "%02d" % [get_attempts_counter()]
-	})
+	var message_statistic: String = String((
+		"Tempo: [color=#{color}][b]{time}[/b][/color]" +
+		"\nTentativas: [color=#{color}][b]{attempt}[/b][/color]"
+	).format({
+		"color": API.theme.get_color(API.theme.PB).to_html(false),
+		"time": "%02d:%02d" % [(seconds/60) % 60, seconds % 60],
+		"attempt": "%02d" % [get_attempts_counter()]
+	}))
 	
 	game_results_instance.update_data(message_game, message_statistic, _scoring_rules(), get_current_mode())
 	game_results_instance.connect("restart_level", self, "_on_GameResults_restart_level")
