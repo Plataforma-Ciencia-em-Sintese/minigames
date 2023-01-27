@@ -17,7 +17,11 @@ enum PetImage {IDLE=0, HAPPY=1, LOSER=2}
 
 
 #  [CONSTANTS]
-const HowToPlay := preload("res://games/quiz/how_to_play/how_to_play.tscn")
+const GAME_RESULTS: PackedScene = preload("res://game_results/game_results.tscn")
+const HOW_TO_PLAY: PackedScene = preload("res://how_to_play/how_to_play.tscn")
+const HOW_TO_PLAY_TEXTURES: Array = Array([
+	preload("res://assets/images/htp_quiz_0.png")
+])
 
 
 #  [EXPORTED_VARIABLES]
@@ -363,5 +367,6 @@ func _on_PanelInformation_continue_level() -> void:
 
 
 func _on_Help_pressed() -> void:
-	var how_to_play := HowToPlay.instance()
-	add_child(how_to_play)
+	var how_to_play_instance := HOW_TO_PLAY.instance()
+	add_child(how_to_play_instance)
+	how_to_play_instance.set_textures(HOW_TO_PLAY_TEXTURES)
