@@ -101,11 +101,21 @@ func create(image: ImageTexture, matching_id: int, subtitle: String = String("")
 func get_drag_data(_position: Vector2) -> Dictionary:
 	if get_current_state() == State.INCOMPLETE:
 		var preview: Control = Control.new()
+		
+		var color_rect: ColorRect = ColorRect.new()
+		preview.add_child(color_rect)
+		color_rect.rect_size = Vector2(160, 160)
+		color_rect.rect_position -= color_rect.rect_size / 2
+		color_rect.color = Color(1.0, 0.0, 0.0, 0.0)
+		
 		var preview_texture: TextureRect = TextureRect.new()
-		preview.add_child(preview_texture)
+		color_rect.add_child(preview_texture)
 		preview_texture.texture = texture_normal
-		preview_texture.rect_size = rect_size
-		preview_texture.rect_position -= rect_size / 2
+		preview_texture.rect_min_size = Vector2(100, 100)
+		preview_texture.expand = true
+		preview_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		preview_texture.anchor_right = 1
+		preview_texture.anchor_bottom = 1
 		preview_texture.set("modulate", Color(1.0, 1.0, 1.0, 0.8))
 		
 		set_drag_preview(preview)
@@ -116,7 +126,9 @@ func get_drag_data(_position: Vector2) -> Dictionary:
 			"matching_id": get_matching_id(), 
 			"subtitle": get_subtitle()
 		}
+	
 	return {}
+
 
 #  [PRIVATE_METHODS]
 func _self_check() -> void:
