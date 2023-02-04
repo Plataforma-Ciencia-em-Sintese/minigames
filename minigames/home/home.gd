@@ -73,6 +73,9 @@ func _ready() -> void:
 		
 		API.ResourceID.QUIZ:
 			_quiz_home()
+		
+		API.ResourceID.PUZZLE:
+			_puzzle_home()
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
@@ -188,11 +191,21 @@ func _metching_game_home() -> void:
 	if API.game.has_locked_levels()["hard"]:
 		hard_button.disabled = true 
 	
-	
 	var path: String = "res://games/matching_game/matching_game.tscn"
 	set_easy_path(path)
 	set_medium_path(path)
 	set_hard_path(path)
+
+
+func _puzzle_home() -> void:
+	logo.texture = load("res://assets/images/logo_quiz.png")
+	
+	game_name.text = "QUEBRA-CABEÇAS"
+	
+	start_game_button.visible = true
+	levels_panel.visible = false
+	
+	set_start_game_path("res://games/puzzle/puzzle.tscn")
 
  
 

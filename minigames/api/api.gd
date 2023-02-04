@@ -17,6 +17,7 @@ enum ResourceID {
 	METCHING_GAME = 29
 	MOMORY_GAME = 19
 	QUIZ = 24
+	PUZZLE = 31
 }
 
 
@@ -140,6 +141,9 @@ func _on_all_request_theme_completed() -> void:
 		
 		ResourceID.QUIZ:
 			game = RequestQuizOmeka.new()
+		
+		ResourceID.PUZZLE:
+			game = RequestPuzzleOmeka.new()
 	
 	if not game == null:
 		add_child(game)

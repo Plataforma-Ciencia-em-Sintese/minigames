@@ -53,7 +53,6 @@ onready var timer_label := $"MarginContainer/VBoxContainer/BarContainer/Containe
 onready var level_label := $"MarginContainer/VBoxContainer/BarContainer/Container/Level"
 onready var timer:= $Timer
 onready var bar_container := $"MarginContainer/VBoxContainer/BarContainer"
-onready var dev_mode = $DevMode
 
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
@@ -72,16 +71,9 @@ func _ready() -> void:
 	connect("end_game", self, "_on_Self_end_game")
 	
 	set_current_mode(ChangeLevel.request_mode)
-	
-	get_tree().get_root().connect("size_changed", self, "_on_window_size_changed")
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
-func _unhandled_key_input(event: InputEventKey) -> void:
-	if event.is_action_pressed("dev_mode"):
-		dev_mode.visible = !dev_mode.visible
-
-
 #func _process(_delta: float) -> void:
 #	pass
 
@@ -142,12 +134,6 @@ func set_timer_counter(new_value: int) -> void:
 
 func get_timer_counter() -> int:
 	return _timer_counter
-
-
-#func random_number(start: int, end: int) -> int:
-#	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-#	rng.randomize()
-#	return rng.randi_range(start, end)
 
 
 func random_card() -> Dictionary:
@@ -302,10 +288,6 @@ func _scoring_rules() -> int:
 
 
 #  [SIGNAL_METHODS]
-func _on_window_size_changed() -> void:
-	dev_mode.visible = false
-
-
 func _on_add_cards() -> void:
 	shuffle_cards()
 
@@ -400,26 +382,6 @@ func _on_Timer_timeout() -> void:
 func _on_Home_pressed() -> void:
 	get_tree().change_scene("res://home/home.tscn")
 
-
-func _on_DevLevel1_pressed() -> void:
-	yield(get_tree().create_timer(0.5), "timeout")
-	if turned_cards.empty():
-		_reset_counters()
-		set_current_mode(GameMode.EASY)
-
-
-func _on_DevLevel2_pressed() -> void:
-	yield(get_tree().create_timer(0.5), "timeout")
-	if turned_cards.empty():
-		_reset_counters()
-		set_current_mode(GameMode.MEDIUM)
-
-
-func _on_DevLevel3_pressed() -> void:
-	yield(get_tree().create_timer(0.5), "timeout")
-	if turned_cards.empty():
-		_reset_counters()
-		set_current_mode(GameMode.HARD)
 
 func _on_Self_end_game() -> void:
 	var game_results_instance: Panel = GAME_RESULTS.instance()

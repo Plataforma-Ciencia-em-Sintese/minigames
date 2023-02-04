@@ -13,9 +13,10 @@ class_name URL #, res://class_name_icon.svg
 
 
 #  [CONSTANTS]
-const TEST_URL = "https://.../?id=27550&skip=0" # METCHING GAME
+#const TEST_URL = "https://.../?id=27550&skip=0" # METCHING GAME
 #const TEST_URL = "https://.../?id=23391&skip=0" # MEMORY GAME
 #const TEST_URL = "https://.../?id=24810&skip=0" # QUIZ
+const TEST_URL = "https://.../?id=27837&skip=0" # PUZZLE
 
 
 #  [EXPORTED_VARIABLES]
