@@ -9,6 +9,8 @@
 
 - [MATCHING GAME](https://plataforma-ciencia-em-sintese.github.io/minigames/deploy/index.html?id=27550&skip=0)
 
+- [PUZZLE](https://plataforma-ciencia-em-sintese.github.io/minigames/deploy/index.html?id=27837&skip=0)
+
 
 ## CHANGELOG
 - [Click here](CHANGELOG.md)
