@@ -13,7 +13,6 @@ extends Control
 
 
 #  [CONSTANTS]
-const ROUNDED_EDGES: Shader = preload("res://assets/shader/rounded_edges.shader")
 
 
 #  [EXPORTED_VARIABLES]
@@ -27,7 +26,7 @@ const ROUNDED_EDGES: Shader = preload("res://assets/shader/rounded_edges.shader"
 
 #  [ONREADY_VARIABLES]
 onready var grid_slots: GridContainer = $MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer
-
+onready var pieces: Panel = $MarginContainer/VBoxContainer/GameContainer/Panel/DropFree
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
 #func _init() -> void:
@@ -81,6 +80,11 @@ func _ready() -> void:
 			15: atlas_texture.region = Rect2((width/4.0)*3.0, (height/4.0)*3.0, width/4.0, height/4.0)
 		
 		texture_rect.texture = atlas_texture
+		
+		pieces.get_child(index).image.texture = atlas_texture
+		pieces.get_child(index).image.material = texture_rect.material
+		pieces.get_child(index).rect_size = texture_rect.rect_size
+		
 		index += 1
 
 
@@ -96,3 +100,4 @@ func _ready() -> void:
  
 
 #  [SIGNAL_METHODS]
+

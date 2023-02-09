@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/JetBrainsMono/JetBrainsMonoNerdFontCompleteM-Regular.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://assets/components/background/background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://games/puzzle/puzzle.gd" type="Script" id=5]
 [ext_resource path="res://assets/shader/rounded_edges.shader" type="Shader" id=6]
+[ext_resource path="res://games/puzzle/piece/piece.tscn" type="PackedScene" id=7]
+[ext_resource path="res://games/puzzle/slot/slot.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=82]
 size = 86
@@ -540,14 +542,6 @@ margin_right = 1462.0
 margin_bottom = 900.0
 custom_styles/panel = SubResource( 10 )
 
-[node name="DropFree" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0.294118 )
-margin_left = 13.0
-margin_top = 13.0
-margin_right = 581.0
-margin_bottom = 886.0
-
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -578,10 +572,12 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 103 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel1"]
+visible = false
 material = SubResource( 134 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
+script = ExtResource( 8 )
 
 [node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
 margin_left = 212.0
@@ -592,6 +588,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 105 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel2"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -605,6 +602,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 107 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel3"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -618,6 +616,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 109 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel4"]
+visible = false
 material = SubResource( 135 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -632,6 +631,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 111 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel5"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -646,6 +646,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 113 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel6"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -660,6 +661,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 115 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel7"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -674,6 +676,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 117 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel8"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -687,6 +690,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 119 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel9"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -701,6 +705,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 121 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel10"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -715,6 +720,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 123 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel11"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -729,6 +735,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 125 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel12"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -742,6 +749,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 127 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel13"]
+visible = false
 material = SubResource( 136 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -757,6 +765,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 129 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel14"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -771,6 +780,7 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 131 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel15"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
@@ -785,7 +795,109 @@ size_flags_vertical = 3
 custom_styles/panel = SubResource( 133 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel16"]
+visible = false
 material = SubResource( 137 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
+
+[node name="DropFree" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel"]
+self_modulate = Color( 1, 1, 1, 0.294118 )
+margin_left = 13.0
+margin_top = 13.0
+margin_right = 581.0
+margin_bottom = 886.0
+
+[node name="Piece1" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_right = 0.355634
+anchor_bottom = 0.231386
+
+[node name="Piece2" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.0228873
+anchor_top = 0.15693
+anchor_right = 0.378521
+anchor_bottom = 0.388316
+
+[node name="Piece3" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.34331
+anchor_top = 0.38488
+anchor_right = 0.698944
+anchor_bottom = 0.616266
+
+[node name="Piece4" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.498239
+anchor_top = 0.127148
+anchor_right = 0.853873
+anchor_bottom = 0.358534
+
+[node name="Piece5" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.0704225
+anchor_top = 0.689576
+anchor_right = 0.426056
+anchor_bottom = 0.920962
+
+[node name="Piece6" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.598592
+anchor_top = 0.296678
+anchor_right = 0.954225
+anchor_bottom = 0.528064
+
+[node name="Piece7" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.396127
+anchor_top = 0.0229095
+anchor_right = 0.751761
+anchor_bottom = 0.254296
+
+[node name="Piece8" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = -0.00528169
+anchor_top = 0.446735
+anchor_right = 0.350352
+anchor_bottom = 0.678121
+
+[node name="Piece9" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.46831
+anchor_top = 0.68614
+anchor_right = 0.823944
+anchor_bottom = 0.917526
+
+[node name="Piece10" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.265845
+anchor_top = 0.226804
+anchor_right = 0.621479
+anchor_bottom = 0.45819
+
+[node name="Piece11" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.614437
+anchor_top = 0.738832
+anchor_right = 0.97007
+anchor_bottom = 0.970218
+
+[node name="Piece12" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.514085
+anchor_top = 0.4811
+anchor_right = 0.869718
+anchor_bottom = 0.712486
+
+[node name="Piece13" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.0651408
+anchor_top = 0.32646
+anchor_right = 0.420775
+anchor_bottom = 0.557846
+
+[node name="Piece14" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.271127
+anchor_top = 0.492554
+anchor_right = 0.626761
+anchor_bottom = 0.72394
+
+[node name="Piece15" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.0228873
+anchor_top = 0.754868
+anchor_right = 0.378521
+anchor_bottom = 0.986254
+
+[node name="Piece16" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.586268
+anchor_top = 0.0847652
+anchor_right = 0.941901
+anchor_bottom = 0.316151
