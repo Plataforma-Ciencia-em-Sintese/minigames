@@ -1,6 +1,6 @@
 #tool
 #class_name Name #, res://class_name_icon.svg
-extends TextureRect
+extends Panel
 
 
 #  [DOCSTRING]
@@ -58,6 +58,7 @@ func can_drop_data(position: Vector2, data) -> bool:
 
 
 func drop_data(position: Vector2, data: Dictionary) -> void:
+	data["piece"].rect_global_position = self.rect_global_position
 	print(data)
 
 

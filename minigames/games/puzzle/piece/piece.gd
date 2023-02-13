@@ -81,7 +81,7 @@ func get_drag_data(_position: Vector2) -> Dictionary:
 	preview_texture.texture = self.image.texture
 	preview_texture.material = self.image.material
 	preview_texture.expand = true
-	preview_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+#	preview_texture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	preview_texture.anchor_right = 1
 	preview_texture.anchor_bottom = 1
 

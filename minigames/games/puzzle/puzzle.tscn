@@ -570,6 +570,7 @@ margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 103 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel1"]
 visible = false
@@ -577,7 +578,6 @@ material = SubResource( 134 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand = true
-script = ExtResource( 8 )
 
 [node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
 margin_left = 212.0
@@ -586,6 +586,7 @@ margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 105 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel2"]
 visible = false
@@ -600,6 +601,7 @@ margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 107 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel3"]
 visible = false
@@ -614,6 +616,7 @@ margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 109 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel4"]
 visible = false
@@ -629,6 +632,7 @@ margin_bottom = 414.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 111 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel5"]
 visible = false
@@ -644,6 +648,7 @@ margin_bottom = 414.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 113 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel6"]
 visible = false
@@ -659,6 +664,7 @@ margin_bottom = 414.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 115 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel7"]
 visible = false
@@ -674,6 +680,7 @@ margin_bottom = 414.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 117 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel8"]
 visible = false
@@ -688,6 +695,7 @@ margin_bottom = 625.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 119 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel9"]
 visible = false
@@ -703,6 +711,7 @@ margin_bottom = 625.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 121 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel10"]
 visible = false
@@ -718,6 +727,7 @@ margin_bottom = 625.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 123 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel11"]
 visible = false
@@ -733,6 +743,7 @@ margin_bottom = 625.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 125 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel12"]
 visible = false
@@ -747,6 +758,7 @@ margin_bottom = 836.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 127 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel13"]
 visible = false
@@ -763,6 +775,7 @@ margin_bottom = 836.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 129 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel14"]
 visible = false
@@ -778,6 +791,7 @@ margin_bottom = 836.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 131 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel15"]
 visible = false
@@ -793,6 +807,7 @@ margin_bottom = 836.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = SubResource( 133 )
+script = ExtResource( 8 )
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel16"]
 visible = false
@@ -809,8 +824,10 @@ margin_right = 581.0
 margin_bottom = 886.0
 
 [node name="Piece1" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
-anchor_right = 0.355634
-anchor_bottom = 0.231386
+anchor_left = 0.443662
+anchor_top = 0.75945
+anchor_right = 0.799296
+anchor_bottom = 0.990836
 
 [node name="Piece2" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
 anchor_left = 0.0228873
@@ -831,10 +848,10 @@ anchor_right = 0.853873
 anchor_bottom = 0.358534
 
 [node name="Piece5" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
-anchor_left = 0.0704225
-anchor_top = 0.689576
-anchor_right = 0.426056
-anchor_bottom = 0.920962
+anchor_left = 0.0651409
+anchor_top = 0.612829
+anchor_right = 0.420774
+anchor_bottom = 0.844215
 
 [node name="Piece6" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
 anchor_left = 0.598592
@@ -849,16 +866,16 @@ anchor_right = 0.751761
 anchor_bottom = 0.254296
 
 [node name="Piece8" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
-anchor_left = -0.00528169
-anchor_top = 0.446735
-anchor_right = 0.350352
-anchor_bottom = 0.678121
+anchor_left = 0.568662
+anchor_top = 0.647194
+anchor_right = 0.924296
+anchor_bottom = 0.87858
 
 [node name="Piece9" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
-anchor_left = 0.46831
-anchor_top = 0.68614
-anchor_right = 0.823944
-anchor_bottom = 0.917526
+anchor_left = 0.302817
+anchor_top = 0.593356
+anchor_right = 0.658451
+anchor_bottom = 0.824742
 
 [node name="Piece10" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
 anchor_left = 0.265845
@@ -867,34 +884,34 @@ anchor_right = 0.621479
 anchor_bottom = 0.45819
 
 [node name="Piece11" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
-anchor_left = 0.614437
-anchor_top = 0.738832
-anchor_right = 0.97007
-anchor_bottom = 0.970218
+anchor_left = 0.0880282
+anchor_top = 0.0721649
+anchor_right = 0.443661
+anchor_bottom = 0.303551
 
 [node name="Piece12" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
-anchor_left = 0.514085
-anchor_top = 0.4811
-anchor_right = 0.869718
-anchor_bottom = 0.712486
+anchor_left = 0.443662
+anchor_top = 0.438717
+anchor_right = 0.799295
+anchor_bottom = 0.670103
 
 [node name="Piece13" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
-anchor_left = 0.0651408
-anchor_top = 0.32646
-anchor_right = 0.420775
-anchor_bottom = 0.557846
+anchor_left = 0.603873
+anchor_top = 0.504009
+anchor_right = 0.959507
+anchor_bottom = 0.735395
 
 [node name="Piece14" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
-anchor_left = 0.271127
-anchor_top = 0.492554
-anchor_right = 0.626761
-anchor_bottom = 0.72394
+anchor_left = 0.0580986
+anchor_top = 0.38488
+anchor_right = 0.413733
+anchor_bottom = 0.616266
 
 [node name="Piece15" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
-anchor_left = 0.0228873
-anchor_top = 0.754868
-anchor_right = 0.378521
-anchor_bottom = 0.986254
+anchor_left = 0.0580986
+anchor_top = 0.739977
+anchor_right = 0.413732
+anchor_bottom = 0.971363
 
 [node name="Piece16" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
 anchor_left = 0.586268
