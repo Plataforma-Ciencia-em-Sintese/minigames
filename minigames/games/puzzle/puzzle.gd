@@ -35,17 +35,24 @@ onready var pieces: Panel = $MarginContainer/VBoxContainer/GameContainer/Panel/D
 
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
+	# Loads the image of the API
 	var texture: ImageTexture = API.game.get_texture_images()[0]
+	
+	# Loads a local image (test)
 #	var texture: StreamTexture = load("res://games/puzzle/default1.png")
+	
+	# Calculate the dimensions of the image
 	var width: float = texture.get_width()
 	var height: float = texture.get_height()
 	
+	# Divides the texture into Atlas and creates the help images and init of pieces
 	var index: int = int(0)
 	for slot in grid_slots.get_children():
 		var texture_rect: TextureRect = slot.get_child(0)
 		var atlas_texture: AtlasTexture = AtlasTexture.new()
 		atlas_texture.atlas = texture
 		
+		# Calculates the position of each atlas
 		match(index):
 			0: atlas_texture.region = Rect2(0.0, 0.0, width/4.0, height/4.0)
 			
@@ -79,11 +86,17 @@ func _ready() -> void:
 			
 			15: atlas_texture.region = Rect2((width/4.0)*3.0, (height/4.0)*3.0, width/4.0, height/4.0)
 		
+		# Create the image of help
 		texture_rect.texture = atlas_texture
 		
+		# Create the images of piece
 		pieces.get_child(index).image.texture = atlas_texture
 		pieces.get_child(index).image.material = texture_rect.material
 		pieces.get_child(index).rect_size = texture_rect.rect_size
+		
+		# Create ID
+		slot.set_id(index)
+		pieces.get_child(index).set_id(index)
 		
 		index += 1
 

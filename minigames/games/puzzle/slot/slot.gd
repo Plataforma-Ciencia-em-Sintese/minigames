@@ -25,6 +25,9 @@ extends Panel
 var _busy: bool = false \
 		setget set_busy, get_busy
 
+var _id: int = int(0) \
+		setget set_id, get_id
+
 
 #  [ONREADY_VARIABLES]
 
@@ -53,13 +56,23 @@ func get_busy() -> bool:
 	return _busy
 
 
+func set_id(new_value: int) -> void:
+	_id = new_value
+
+
+func get_id() -> int:
+	return _id
+
+
 func can_drop_data(position: Vector2, data) -> bool:
 	return !get_busy()
 
 
 func drop_data(position: Vector2, data: Dictionary) -> void:
 	data["piece"].rect_global_position = self.rect_global_position
-	print(data)
+	print("\n-------------")
+	print("\npiece: ", data["piece"].get_id())
+	print("\nslot: ", self.get_id())
 
 
 #  [PRIVATE_METHODS]
