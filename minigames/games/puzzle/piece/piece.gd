@@ -7,9 +7,11 @@ extends Control
 
 
 #  [SIGNALS]
+signal dropped
 
 
 #  [ENUMS]
+enum State {OK, ERROR}
 
 
 #  [CONSTANTS]
@@ -27,6 +29,9 @@ var _id: int = int(0) \
 
 var _free_piece: bool = bool(true) \
 		setget set_free_piece, get_free_piece
+
+var _current_state: int = State.ERROR \
+		setget set_current_state, get_current_state
 
 
 #  [ONREADY_VARIABLES]
@@ -63,6 +68,18 @@ func set_free_piece(new_value: bool) -> void:
 
 func get_free_piece() -> bool:
 	return _free_piece
+
+
+func set_current_state(new_value: int) -> void:
+	match new_value:
+		State.OK:
+			_current_state = new_value
+		State.ERROR:
+			_current_state = new_value
+
+
+func get_current_state() -> int:
+	return _current_state
 
 
 func get_drag_data(_position: Vector2) -> Dictionary:
@@ -113,3 +130,5 @@ func _on_Preview_tree_exited() -> void:
 			and (mouse_position.y > parent_position.y and \
 			mouse_position.y < parent_position.y + parent_size.y):
 		self.rect_global_position = mouse_position - self.rect_size/2
+	
+	emit_signal("dropped", self)
