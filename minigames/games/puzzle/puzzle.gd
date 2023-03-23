@@ -8,13 +8,15 @@ extends Control
 
 #  [SIGNALS]
 signal start_timer
+signal end_game
 
 
 #  [ENUMS]
 
 
 #  [CONSTANTS]
-var GRID_SIZE: int = 16
+const GAME_RESULTS: PackedScene = preload("res://game_results/game_results.tscn")
+const GRID_SIZE: int = 16
 
 
 #  [EXPORTED_VARIABLES]
@@ -53,6 +55,8 @@ onready var timer_label: Label = $MarginContainer/VBoxContainer/BarContainer/Con
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
 	_load_all_textures()
+	
+	connect("end_game", self, "_on_Self_end_game")
 	
 	for index in range(0, GRID_SIZE):
 		if grid_slots.get_child(index) is Panel:
@@ -185,7 +189,49 @@ func _checks_combinations() -> void:
 		print("tentativas: ", get_failed_attempt())
 		print("tempo: ", timer_label.text)
 		yield(get_tree().create_timer(3.0), "timeout")
-		get_tree().change_scene("res://games/puzzle/puzzle.tscn")
+		emit_signal("end_game")
+
+
+func _scoring_rules() -> int:
+	var target_attempt: int = 0
+	var margin_attempt: int = 0
+	var target_time: int = 0
+	var margin_time: int = 0
+	var stars: int = 0
+	var stars_check: bool = false
+	
+	# define difficulty parameters
+	target_attempt = 30
+	margin_attempt = 5
+	target_time = 90
+	margin_time = 10
+	
+	# three stars
+	if get_timer_counter() < target_time and get_failed_attempt() < target_attempt:
+		if not stars_check:
+			stars = 3
+			stars_check = true
+	
+	# two stars
+	elif get_timer_counter() < (target_time + margin_time) and get_failed_attempt() < (target_attempt + margin_attempt):
+		if not stars_check:
+			stars = 2
+			stars_check = true
+	
+	# one stars
+	elif (get_timer_counter() < (target_time + margin_time) and get_failed_attempt() > (target_attempt + margin_attempt)) or \
+			(get_timer_counter() > (target_time + margin_time) and get_failed_attempt() < (target_attempt + margin_attempt)):
+		if not stars_check:
+			stars = 1
+			stars_check = true
+	
+	# zero stars
+	elif get_timer_counter() > (target_time + margin_time) and get_failed_attempt() > (target_attempt + margin_attempt):
+		if not stars_check:
+			stars = 0
+			stars_check = true
+	
+	return stars
 
 
 #  [SIGNAL_METHODS]
@@ -212,3 +258,35 @@ func _on_Slot_occupied(slot: Panel, piece: Control) -> void:
 
 func _on_Piece_dropped(piece: Control) -> void:
 	pass
+
+
+func _on_Self_end_game() -> void:
+	var game_results_instance: Panel = GAME_RESULTS.instance()
+	add_child(game_results_instance)
+	
+	game_results_instance.hide_panel.visible = true
+	
+	var message_game: String = String((
+		"Você completou o quebra cabeças."
+	))
+	
+	var message_statistic: String = String((
+		"Tempo: [color=#{color}][b]{time}[/b][/color]" +
+		"\nTentativas: [color=#{color}][b]{attempt}[/b][/color]"
+	).format({
+		"color": API.theme.get_color(API.theme.PB).to_html(false),
+		"time": timer_label.text,
+		"attempt": "%02d" % get_failed_attempt()
+	}))
+	
+	game_results_instance.update_data(message_game, message_statistic, _scoring_rules())
+	game_results_instance.connect("restart_level", self, "_on_GameResults_restart_level")
+	game_results_instance.connect("continue_level", self, "_on_GameResults_continue_level")
+
+
+func _on_GameResults_restart_level() -> void:
+	get_tree().change_scene("res://games/puzzle/puzzle.tscn")
+
+
+func _on_GameResults_continue_level() -> void:
+	get_tree().change_scene("res://home/home.tscn")
