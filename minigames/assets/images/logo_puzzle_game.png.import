@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/logo_momory_game.png-53a2660fde071fa2c4e0fea4553fc3c1.stex"
+path="res://.import/logo_puzzle_game.png-41a14d7c7b436605a755383a2bed83b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/logo_momory_game.png"
-dest_files=[ "res://.import/logo_momory_game.png-53a2660fde071fa2c4e0fea4553fc3c1.stex" ]
+source_file="res://assets/images/logo_puzzle_game.png"
+dest_files=[ "res://.import/logo_puzzle_game.png-41a14d7c7b436605a755383a2bed83b2.stex" ]
 
 [params]
 

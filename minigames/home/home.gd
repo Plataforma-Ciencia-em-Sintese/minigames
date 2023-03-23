@@ -198,7 +198,7 @@ func _metching_game_home() -> void:
 
 
 func _puzzle_home() -> void:
-	logo.texture = load("res://assets/images/logo_quiz.png")
+	logo.texture = load("res://assets/images/logo_puzzle_game.png")
 	
 	game_name.text = "QUEBRA-CABEÇAS"
 	
