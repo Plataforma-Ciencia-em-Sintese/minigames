@@ -45,6 +45,8 @@ onready var grid_slots: GridContainer = $MarginContainer/VBoxContainer/GameConta
 onready var pieces: Panel = $MarginContainer/VBoxContainer/GameContainer/Panel/DropFree
 onready var timer: Timer = $Timer
 onready var timer_label: Label = $MarginContainer/VBoxContainer/BarContainer/Container/Time
+onready var full_image: TextureRect = $MarginContainer/VBoxContainer/GameContainer/Panel/FullImage
+onready var animation: AnimationPlayer = $AnimationPlayer
 
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
@@ -99,6 +101,7 @@ func get_failed_attempt() -> int:
 func _load_all_textures() -> void:
 	# Loads the image of the API
 	var texture: ImageTexture = API.game.get_texture_images()[0]
+	full_image.texture = texture
 	
 	# Loads a local image (test)
 #	var texture: StreamTexture = load("res://games/puzzle/default1.png")
@@ -188,6 +191,8 @@ func _checks_combinations() -> void:
 		print("\n-------------\nRESULTADO")
 		print("tentativas: ", get_failed_attempt())
 		print("tempo: ", timer_label.text)
+		animation.play("show_full_image")
+		yield(animation,"animation_finished" )
 		yield(get_tree().create_timer(3.0), "timeout")
 		emit_signal("end_game")
 
