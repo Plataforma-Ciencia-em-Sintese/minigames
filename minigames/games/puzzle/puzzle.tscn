@@ -612,7 +612,6 @@ custom_styles/pressed = SubResource( 84 )
 custom_styles/focus = SubResource( 85 )
 custom_styles/disabled = SubResource( 86 )
 custom_styles/normal = SubResource( 87 )
-disabled = true
 text = ""
 script = SubResource( 88 )
 
@@ -1075,3 +1074,4 @@ expand = true
 stretch_mode = 6
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Home" to="." method="_on_Home_pressed"]
