@@ -191,6 +191,7 @@ func _checks_combinations() -> void:
 		print("\n-------------\nRESULTADO")
 		print("tentativas: ", get_failed_attempt())
 		print("tempo: ", timer_label.text)
+		_disable_main_buttons()
 		animation.play("show_full_image")
 		yield(animation,"animation_finished" )
 		yield(get_tree().create_timer(3.0), "timeout")
@@ -237,6 +238,12 @@ func _scoring_rules() -> int:
 			stars_check = true
 	
 	return stars
+
+func _disable_main_buttons() -> void:
+	var home: Button = $MarginContainer/VBoxContainer/BarContainer/Home
+	var help: Button = $MarginContainer/VBoxContainer/BarContainer/Help
+	home.disabled = true
+	help.disabled = true
 
 
 #  [SIGNAL_METHODS]
