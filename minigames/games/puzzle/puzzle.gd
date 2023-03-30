@@ -35,10 +35,6 @@ var _timer_counter: int = 0 \
 var _failed_attempt: int = 0 \
 		setget set_failed_attempt, get_failed_attempt
 
-var _combinations: Array = [
-	0, 
-] 
-
 
 #  [ONREADY_VARIABLES]
 onready var grid_slots: GridContainer = $MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer
@@ -262,7 +258,7 @@ func _on_Slot_occupied(slot: Panel, piece: Control) -> void:
 
 
 func _on_Piece_dropped(piece: Control) -> void:
-	pass
+	pieces.move_child(piece, pieces.get_children().size())
 
 
 func _on_Self_end_game() -> void:
