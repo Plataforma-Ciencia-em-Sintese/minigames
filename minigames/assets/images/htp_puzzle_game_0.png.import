@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/htp_matching_game_2.png-ac932ba06c3fa2c274e54d7e795c0242.stex"
+path="res://.import/htp_puzzle_game_0.png-a84a2bc9829749ef2ce60b164dbe70bf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/htp_matching_game_2.png"
-dest_files=[ "res://.import/htp_matching_game_2.png-ac932ba06c3fa2c274e54d7e795c0242.stex" ]
+source_file="res://assets/images/htp_puzzle_game_0.png"
+dest_files=[ "res://.import/htp_puzzle_game_0.png-a84a2bc9829749ef2ce60b164dbe70bf.stex" ]
 
 [params]
 
