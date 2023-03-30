@@ -19,7 +19,7 @@ const GRID_SIZE: int = 16
 const GAME_RESULTS: PackedScene = preload("res://game_results/game_results.tscn")
 const HOW_TO_PLAY: PackedScene = preload("res://how_to_play/how_to_play.tscn")
 const HOW_TO_PLAY_TEXTURES: Array = Array([
-	preload("res://assets/images/htp_puzzle_game.png"),
+	preload("res://assets/images/htp_puzzle_game_0.png"),
 ])
 
 
