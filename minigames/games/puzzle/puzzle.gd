@@ -255,8 +255,11 @@ func _scoring_rules() -> int:
 func _disable_main_buttons() -> void:
 	var home: Button = $MarginContainer/VBoxContainer/BarContainer/Home
 	var help: Button = $MarginContainer/VBoxContainer/BarContainer/Help
+	var tip: Button = $MarginContainer/VBoxContainer/BarContainer/Tip
 	home.disabled = true
 	help.disabled = true
+	tip.disabled = true
+	tip_counter.set("modulate", Color(1.0, 1.0, 1.0, 0.2))
 
 
 #  [SIGNAL_METHODS]
