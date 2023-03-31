@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/JetBrainsMono/JetBrainsMonoNerdFontCompleteM-Regular.ttf" type="DynamicFontData" id=2]
@@ -266,6 +266,80 @@ func set_secondary_color() -> void:
 
 #  [SIGNAL_METHODS]
 "
+
+[sub_resource type="DynamicFont" id=143]
+size = 86
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=144]
+bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=145]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=146]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=147]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=148]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=149]
+size = 36
+use_filter = true
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=138]
 size = 40
@@ -602,10 +676,11 @@ margin_bottom = 120.0
 rect_min_size = Vector2( 1462, 120 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
+custom_constants/separation = 20
 
 [node name="Home" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 3 )]
 hint_tooltip = "Menu Principal"
-size_flags_horizontal = 2
+size_flags_horizontal = 0
 custom_fonts/font = SubResource( 82 )
 custom_styles/hover = SubResource( 83 )
 custom_styles/pressed = SubResource( 84 )
@@ -615,17 +690,44 @@ custom_styles/normal = SubResource( 87 )
 text = ""
 script = SubResource( 88 )
 
+[node name="Tip" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_right = 260.0
+hint_tooltip = "Dicas Restantes"
+size_flags_horizontal = 2
+custom_fonts/font = SubResource( 143 )
+custom_styles/hover = SubResource( 144 )
+custom_styles/pressed = SubResource( 145 )
+custom_styles/focus = SubResource( 146 )
+custom_styles/disabled = SubResource( 147 )
+custom_styles/normal = SubResource( 148 )
+text = "ﯦ"
+selected_color = 1
+
+[node name="Counter" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Tip"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -15.0
+margin_top = -10.0
+margin_right = -15.0
+margin_bottom = -10.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 149 )
+text = "3"
+align = 2
+valign = 2
+
 [node name="Container" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BarContainer"]
-margin_left = 488.0
-margin_right = 973.0
+margin_left = 540.0
+margin_right = 921.0
 margin_bottom = 120.0
 size_flags_horizontal = 3
 alignment = 1
 
 [node name="Time" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container"]
-margin_left = 152.0
+margin_left = 100.0
 margin_top = 20.0
-margin_right = 332.0
+margin_right = 280.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 180, 80 )
 size_flags_horizontal = 4
@@ -640,9 +742,9 @@ valign = 1
 
 [node name="Level" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container"]
 visible = false
-margin_left = 204.0
+margin_left = 143.0
 margin_top = 84.0
-margin_right = 280.0
+margin_right = 219.0
 margin_bottom = 122.0
 size_flags_horizontal = 4
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -652,11 +754,18 @@ text = "Nível"
 align = 1
 valign = 1
 
+[node name="Gap" type="Panel" parent="MarginContainer/VBoxContainer/BarContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 941.0
+margin_right = 1321.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+
 [node name="Help" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 3 )]
-margin_left = 1342.0
-margin_right = 1462.0
+margin_left = 1341.0
+margin_right = 1461.0
 hint_tooltip = "Como Jogar"
-size_flags_horizontal = 10
+size_flags_horizontal = 8
 custom_fonts/font = SubResource( 96 )
 custom_styles/hover = SubResource( 97 )
 custom_styles/pressed = SubResource( 98 )
@@ -1074,4 +1183,5 @@ stretch_mode = 6
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Home" to="." method="_on_Home_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Tip" to="." method="_on_Tip_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Help" to="." method="_on_Help_pressed"]

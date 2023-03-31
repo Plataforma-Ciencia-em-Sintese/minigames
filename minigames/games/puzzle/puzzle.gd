@@ -39,6 +39,9 @@ var _timer_counter: int = 0 \
 var _failed_attempt: int = 0 \
 		setget set_failed_attempt, get_failed_attempt
 
+var _tip_counter: int = int(3) \
+		setget set_tip_counter, get_tip_counter
+
 
 #  [ONREADY_VARIABLES]
 onready var grid_slots: GridContainer = $MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer
@@ -47,6 +50,7 @@ onready var timer: Timer = $Timer
 onready var timer_label: Label = $MarginContainer/VBoxContainer/BarContainer/Container/Time
 onready var full_image: TextureRect = $MarginContainer/VBoxContainer/GameContainer/Panel/FullImage
 onready var animation: AnimationPlayer = $AnimationPlayer
+onready var tip_counter: Label = $MarginContainer/VBoxContainer/BarContainer/Tip/Counter
 
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
@@ -95,6 +99,15 @@ func set_failed_attempt(new_value: int) -> void:
 
 func get_failed_attempt() -> int:
 	return _failed_attempt
+
+
+func set_tip_counter(new_value: int) -> void:
+	_tip_counter = new_value
+	tip_counter.text = str(new_value)
+
+
+func get_tip_counter() -> int:
+	return _tip_counter
 
 
 #  [PRIVATE_METHODS]
@@ -320,3 +333,21 @@ func _on_Help_pressed() -> void:
 func _on_HowToPlay_closed() -> void:
 	if get_timer_counter() > 0:
 		timer.start()
+
+
+func _on_Tip_pressed() -> void:
+	if get_tip_counter() > 0:
+		var slots: Array = Array([])
+		
+		for slot in grid_slots.get_children():
+			slot.check_dropped_piece()
+			if slot.get_dropped_piece() == null:
+				if slot.get_child(0).visible == false:
+					slots.append(slot)
+		
+		randomize()
+		var index: int = randi() % slots.size()
+		slots[index].get_child(0).visible = true
+		slots[index].get_child(0).set("modulate", Color(1.0, 1.0, 1.0, 0.5))
+		
+		set_tip_counter(get_tip_counter() - 1)
