@@ -69,6 +69,8 @@ func _ready() -> void:
 			grid_slots.get_child(index).connect("occupied", self, "_on_Slot_occupied")
 		if pieces.get_child(index) is Control:
 			pieces.get_child(index).connect("dropped", self, "_on_Piece_dropped")
+	
+	_mess_the_pieces()
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
@@ -177,6 +179,12 @@ func _load_all_textures() -> void:
 		pieces.get_child(index).set_id(index)
 		
 		index += 1
+
+
+func _mess_the_pieces() -> void:
+	yield(get_tree().create_timer(1.0), "timeout")
+	animation.play("mess_the_pieces")
+	yield(animation, "animation_finished")
 
 
 func _checks_combinations() -> void:
