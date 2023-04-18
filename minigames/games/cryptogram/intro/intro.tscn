@@ -1,0 +1,165 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/components/background/background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://intro/intro.gd" type="Script" id=2]
+[ext_resource path="res://assets/components/theme_button/theme_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/themes/default/default_color.theme" type="Theme" id=4]
+[ext_resource path="res://img/Vector_24.png" type="Texture" id=5]
+[ext_resource path="res://imageload/ImageLoad.gd" type="Script" id=6]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 910.0, 998.0, 137.0, 735.0, 705.0, 188.0 ],
+"_edit_vertical_guides_": [ 353.0, 1059.0, 972.0, 1840.0, 1810.0, 995.0 ]
+}
+
+[node name="Background" parent="." instance=ExtResource( 1 )]
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0.501961 )
+anchor_left = 0.506
+anchor_top = 0.127
+anchor_right = 0.958
+anchor_bottom = 0.681
+margin_left = 0.479919
+margin_top = -0.160004
+margin_bottom = -0.480042
+theme = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_left = 0.023
+anchor_top = 0.039
+anchor_right = 0.966
+anchor_bottom = 0.95
+
+[node name="lom_description" type="RichTextLabel" parent="Panel/VBoxContainer"]
+margin_right = 817.0
+margin_bottom = 420.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 4 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+text = "Este jogo foi criado com base no artigo \"Por que existe tanta diversidade de aves nas florestas tropicais?\" que explica porque as mudanças climáticas na região de florestas tropicais criaram uma diversidade de espécies de pássaros que existem na região.
+
+Neste jogo, todos os pássaros contidas nas cartas pertencem a este ecossistema.
+
+Bom divertimento!"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/VBoxContainer"]
+margin_top = 424.0
+margin_right = 817.0
+margin_bottom = 454.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource( 4 )
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Panel/VBoxContainer"]
+margin_top = 458.0
+margin_right = 817.0
+margin_bottom = 544.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 86 )
+ratio = 3.1
+stretch_mode = 1
+alignment_horizontal = 2
+alignment_vertical = 2
+
+[node name="article" parent="Panel/VBoxContainer/AspectRatioContainer" instance=ExtResource( 3 )]
+margin_left = 550.4
+margin_right = 817.0
+margin_bottom = 86.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+disabled = true
+text = "Ler o Texto"
+
+[node name="FootMenu" type="HBoxContainer" parent="."]
+anchor_left = 0.184
+anchor_top = 0.843
+anchor_right = 0.551
+anchor_bottom = 0.924
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="FootMenu"]
+margin_bottom = 87.0
+rect_min_size = Vector2( 0, 87 )
+ratio = 2.6
+stretch_mode = 1
+alignment_horizontal = 0
+alignment_vertical = 2
+
+[node name="ThemeButton" parent="FootMenu/AspectRatioContainer2" instance=ExtResource( 3 )]
+visible = false
+margin_right = 226.2
+margin_bottom = 87.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+text = "Créditos"
+
+[node name="WhiteSpace" type="Label" parent="FootMenu"]
+margin_left = 4.0
+margin_top = 36.0
+margin_right = 594.0
+margin_bottom = 50.0
+size_flags_horizontal = 3
+text = " "
+align = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="FootMenu"]
+margin_left = 598.0
+margin_right = 704.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 0, 87 )
+ratio = 2.25
+stretch_mode = 1
+alignment_horizontal = 2
+
+[node name="ThemeButton" parent="FootMenu/AspectRatioContainer" instance=ExtResource( 3 )]
+margin_left = -89.75
+margin_right = 106.0
+margin_bottom = 87.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+text = "Entrar"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_left = 0.0848958
+anchor_top = 0.0351852
+anchor_right = 0.45
+anchor_bottom = 0.764815
+size_flags_horizontal = 7
+size_flags_vertical = 7
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+anchor_left = 0.0848958
+anchor_top = 0.0351852
+anchor_right = 0.45
+anchor_bottom = 0.764815
+size_flags_horizontal = 7
+size_flags_vertical = 7
+expand = true
+stretch_mode = 5
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+selected_data = 2
+
+[connection signal="pressed" from="FootMenu/AspectRatioContainer2/ThemeButton" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="FootMenu/AspectRatioContainer/ThemeButton" to="." method="_on_enter_pressed"]

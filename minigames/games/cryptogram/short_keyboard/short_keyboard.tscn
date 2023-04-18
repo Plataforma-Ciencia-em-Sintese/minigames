@@ -1,0 +1,511 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/themes/default/default_color.theme" type="Theme" id=1]
+[ext_resource path="res://short_keyboard/short_keyboard.gd" type="Script" id=2]
+[ext_resource path="res://assets/components/theme_button/theme_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/components/theme_button_icon/theme_button_icon_small.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 23.0
+expand_margin_right = 23.0
+expand_margin_top = 25.0
+expand_margin_bottom = 25.0
+shadow_color = Color( 0, 0, 0, 0.266667 )
+shadow_size = 6
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[node name="Control" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 2 )
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Titulo" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+margin_right = 1920.0
+margin_bottom = 45.0
+alignment = 1
+
+[node name="Teclado" type="Label" parent="VBoxContainer/Titulo"]
+visible = false
+margin_left = 817.0
+margin_right = 964.0
+margin_bottom = 53.0
+grow_horizontal = 2
+text = "Teclado"
+
+[node name="Fechar" type="Button" parent="VBoxContainer/Titulo"]
+margin_right = 28.0
+margin_bottom = 45.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "X"
+align = 2
+
+[node name="Diminuir" type="Button" parent="VBoxContainer/Titulo"]
+margin_left = 32.0
+margin_right = 50.0
+margin_bottom = 45.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "-"
+align = 2
+
+[node name="Aumentar" type="Button" parent="VBoxContainer/Titulo"]
+margin_left = 54.0
+margin_right = 75.0
+margin_bottom = 45.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "+"
+align = 2
+
+[node name="Teclado2" type="Label" parent="VBoxContainer/Titulo"]
+margin_left = 79.0
+margin_right = 1813.0
+margin_bottom = 45.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+custom_styles/normal = SubResource( 1 )
+
+[node name="Mover" type="Button" parent="VBoxContainer/Titulo"]
+margin_left = 1817.0
+margin_right = 1920.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 30 )
+focus_mode = 0
+enabled_focus_mode = 0
+text = "mover"
+align = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/AspectRatioContainer"]
+margin_left = 420.0
+margin_right = 1500.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 5
+custom_constants/hseparation = 5
+columns = 4
+
+[node name="AspectRatioContainer28" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_right = 267.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer28" instance=ExtResource( 3 )]
+margin_left = 45.5
+margin_right = 221.5
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer29" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 272.0
+margin_right = 538.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer29" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer30" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 543.0
+margin_right = 809.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer30" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="backspace" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 814.0
+margin_right = 1080.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="backspace" parent="VBoxContainer/AspectRatioContainer/GridContainer/backspace" instance=ExtResource( 4 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+hint_tooltip = ""
+text = ""
+selected_color = 1
+
+[node name="AspectRatioContainer31" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_top = 181.0
+margin_right = 267.0
+margin_bottom = 357.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer31" instance=ExtResource( 3 )]
+margin_left = 45.5
+margin_right = 221.5
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer32" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 272.0
+margin_top = 181.0
+margin_right = 538.0
+margin_bottom = 357.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer32" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer33" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 543.0
+margin_top = 181.0
+margin_right = 809.0
+margin_bottom = 357.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer33" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer35" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 814.0
+margin_top = 181.0
+margin_right = 1080.0
+margin_bottom = 357.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer35" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer36" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_top = 362.0
+margin_right = 267.0
+margin_bottom = 538.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer36" instance=ExtResource( 3 )]
+margin_left = 45.5
+margin_right = 221.5
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer37" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 272.0
+margin_top = 362.0
+margin_right = 538.0
+margin_bottom = 538.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer37" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer34" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 543.0
+margin_top = 362.0
+margin_right = 809.0
+margin_bottom = 538.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer34" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer38" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 814.0
+margin_top = 362.0
+margin_right = 1080.0
+margin_bottom = 538.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer38" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer39" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_top = 543.0
+margin_right = 267.0
+margin_bottom = 719.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer39" instance=ExtResource( 3 )]
+margin_left = 45.5
+margin_right = 221.5
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer40" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 272.0
+margin_top = 543.0
+margin_right = 538.0
+margin_bottom = 719.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer40" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer41" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 543.0
+margin_top = 543.0
+margin_right = 809.0
+margin_bottom = 719.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer41" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer42" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 814.0
+margin_top = 543.0
+margin_right = 1080.0
+margin_bottom = 719.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer42" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer43" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_top = 724.0
+margin_right = 267.0
+margin_bottom = 900.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer43" instance=ExtResource( 3 )]
+margin_left = 45.5
+margin_right = 221.5
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer44" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 272.0
+margin_top = 724.0
+margin_right = 538.0
+margin_bottom = 900.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer44" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer45" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 543.0
+margin_top = 724.0
+margin_right = 809.0
+margin_bottom = 900.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer45" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer46" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 814.0
+margin_top = 724.0
+margin_right = 1080.0
+margin_bottom = 900.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer46" instance=ExtResource( 3 )]
+margin_left = 45.0
+margin_right = 221.0
+margin_bottom = 176.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer47" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_top = 905.0
+margin_right = 267.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer47" instance=ExtResource( 3 )]
+margin_left = 46.0
+margin_right = 221.0
+margin_bottom = 175.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer48" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 272.0
+margin_top = 905.0
+margin_right = 538.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer48" instance=ExtResource( 3 )]
+margin_left = 45.5
+margin_right = 220.5
+margin_bottom = 175.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer49" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 543.0
+margin_top = 905.0
+margin_right = 809.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer49" instance=ExtResource( 3 )]
+margin_left = 45.5
+margin_right = 220.5
+margin_bottom = 175.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[node name="AspectRatioContainer50" type="AspectRatioContainer" parent="VBoxContainer/AspectRatioContainer/GridContainer"]
+margin_left = 814.0
+margin_top = 905.0
+margin_right = 1080.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment_vertical = 0
+
+[node name="ThemeButton" parent="VBoxContainer/AspectRatioContainer/GridContainer/AspectRatioContainer50" instance=ExtResource( 3 )]
+margin_left = 45.5
+margin_right = 220.5
+margin_bottom = 175.0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+text = "A"
+
+[connection signal="pressed" from="VBoxContainer/Titulo/Fechar" to="." method="_switch_visibility"]
+[connection signal="pressed" from="VBoxContainer/Titulo/Diminuir" to="." method="_reduce_keyboard"]
+[connection signal="pressed" from="VBoxContainer/Titulo/Aumentar" to="." method="_grow_keyboard"]
+[connection signal="button_down" from="VBoxContainer/Titulo/Mover" to="." method="_drag_keyboard"]
+[connection signal="button_up" from="VBoxContainer/Titulo/Mover" to="." method="_drop_keyboard"]
