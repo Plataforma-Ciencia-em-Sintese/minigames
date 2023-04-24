@@ -77,6 +77,9 @@ func _ready() -> void:
 		API.ResourceID.PUZZLE:
 			_puzzle_home()
 
+		API.ResourceID.CRYPTOGRAM:
+			_cryptogram_home()
+
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
 #func _process(_delta: float) -> void:
@@ -206,6 +209,17 @@ func _puzzle_home() -> void:
 	levels_panel.visible = false
 
 	set_start_game_path("res://games/puzzle/puzzle.tscn")
+
+
+func _cryptogram_home() -> void:
+	logo.texture = load("res://assets/images/logo_cryptogram.png")
+
+	game_name.text = "CRIPTOGRAMA"
+
+	start_game_button.visible = true
+	levels_panel.visible = false
+
+	set_start_game_path("res://games/cryptogram/cryptogram.tscn")
 
 
 

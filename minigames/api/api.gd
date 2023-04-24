@@ -59,7 +59,7 @@ var _is_request_error: bool = bool(false) \
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
 	connect("a_request_completed", self, "_on_a_request_completed")
-	
+
 	common = RequestCommonOmeka.new()
 	add_child(common)
 	common.connect("all_request_common_completed", self, "_on_all_request_common_completed")
@@ -114,14 +114,14 @@ func is_all_request_completed() -> bool:
 
 
 #  [PRIVATE_METHODS]
- 
+
 
 #  [SIGNAL_METHODS]
 func _on_all_request_common_completed() -> void:
 	print("_on_all_request_common_completed()")
 	set_is_common_completed(true)
 	emit_signal("a_request_completed")
-	
+
 	theme = RequestThemeOmeka.new()
 	add_child(theme)
 	theme.connect("all_request_theme_completed", self, "_on_all_request_theme_completed")
@@ -132,23 +132,23 @@ func _on_all_request_theme_completed() -> void:
 	print("_on_all_request_theme_completed()")
 	set_is_theme_completed(true)
 	emit_signal("a_request_completed")
-	
+
 	match(common.get_resource_id()):
 		ResourceID.METCHING_GAME:
 			game = RequestMatchingGameOmeka.new()
-		
+
 		ResourceID.MOMORY_GAME:
 			game = RequestMemoryGameOmeka.new()
-		
+
 		ResourceID.QUIZ:
 			game = RequestQuizOmeka.new()
-		
+
 		ResourceID.PUZZLE:
 			game = RequestPuzzleOmeka.new()
-		
+
 		ResourceID.CRYPTOGRAM:
 			game = RequestCryptogramOmeka.new()
-	
+
 	if not game == null:
 		add_child(game)
 		game.connect("all_request_game_completed", self, "_on_all_request_game_completed")
@@ -170,5 +170,5 @@ func _on_request_error(request_failed: String) -> void:
 	if not get_is_request_error():
 		set_is_request_error(true)
 		emit_signal("all_request_failed")
-	
+
 	push_error(request_failed)

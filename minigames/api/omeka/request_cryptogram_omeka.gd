@@ -42,9 +42,9 @@ func _ready() -> void:
 	print("RequestGameOmeka call _ready()")
 	_request_main()
 	_request_words()
-	
-	
-	
+
+
+
 	yield(self, "request_words_completed")
 #	print(_words)
 	# called upon completion of all requests
@@ -52,7 +52,7 @@ func _ready() -> void:
 
 	# clear the result of the main request
 	set_resources(Dictionary())
-	
+
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
 #func _process(_delta: float) -> void:
@@ -78,7 +78,7 @@ func get_resources() -> Dictionary:
 #		request(http_request, URL_BASE + str(url_parameters["id"]))
 #	else:
 #		emit_signal("request_error", "RequestGameOmeka._request_main(): property not found")
- 
+
 
 func _request_main() -> void:
 	var url_parameters := URL.get_parameters(URL.TEST_URL)
@@ -111,7 +111,7 @@ func _request_words() -> void:
 				emit_signal("request_error", "RequestGameOmeka._request_main(): invalid game data")
 			entry["clue"] = clue
 			_words[word] = entry
-			
+
 		emit_signal("request_words_completed")
 	else:
 		emit_signal("request_error", "RequestGameOmeka._request_main(): property not found")
@@ -121,10 +121,10 @@ func _on_request_main(_result: int, response_code: int, _headers: PoolStringArra
 	if response_code == 200:
 		var json := JSON.parse(body.get_string_from_utf8())
 		#print(str(JSON.print(json.result, "\t")))
-		
+
 		match(typeof(json.result)):
 			TYPE_DICTIONARY:
-				
+
 				if json.result.has("o:resource_template"):
 					if int(json.result["o:resource_template"]["o:id"]) == RESOURCE_MODEL_ID:
 						set_resources(json.result)
@@ -133,10 +133,10 @@ func _on_request_main(_result: int, response_code: int, _headers: PoolStringArra
 						emit_signal("request_error", "RequestGameOmeka._on_request_main(): The resource model ID is valid but does not match as expected")
 				else:
 					emit_signal("request_error", "RequestGameOmeka._on_request_main(): property not found")
-				
+
 			_:
 				emit_signal("request_error", "RequestGameOmeka._on_request_main(): Unexpected results from JSON response")
-		
+
 	else:
 		emit_signal("request_error", str("RequestGameOmeka._on_request_main(): response code return error: ", response_code))
 

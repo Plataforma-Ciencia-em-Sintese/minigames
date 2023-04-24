@@ -18,8 +18,8 @@ enum SOLVE_TARGET {
 }
 
 #  [CONSTANTS]
-const scene_entry = preload("res://entry/entry.tscn")
-const scene_letter = preload("res://entry/letter.tscn")
+const scene_entry = preload("res://games/cryptogram/entry/entry.tscn")
+const scene_letter = preload("res://games/cryptogram/entry/letter.tscn")
 
 const ALLOWED_KEYS = [81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 65, 83, 68, 70, 71, 72, 74, 75, 76, 90, 88, 67, 86, 66, 78, 77, 59, 16777220]
 const SPECIAL_CHAR_DICIO = {'Á': 'A', 'À': 'A', 'Ã': 'A', 'Â': 'A', 'É': 'E', 'È': 'E', 'Ẽ': 'E', 'Ê': 'E', 'Í': 'I', 'Ì': 'I', 'Ĩ': 'I', 'Î': 'I', 'Ó': 'O', 'Ò': 'O', 'Õ': 'O', 'Ô': 'O', 'Ú': 'U', 'Ù': 'U', 'Ũ': 'U', 'Û': 'U', 'Ç': 'C', 'Ñ': 'N', '': ' ', ' ': ' '}
@@ -109,12 +109,12 @@ onready var _reset_color: int = -1
 func _ready():
 	_gen_solution_table()
 	_populate_table()
-	print(API.get_game_words())
+	print(API.game.get_words())
 	if OS.has_virtual_keyboard():
 		$HidedText.text = "Há suporte"
 #		OS.show_virtual_keyboard()
 #	_timer.start()
-	
+
 #	print(_solution_mask)
 #  [BUILT-IN_VIRTUAL_METHOD]
 
@@ -122,7 +122,7 @@ func _unhandled_key_input(event):
 #	print(event)
 #	if event is InputEventKey:
 #		print(event.is_pressed())
-		
+
 	if event is InputEventKey and event.is_pressed():
 		var event_key = event as InputEventKey
 #		var dic_button = _verify_owner(self.get_focus_owner()) as Dictionary
@@ -150,7 +150,7 @@ func _unhandled_key_input(event):
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
 #func _process(_delta: float) -> void:
-##	_timer_display.text = 
+##	_timer_display.text =
 #	print(_timer.wait_time)
 #	print(_timer.time_left)
 #	print(_timer.is_stopped())
@@ -195,7 +195,7 @@ func _gen_solution_table() -> void:
 		_user_solution[symbol] = ""
 
 func _populate_table() -> void:
-	for i in API.get_game_words():
+	for i in API.game.get_words():
 #		print(i.to_upper())
 		var i_entry : Panel = scene_entry.instance()
 		var i_box : HBoxContainer = i_entry.get_node("Entry")
@@ -208,7 +208,7 @@ func _populate_table() -> void:
 #		print(API.get_game_words())
 #		print(i_tip)
 #		i_tip.text = API.get_game_words()[i]["clue"]
-		var large_clue = _extra_espace(API.get_game_words()[i]["clue"])
+		var large_clue = _extra_espace(API.game.get_words()[i]["clue"])
 		i_tip.text = large_clue
 #		i_tip.text = i
 #		i_tip.text = "i_text"
@@ -230,7 +230,7 @@ func _populate_table() -> void:
 				j_pic.text = " "
 				j_sol.disabled = true
 			i_box.add_child(j_letter)
-			
+
 
 func _extra_espace(text: String) -> String:
 	if (len(text) > 50):
@@ -305,7 +305,7 @@ func _on_home_pressed():
 func _on_Timer_timeout():
 	_run_time += 1
 	_timer_display.text = "%02d:%02d" % [(_run_time/60) % 60, _run_time % 60]
-	
+
 	_reset_color -= 1
 	if (_reset_color == 0):
 		emit_signal("table_reset_color")
@@ -326,4 +326,4 @@ func _on_tip_pressed():
 			get_tree().input_event(new_event)
 			var flush_event = InputEventKey.new()
 			get_tree().input_event(flush_event)
-			
+

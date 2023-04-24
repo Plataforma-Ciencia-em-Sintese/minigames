@@ -1,20 +1,18 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=47 format=2]
 
-[ext_resource path="res://game/game.gd" type="Script" id=1]
-[ext_resource path="res://assets/themes/default/default_color.theme" type="Theme" id=2]
+[ext_resource path="res://games/cryptogram/cryptogram.gd" type="Script" id=1]
 [ext_resource path="res://assets/components/theme_button/theme_button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/components/background/background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://assets/themes/default/complementary_color.theme" type="Theme" id=6]
+[ext_resource path="res://assets/theme.tres" type="Theme" id=6]
 [ext_resource path="res://assets/fonts/JetBrainsMono/JetBrainsMonoNerdFontCompleteM-Regular.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=8]
-[ext_resource path="res://img/tela-2.png" type="Texture" id=9]
-[ext_resource path="res://game/panel_information/panel_information.gd" type="Script" id=10]
-[ext_resource path="res://img/quadro1.png" type="Texture" id=11]
-[ext_resource path="res://assets/components/theme_button_icon/theme_button_icon.tscn" type="PackedScene" id=12]
-[ext_resource path="res://imageload/ImageLoad.gd" type="Script" id=13]
-[ext_resource path="res://img/logo-generica2 10.png" type="Texture" id=14]
-[ext_resource path="res://assets/components/theme_button_icon/theme_button_icon_small.tscn" type="PackedScene" id=15]
+[ext_resource path="res://games/cryptogram/img/tela-2.png" type="Texture" id=9]
+[ext_resource path="res://games/cryptogram/panel_information/panel_information.gd" type="Script" id=10]
+[ext_resource path="res://games/cryptogram/img/quadro1.png" type="Texture" id=11]
+[ext_resource path="res://games/cryptogram/imageload/ImageLoad.gd" type="Script" id=13]
+[ext_resource path="res://games/cryptogram/img/logo-generica2 10.png" type="Texture" id=14]
+[ext_resource path="res://assets/components/theme_button_icon/theme_button_icon.tscn" type="PackedScene" id=15]
 
 [sub_resource type="StyleBoxFlat" id=31]
 bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
@@ -304,15 +302,13 @@ __meta__ = {
 }
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_right = 33.0
-margin_bottom = 117.0
+margin_right = 120.0
+margin_bottom = 120.0
 stretch_mode = 1
 alignment_horizontal = 0
 
-[node name="ThemeButtonIcon" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer" instance=ExtResource( 12 )]
+[node name="ThemeButtonIcon" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer" instance=ExtResource( 15 )]
 visible = false
-margin_right = 117.0
-margin_bottom = 117.0
 hint_tooltip = "Voltar para o menu iniciar"
 size_flags_horizontal = 7
 size_flags_vertical = 7
@@ -320,28 +316,24 @@ text = ""
 selected_color = 1
 
 [node name="ThemeButtonIcon2" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer" instance=ExtResource( 15 )]
-margin_right = 117.0
-margin_bottom = 117.0
 text = ""
 
 [node name="PlaceHolder" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 39.0
-margin_top = 51.0
-margin_right = 116.0
-margin_bottom = 65.0
+margin_left = 126.0
+margin_top = 53.0
+margin_right = 203.0
+margin_bottom = 67.0
 rect_min_size = Vector2( 77, 0 )
 align = 1
 
 [node name="AspectRatioContainer2" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 122.0
-margin_right = 155.0
-margin_bottom = 117.0
+margin_left = 209.0
+margin_right = 329.0
+margin_bottom = 120.0
 stretch_mode = 1
 alignment_horizontal = 0
 
 [node name="ThemeButtonIcon" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2" instance=ExtResource( 15 )]
-margin_right = 117.0
-margin_bottom = 117.0
 custom_styles/hover = SubResource( 31 )
 custom_styles/pressed = SubResource( 32 )
 custom_styles/focus = SubResource( 33 )
@@ -360,7 +352,7 @@ margin_top = -50.0
 margin_right = -6.0
 margin_bottom = -5.0
 size_flags_horizontal = 2
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_styles/normal = SubResource( 5 )
 text = "10"
@@ -368,56 +360,52 @@ align = 2
 
 [node name="ThemeButtonIcon3" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2" instance=ExtResource( 15 )]
 visible = false
-margin_right = 117.0
-margin_bottom = 117.0
 text = "ﯦ"
 selected_color = 1
 
-[node name="tipbutton" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2" instance=ExtResource( 12 )]
+[node name="tipbutton" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2" instance=ExtResource( 15 )]
 visible = false
-margin_right = 117.0
-margin_bottom = 117.0
 hint_tooltip = "Solução da letra atual."
 size_flags_horizontal = 7
 size_flags_vertical = 7
 text = "ﯦ"
 
 [node name="PlaceHolder3" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 161.0
-margin_top = 51.0
-margin_right = 238.0
-margin_bottom = 65.0
+margin_left = 335.0
+margin_top = 53.0
+margin_right = 412.0
+margin_bottom = 67.0
 rect_min_size = Vector2( 77, 0 )
 align = 1
 
 [node name="Label2" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 244.0
-margin_top = 51.0
-margin_right = 865.0
-margin_bottom = 65.0
+margin_left = 418.0
+margin_top = 53.0
+margin_right = 966.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 
 [node name="timer" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 871.0
-margin_right = 972.0
-margin_bottom = 117.0
+margin_left = 972.0
+margin_right = 1008.0
+margin_bottom = 120.0
 size_flags_vertical = 5
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 text = "00:00"
 align = 1
 valign = 1
 
 [node name="Label3" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 978.0
-margin_top = 51.0
-margin_right = 1599.0
-margin_bottom = 65.0
+margin_left = 1014.0
+margin_top = 53.0
+margin_right = 1563.0
+margin_bottom = 67.0
 size_flags_horizontal = 3
 
 [node name="AspectRatioContainer4" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 1605.0
-margin_right = 1605.0
-margin_bottom = 117.0
+margin_left = 1569.0
+margin_right = 1569.0
+margin_bottom = 120.0
 grow_horizontal = 0
 ratio = 3.5
 stretch_mode = 1
@@ -425,31 +413,31 @@ alignment_horizontal = 2
 
 [node name="Button" type="Button" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer4"]
 visible = false
-margin_left = -409.5
-margin_bottom = 117.0
+margin_left = -420.0
+margin_bottom = 120.0
 grow_horizontal = 0
 theme = ExtResource( 6 )
 text = "TECLADO"
 
 [node name="PlaceHolder2" type="Label" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 1611.0
-margin_top = 51.0
-margin_right = 1716.0
-margin_bottom = 65.0
+margin_left = 1575.0
+margin_top = 53.0
+margin_right = 1680.0
+margin_bottom = 67.0
 rect_min_size = Vector2( 105, 0 )
 align = 1
 
 [node name="AspectRatioContainer3" type="AspectRatioContainer" parent="AspectRatioContainer/Separador/HBoxContainer"]
-margin_left = 1722.0
+margin_left = 1686.0
 margin_right = 1759.0
-margin_bottom = 117.0
+margin_bottom = 120.0
 stretch_mode = 1
 alignment_horizontal = 2
 
 [node name="ThemeButton" parent="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer3" instance=ExtResource( 3 )]
-margin_left = -80.0
-margin_right = 37.0
-margin_bottom = 117.0
+margin_left = -47.0
+margin_right = 73.0
+margin_bottom = 120.0
 hint_tooltip = "Como Jogar"
 size_flags_horizontal = 7
 size_flags_vertical = 7
@@ -468,7 +456,7 @@ anchor_top = 0.144564
 anchor_right = 1.0
 anchor_bottom = 1.0145
 rect_min_size = Vector2( 768, 0 )
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -496,7 +484,7 @@ __meta__ = {
 margin_right = 563.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 0, 30 )
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 bbcode_enabled = true
 bbcode_text = "[b][color=#000000]Clique nos números no quadrado ao lado:"
 text = "Clique nos números no quadrado ao lado:"
@@ -507,7 +495,7 @@ margin_top = 34.0
 margin_right = 557.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 0, 50 )
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 bbcode_enabled = true
 bbcode_text = "[b]Orientação"
 text = "Orientação"
@@ -525,7 +513,7 @@ margin_bottom = 410.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.08
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[b]N"
@@ -537,7 +525,7 @@ margin_right = 557.0
 margin_bottom = 410.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
@@ -701,7 +689,7 @@ __meta__ = {
 margin_left = 0.0192261
 margin_right = 1463.98
 margin_bottom = 864.0
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="HowToPlay/Panel"]
 anchor_right = 1.0
@@ -709,7 +697,7 @@ margin_left = 585.0
 margin_top = -41.0
 margin_right = -586.0
 margin_bottom = 43.0
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 text = "Como Jogar"
 align = 1
 valign = 1
@@ -732,7 +720,7 @@ margin_bottom = 84.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Seu Objetivo é através das dicas de cada número, descobrir a palavra correta para preencher os espaços."
 fit_content_height = true
@@ -779,7 +767,7 @@ margin_right = 367.0
 margin_bottom = 707.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 9 )
 text = "Escolha um número, clique e leia atentamente a dica"
@@ -819,7 +807,7 @@ margin_right = 367.0
 margin_bottom = 707.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 9 )
 text = "Conte quantos quadrados tem, eles correspondem ao número de letras destas palavra e pensando na dica faça suas tentativas digitando no teclado que aparece na tela."
@@ -859,7 +847,7 @@ margin_right = 367.0
 margin_bottom = 707.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 9 )
 text = "Lembre-se: A palavra que você sugeriu deve caber no espaço relacionado à palavra pertencente ao número escolhido, divirta-se!"
@@ -885,7 +873,7 @@ __meta__ = {
 margin_left = 0.0270996
 margin_right = 1402.97
 margin_bottom = 916.0
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="gameOver/AspectRatioContainer/Panel"]
 anchor_left = 0.0570229
@@ -905,7 +893,7 @@ margin_bottom = 127.0
 stretch_mode = 1
 alignment_horizontal = 0
 
-[node name="share" parent="gameOver/AspectRatioContainer/Panel/HBoxContainer/AspectRatioContainer" instance=ExtResource( 12 )]
+[node name="share" parent="gameOver/AspectRatioContainer/Panel/HBoxContainer/AspectRatioContainer" instance=ExtResource( 15 )]
 margin_right = 127.0
 margin_bottom = 127.0
 size_flags_horizontal = 3
@@ -930,9 +918,8 @@ grow_horizontal = 0
 stretch_mode = 1
 alignment_horizontal = 2
 
-[node name="Reset" parent="gameOver/AspectRatioContainer/Panel/HBoxContainer/AspectRatioContainer2" instance=ExtResource( 12 )]
-margin_left = -71.0
-margin_right = 56.0
+[node name="Reset" parent="gameOver/AspectRatioContainer/Panel/HBoxContainer/AspectRatioContainer2" instance=ExtResource( 15 )]
+margin_left = -7.0
 margin_bottom = 127.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -948,9 +935,8 @@ grow_horizontal = 0
 stretch_mode = 1
 alignment_horizontal = 2
 
-[node name="Home" parent="gameOver/AspectRatioContainer/Panel/HBoxContainer/AspectRatioContainer3" instance=ExtResource( 12 )]
-margin_left = -71.0
-margin_right = 56.0
+[node name="Home" parent="gameOver/AspectRatioContainer/Panel/HBoxContainer/AspectRatioContainer3" instance=ExtResource( 15 )]
+margin_left = -7.0
 margin_bottom = 127.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -961,7 +947,7 @@ anchor_left = 0.0570229
 anchor_top = 0.05131
 anchor_right = 0.38633
 anchor_bottom = 0.370087
-theme = ExtResource( 2 )
+theme = ExtResource( 6 )
 custom_fonts/bold_font = SubResource( 7 )
 bbcode_enabled = true
 bbcode_text = "[b]Parabéns![/b]
@@ -1212,7 +1198,7 @@ size_flags_vertical = 9
 custom_constants/separation = 15
 alignment = 2
 
-[node name="Share" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/ButtonsContainer" instance=ExtResource( 12 )]
+[node name="Share" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/ButtonsContainer" instance=ExtResource( 15 )]
 visible = false
 margin_left = 149.0
 margin_right = 269.0
@@ -1225,7 +1211,7 @@ custom_styles/normal = SubResource( 24 )
 disabled = true
 text = ""
 
-[node name="Restart" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/ButtonsContainer" instance=ExtResource( 12 )]
+[node name="Restart" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/ButtonsContainer" instance=ExtResource( 15 )]
 margin_left = 285.0
 margin_right = 341.0
 margin_bottom = 114.0
@@ -1238,7 +1224,7 @@ custom_styles/disabled = SubResource( 23 )
 custom_styles/normal = SubResource( 24 )
 text = ""
 
-[node name="Skip" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/ButtonsContainer" instance=ExtResource( 12 )]
+[node name="Skip" parent="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/ButtonsContainer" instance=ExtResource( 15 )]
 margin_left = 928.0
 margin_right = 984.0
 margin_bottom = 114.0
@@ -1276,7 +1262,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="ShowPanelInformation" parent="." instance=ExtResource( 12 )]
+[node name="ShowPanelInformation" parent="." instance=ExtResource( 15 )]
 visible = false
 anchor_left = 0.9375
 anchor_top = 0.0773148

@@ -16,7 +16,8 @@ class_name URL #, res://class_name_icon.svg
 #const TEST_URL = "https://.../?id=27550&skip=0" # METCHING GAME
 #const TEST_URL = "https://.../?id=23391&skip=0" # MEMORY GAME
 #const TEST_URL = "https://.../?id=24810&skip=0" # QUIZ
-const TEST_URL = "https://.../?id=27837&skip=0" # PUZZLE
+#const TEST_URL = "https://.../?id=27837&skip=0" # PUZZLE
+const TEST_URL = "https://.../?id=27829&skip=0" # CRYPTOGRAM
 
 
 #  [EXPORTED_VARIABLES]
@@ -58,16 +59,16 @@ static func get_parameters(fake_url: String = "") -> Dictionary:
 		else:
 			push_error("Expected URL parameters but none found.")
 			return Dictionary()
-	
+
 	# For testing in environments other than HTML5.
 	else:
 		if fake_url == "":
 			fake_url = "https://.../?fake_url=yes&test=1&os=" + str(OS.get_name())
-		
+
 		raw_string = fake_url.split("?")[1]
-	
+
 	var strings: PoolStringArray = raw_string.split("&")
-	
+
 	var parameters: Dictionary = Dictionary()
 	for item in strings:
 		parameters[item.split("=")[0]] = item.split("=")[1]
@@ -82,6 +83,6 @@ static func is_parameters() -> bool:
 
 
 #  [PRIVATE_METHODS]
- 
+
 
 #  [SIGNAL_METHODS]
