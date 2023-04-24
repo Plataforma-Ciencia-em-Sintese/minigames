@@ -1,5 +1,5 @@
 #tool
-class_name RequestGame #, res://class_name_icon.svg
+class_name RequestCryptogram #, res://class_name_icon.svg
 extends Request
 
 

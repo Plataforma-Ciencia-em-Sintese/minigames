@@ -60,20 +60,20 @@ onready var hard_button: Button = $MarginContainer/AspectRatioContainer/MarginCo
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
 	_load_theme()
-	
+
 	game_title.text = API.common.get_short_title().to_upper()
-	
+
 	match(API.common.get_resource_id()):
-		
+
 		API.ResourceID.METCHING_GAME:
 			_metching_game_home()
-		
+
 		API.ResourceID.MOMORY_GAME:
 			_memory_game_home()
-		
+
 		API.ResourceID.QUIZ:
 			_quiz_home()
-		
+
 		API.ResourceID.PUZZLE:
 			_puzzle_home()
 
@@ -127,36 +127,36 @@ func _load_theme() -> void:
 		panel_logo_api.visible = true
 		panel_logo_placeholder.visible = false
 		logo_api.texture = API.common.get_game_logo()
-			
+
 	var game_name_font: Font = game_name.get("custom_fonts/font")
 	game_name_font.set("outline_color", API.theme.get_color(API.theme.PD1))
-	
+
 	game_title.set("custom_colors/font_color", API.theme.get_color(API.theme.PD1))
 	var game_title_state_normal: StyleBoxFlat = game_title.get("custom_styles/normal")
 	game_title_state_normal.set("border_color", API.theme.get_color(API.theme.PD1))
-	
+
 	level_title.set("custom_colors/font_color", API.theme.get_color(API.theme.PD1))
 	var level_title_state_normal: StyleBoxFlat = game_title.get("custom_styles/normal")
 	level_title_state_normal.set("border_color", API.theme.get_color(API.theme.PD1))
 
 
 func _memory_game_home() -> void:
-	
+
 	logo.texture = load("res://assets/images/logo_memory_game.png")
-	
+
 	game_name.text = "JOGO DA MEMÓRIA"
-	
+
 	start_game_button.visible = false
 	levels_panel.visible = true
-	
+
 	# Check data for levels
 	if API.game.has_locked_levels()["easy"]:
 		easy_button.disabled = true
 	if API.game.has_locked_levels()["medium"]:
 		medium_button.disabled = true
 	if API.game.has_locked_levels()["hard"]:
-		hard_button.disabled = true 
-	
+		hard_button.disabled = true
+
 	var path: String = "res://games/memory_game/memory_game.tscn"
 	set_easy_path(path)
 	set_medium_path(path)
@@ -165,32 +165,32 @@ func _memory_game_home() -> void:
 
 func _quiz_home() -> void:
 	logo.texture = load("res://assets/images/logo_quiz.png")
-	
+
 	game_name.text = "QUIZ"
-	
+
 	start_game_button.visible = true
 	levels_panel.visible = false
-	
+
 	set_start_game_path("res://games/quiz/quiz.tscn")
 
 
 func _metching_game_home() -> void:
-	
+
 	logo.texture = load("res://assets/images/logo_matching_game.png")
-	
+
 	game_name.text = "JOGO DA COMBINAÇÃO"
-	
+
 	start_game_button.visible = false
 	levels_panel.visible = true
-	
+
 	# Check data for levels
 	if API.game.has_locked_levels()["easy"]:
 		easy_button.disabled = true
 	if API.game.has_locked_levels()["medium"]:
 		medium_button.disabled = true
 	if API.game.has_locked_levels()["hard"]:
-		hard_button.disabled = true 
-	
+		hard_button.disabled = true
+
 	var path: String = "res://games/matching_game/matching_game.tscn"
 	set_easy_path(path)
 	set_medium_path(path)
@@ -199,15 +199,15 @@ func _metching_game_home() -> void:
 
 func _puzzle_home() -> void:
 	logo.texture = load("res://assets/images/logo_puzzle_game.png")
-	
+
 	game_name.text = "QUEBRA-CABEÇAS"
-	
+
 	start_game_button.visible = true
 	levels_panel.visible = false
-	
+
 	set_start_game_path("res://games/puzzle/puzzle.tscn")
 
- 
+
 
 #  [SIGNAL_METHODS]
 func _on_Easy_pressed() -> void:

@@ -1,6 +1,6 @@
 #tool
-class_name RequestGameOmeka #, res://class_name_icon.svg
-extends RequestGame
+class_name RequestCryptogramOmeka #, res://class_name_icon.svg
+extends RequestCryptogram
 
 
 #  [DOCSTRING]
@@ -69,8 +69,19 @@ func get_resources() -> Dictionary:
 
 
 #  [PRIVATE_METHODS]
+#func _request_main() -> void:
+#	var url_parameters := URL.get_parameters("https://.../?id=27829&skip=0")
+#	if url_parameters.has("id"):
+#		var http_request: HTTPRequest = HTTPRequest.new()
+#		add_child(http_request)
+#		http_request.connect("request_completed", self, "_on_request_main")
+#		request(http_request, URL_BASE + str(url_parameters["id"]))
+#	else:
+#		emit_signal("request_error", "RequestGameOmeka._request_main(): property not found")
+ 
+
 func _request_main() -> void:
-	var url_parameters := URL.get_parameters("https://.../?id=27829&skip=0")
+	var url_parameters := URL.get_parameters(URL.TEST_URL)
 	if url_parameters.has("id"):
 		var http_request: HTTPRequest = HTTPRequest.new()
 		add_child(http_request)
@@ -78,7 +89,7 @@ func _request_main() -> void:
 		request(http_request, URL_BASE + str(url_parameters["id"]))
 	else:
 		emit_signal("request_error", "RequestGameOmeka._request_main(): property not found")
- 
+
 
 func _request_words() -> void:
 	yield(self, "request_main_completed")
