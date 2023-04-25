@@ -11,6 +11,8 @@
 
 - [PUZZLE](https://plataforma-ciencia-em-sintese.github.io/minigames/deploy/index.html?id=27837&skip=0)
 
+- [CRYPTOGRAM](https://plataforma-ciencia-em-sintese.github.io/minigames/deploy/index.html?id=27829&skip=0)
+
 
 ## CHANGELOG
 - [Click here](CHANGELOG.md)
