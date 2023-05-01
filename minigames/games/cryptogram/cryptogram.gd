@@ -85,7 +85,7 @@ var _selected: String
 
 #  [ONREADY_VARIABLES]
 
-onready var _table: VBoxContainer = $AspectRatioContainer/Separador/Panel/GameTable
+onready var _table: VBoxContainer = $MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Panel/GameTable
 onready var _panel_info: Panel = $PanelInformation
 #onready var _back_panel: Panel = $AspectRatioContainer/Separador/Panel
 onready var _solution_letters: Dictionary = {}

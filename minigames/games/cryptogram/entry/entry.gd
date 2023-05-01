@@ -24,7 +24,7 @@ onready var box : HBoxContainer = $Entry
 #onready var tip : RichTextLabel = $Entry/Tip
 onready var tip : RichTextLabel = $Entry/Tip
 #onready var container : AspectRatioContainer = Raiz.find_node("AspectRatioContainer")
-onready var pan : Panel = get_node("../..")
+#onready var pan : Panel = get_node("../..")
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
 #func _init() -> void:
@@ -37,7 +37,7 @@ func _ready():
 #	print(pan)
 #	print(container)
 #	self.connect("resized_tip", container, "resized")
-	pan.connect("resized", self, "_resize_tip")
+#	pan.connect("resized", self, "_resize_tip")
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
@@ -58,12 +58,12 @@ func _update_theme() -> void:
 #	panel.border_color = API.theme.get_color(API.theme.PB)
 #	panel.border_color = API.theme.get_color(API.theme.PD1)
 	panel.border_color = Color(0, 0, 0, 0)
-	
+
 	tip.set("custom_colors/default_color", API.theme.get_color(API.theme.BLACK))
 
 #  [SIGNAL_METHODS]
-func _resize_tip() -> void:
-#	var size : float = container.rect_size.x
-	var size : float = pan.rect_size.x
-	tip.rect_min_size.x = size * proporcao
-	self.rect_min_size.x = size * proporcao
+#func _resize_tip() -> void:
+##	var size : float = container.rect_size.x
+#	var size : float = pan.rect_size.x
+#	tip.rect_min_size.x = size * proporcao
+#	self.rect_min_size.x = size * proporcao

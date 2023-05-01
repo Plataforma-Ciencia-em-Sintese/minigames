@@ -80,30 +80,30 @@ func _ready() -> void:
 #  [PUBLIC_METHODS]
 func set_current_mode(new_value: int) -> void:
 	_current_mode = new_value
-	
+
 	for child in level_area.get_children():
 		child.queue_free()
-	
+
 	var level_instance: MarginContainer = null
-	
+
 	match(_current_mode):
 		GameMode.EASY:
 			level_label.text = "Fácil"
 			level_instance = EASY_LEVEL.instance()
-			
-			
+
+
 		GameMode.MEDIUM:
 			level_label.text = "Médio"
 			level_instance = MEDIUM_LEVEL.instance()
-			
+
 		GameMode.HARD:
 			level_label.text = "Difícil"
 			level_instance = HARD_LEVEL.instance()
-	
+
 	level_area.add_child(level_instance)
-	
+
 	set_card_counter_level(level_instance.CARD_COUNTER)
-	
+
 	for slot in level_instance.target_slots:
 		slot.get_child(0).connect("was_combined", self, "_on_Target_was_combined")
 		slot.get_child(0).connect("attempt_to_combine", self, "_on_Target_attempt_to_combine")
@@ -140,7 +140,7 @@ func get_attempts_counter() -> int:
 func set_timer_counter(new_value: int) -> void:
 	_timer_counter = new_value
 	var seconds: int = _timer_counter
-	
+
 # warning-ignore:integer_division
 	timer_label.text = "%02d:%02d" % [(seconds/60) % 60, seconds % 60]
 
@@ -150,7 +150,7 @@ func get_timer_counter() -> int:
 
 func set_timer_has_starded(new_value: bool) -> void:
 	_timer_has_started = new_value
-	
+
 	match(_timer_has_started):
 		true:
 			timer.start()
@@ -176,53 +176,53 @@ func _scoring_rules() -> int:
 	var margin_time: int = 0
 	var stars: int = 0
 	var stars_check: bool = false
-	
+
 	match(get_current_mode()):
 		GameMode.EASY:
 			target_attempt = 10
 			margin_attempt = 5
 			target_time = 40
 			margin_time = 10
-			
+
 		GameMode.MEDIUM:
 			target_attempt = 20
 			margin_attempt = 5
 			target_time = 70
 			margin_time = 10
-			
+
 		GameMode.HARD:
 			target_attempt = 30
 			margin_attempt = 5
 			target_time = 90
 			margin_time = 10
-	
+
 	# three stars
 	if get_timer_counter() < target_time and get_attempts_counter() < target_attempt:
 		if not stars_check:
 			stars = 3
 			stars_check = true
-	
+
 	# two stars
 	elif get_timer_counter() < (target_time + margin_time) and get_attempts_counter() < (target_attempt + margin_attempt):
 		if not stars_check:
 			stars = 2
 			stars_check = true
-	
+
 	# one stars
 	elif (get_timer_counter() < (target_time + margin_time) and get_attempts_counter() > (target_attempt + margin_attempt)) or \
 			(get_timer_counter() > (target_time + margin_time) and get_attempts_counter() < (target_attempt + margin_attempt)):
 		if not stars_check:
 			stars = 1
 			stars_check = true
-	
+
 	# zero stars
 	elif get_timer_counter() > (target_time + margin_time) and get_attempts_counter() > (target_attempt + margin_attempt):
 		if not stars_check:
 			stars = 0
 			stars_check = true
-	
+
 	return stars
- 
+
 
 #  [SIGNAL_METHODS]
 func _on_Target_was_combined() -> void:
@@ -230,12 +230,12 @@ func _on_Target_was_combined() -> void:
 	if get_points_counter() + 1 == get_card_counter_level():
 		set_points_counter(get_points_counter() + 1)
 		emit_signal("end_game")
-		
+
 		set_timer_has_starded(false)
-		
+
 	else:
 		set_points_counter(get_points_counter() + 1)
-		
+
 		if not get_timer_has_started():
 			set_timer_has_starded(true)
 
@@ -243,7 +243,7 @@ func _on_Target_was_combined() -> void:
 func _on_Target_attempt_to_combine() -> void:
 	print("attempt to combine")
 	set_attempts_counter(get_attempts_counter() + 1)
-	
+
 	if not get_timer_has_started():
 		set_timer_has_starded(true)
 
@@ -251,15 +251,15 @@ func _on_Target_attempt_to_combine() -> void:
 func _on_Self_end_game() -> void:
 	var game_results_instance: Panel = GAME_RESULTS.instance()
 	add_child(game_results_instance)
-	
+
 	var message_game: String = String((
 		"Você completou o nível!\nConseguiu " +
 		"[color=#{color}][b]{stars}[/b][/color] estrelas."
 	).format({
-		"color": API.theme.get_color(API.theme.PB).to_html(false), 
+		"color": API.theme.get_color(API.theme.PB).to_html(false),
 		"stars": _scoring_rules()
 	}))
-	
+
 	var seconds: int = get_timer_counter()
 	var message_statistic: String = String((
 		"Tempo: [color=#{color}][b]{time}[/b][/color]" +
@@ -269,7 +269,7 @@ func _on_Self_end_game() -> void:
 		"time": "%02d:%02d" % [(seconds/60) % 60, seconds % 60],
 		"attempt": "%02d" % [get_attempts_counter()]
 	}))
-	
+
 	game_results_instance.update_data(message_game, message_statistic, _scoring_rules(), get_current_mode())
 	game_results_instance.connect("restart_level", self, "_on_GameResults_restart_level")
 	game_results_instance.connect("continue_level", self, "_on_GameResults_continue_level")
@@ -288,12 +288,12 @@ func _on_GameResults_continue_level() -> void:
 			if (targets + bullets) >= 18 or targets == bullets:
 				_reset_counters()
 				set_current_mode(GameMode.MEDIUM)
-			
+
 		GameMode.MEDIUM:
 			if (targets + bullets) >= 32 or targets == bullets:
 				_reset_counters()
 				set_current_mode(GameMode.HARD)
-			
+
 		GameMode.HARD:
 			if (targets + bullets) >= 12 or targets == bullets:
 				_reset_counters()
@@ -311,7 +311,7 @@ func _on_Home_pressed() -> void:
 
 func _on_Help_pressed() -> void:
 	timer.stop()
-	
+
 	var how_to_play_instance := HOW_TO_PLAY.instance()
 	add_child(how_to_play_instance)
 	how_to_play_instance.set_textures(HOW_TO_PLAY_TEXTURES)
