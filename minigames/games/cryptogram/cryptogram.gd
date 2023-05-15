@@ -94,12 +94,12 @@ onready var _reverse_solution: Dictionary = {}
 onready var _user_solution: Dictionary = {}
 onready var _game_running: bool = true
 onready var _timer: Timer = $Timer
-onready var _timer_display: Label = $AspectRatioContainer/Separador/HBoxContainer/timer
+onready var _timer_display: Label = $MarginContainer/VBoxContainer/BarContainer/Container/Time
 onready var _run_time: int = 0
 onready var _congratulation: RichTextLabel = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/CongratulationsContainer/TotalStars
 onready var _final_time: Label = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/StatisticsContainer/TimeContainer/TotalTime
 onready var _left_tips: int = 10
-onready var _tip_display: Label = $AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2/ThemeButtonIcon/tips
+onready var _tip_display: Label = $MarginContainer/VBoxContainer/BarContainer/Tip/Counter
 onready var _reset_color: int = -1
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
@@ -312,9 +312,17 @@ func _on_Timer_timeout():
 
 
 func _on_tip_pressed():
-	var selected: Control = self.get_focus_owner().get_parent().find_node("pic")
-	var simbol: String = selected.text
-	var solution: String = _simb_solution(simbol)
+	var selected: Control = null
+	var simbol: String = ""
+	var solution: String = ""
+
+	if self.get_focus_owner() != null:
+		selected = self.get_focus_owner().get_parent().find_node("pic")
+		simbol = selected.text
+		solution = _simb_solution(simbol)
+	else:
+		return
+
 	if (simbol != solution):
 		if (_left_tips > 0):
 			_left_tips -= 1

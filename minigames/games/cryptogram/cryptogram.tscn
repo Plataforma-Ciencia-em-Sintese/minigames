@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://games/cryptogram/cryptogram.gd" type="Script" id=1]
 [ext_resource path="res://assets/placeholder.png" type="Texture" id=2]
@@ -15,12 +15,12 @@
 [ext_resource path="res://games/cryptogram/img/logo-generica2 10.png" type="Texture" id=14]
 [ext_resource path="res://assets/components/theme_button_icon/theme_button_icon.tscn" type="PackedScene" id=15]
 
-[sub_resource type="DynamicFont" id=36]
+[sub_resource type="DynamicFont" id=54]
 size = 86
 use_filter = true
 font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxFlat" id=37]
+[sub_resource type="StyleBoxFlat" id=55]
 bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -36,7 +36,7 @@ expand_margin_right = 5.0
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxFlat" id=38]
+[sub_resource type="StyleBoxFlat" id=56]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -48,7 +48,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=39]
+[sub_resource type="StyleBoxFlat" id=57]
 bg_color = Color( 0.4, 0.4, 0.4, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -60,7 +60,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=40]
+[sub_resource type="StyleBoxFlat" id=58]
 bg_color = Color( 0.4, 0.4, 0.4, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -72,7 +72,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=41]
+[sub_resource type="StyleBoxFlat" id=59]
 bg_color = Color( 0.4, 0.4, 0.4, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -84,7 +84,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="GDScript" id=42]
+[sub_resource type="GDScript" id=60]
 script/source = "#tool
 #class_name Name #, res://class_name_icon.svg
 extends Button
@@ -197,12 +197,12 @@ func set_secondary_color() -> void:
 #  [SIGNAL_METHODS]
 "
 
-[sub_resource type="DynamicFont" id=43]
-size = 74
+[sub_resource type="DynamicFont" id=61]
+size = 86
 use_filter = true
-font_data = ExtResource( 5 )
+font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxFlat" id=44]
+[sub_resource type="StyleBoxFlat" id=62]
 bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -218,7 +218,7 @@ expand_margin_right = 5.0
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
-[sub_resource type="StyleBoxFlat" id=45]
+[sub_resource type="StyleBoxFlat" id=63]
 bg_color = Color( 1, 1, 1, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -230,7 +230,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=46]
+[sub_resource type="StyleBoxFlat" id=64]
 bg_color = Color( 0.4, 0.4, 0.4, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -242,7 +242,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=47]
+[sub_resource type="StyleBoxFlat" id=65]
 bg_color = Color( 0.4, 0.4, 0.4, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -254,7 +254,7 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id=48]
+[sub_resource type="StyleBoxFlat" id=66]
 bg_color = Color( 0.4, 0.4, 0.4, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -266,7 +266,103 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="GDScript" id=49]
+[sub_resource type="DynamicFont" id=67]
+size = 36
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=68]
+size = 40
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=69]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=70]
+size = 30
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=71]
+size = 74
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=72]
+bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=73]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=74]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=75]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=76]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id=77]
 script/source = "#tool
 #class_name Name #, res://class_name_icon.svg
 extends Button
@@ -683,32 +779,104 @@ margin_bottom = 120.0
 rect_min_size = Vector2( 1462, 120 )
 size_flags_horizontal = 4
 size_flags_vertical = 0
+custom_constants/separation = 20
 
 [node name="Home" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 15 )]
 hint_tooltip = "Menu Principal"
-size_flags_horizontal = 2
-custom_fonts/font = SubResource( 36 )
-custom_styles/hover = SubResource( 37 )
-custom_styles/pressed = SubResource( 38 )
-custom_styles/focus = SubResource( 39 )
-custom_styles/disabled = SubResource( 40 )
-custom_styles/normal = SubResource( 41 )
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 54 )
+custom_styles/hover = SubResource( 55 )
+custom_styles/pressed = SubResource( 56 )
+custom_styles/focus = SubResource( 57 )
+custom_styles/disabled = SubResource( 58 )
+custom_styles/normal = SubResource( 59 )
 text = ""
-script = SubResource( 42 )
+script = SubResource( 60 )
+
+[node name="Tip" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 15 )]
+margin_left = 140.0
+margin_right = 260.0
+hint_tooltip = "Dicas Restantes"
+size_flags_horizontal = 2
+custom_fonts/font = SubResource( 61 )
+custom_styles/hover = SubResource( 62 )
+custom_styles/pressed = SubResource( 63 )
+custom_styles/focus = SubResource( 64 )
+custom_styles/disabled = SubResource( 65 )
+custom_styles/normal = SubResource( 66 )
+text = "ﯦ"
+selected_color = 1
+
+[node name="Counter" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Tip"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -12.0
+margin_top = -8.0
+margin_right = -12.0
+margin_bottom = -8.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 67 )
+text = "10"
+align = 2
+valign = 2
+
+[node name="Container" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BarContainer"]
+margin_left = 540.0
+margin_right = 921.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Time" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container"]
+margin_left = 100.0
+margin_top = 20.0
+margin_right = 280.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 180, 80 )
+size_flags_horizontal = 4
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 68 )
+custom_styles/normal = SubResource( 69 )
+text = "00:00"
+align = 1
+valign = 1
+
+[node name="Level" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container"]
+visible = false
+margin_left = 143.0
+margin_top = 84.0
+margin_right = 219.0
+margin_bottom = 122.0
+size_flags_horizontal = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 70 )
+text = "Nível"
+align = 1
+valign = 1
+
+[node name="Gap" type="Panel" parent="MarginContainer/VBoxContainer/BarContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 941.0
+margin_right = 1321.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
 
 [node name="Help" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 15 )]
-margin_left = 1342.0
-margin_right = 1462.0
+margin_left = 1341.0
+margin_right = 1461.0
 hint_tooltip = "Como Jogar"
-size_flags_horizontal = 10
-custom_fonts/font = SubResource( 43 )
-custom_styles/hover = SubResource( 44 )
-custom_styles/pressed = SubResource( 45 )
-custom_styles/focus = SubResource( 46 )
-custom_styles/disabled = SubResource( 47 )
-custom_styles/normal = SubResource( 48 )
+size_flags_horizontal = 8
+custom_fonts/font = SubResource( 71 )
+custom_styles/hover = SubResource( 72 )
+custom_styles/pressed = SubResource( 73 )
+custom_styles/focus = SubResource( 74 )
+custom_styles/disabled = SubResource( 75 )
+custom_styles/normal = SubResource( 76 )
 text = "?"
-script = SubResource( 49 )
+script = SubResource( 77 )
 
 [node name="GameContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -1802,6 +1970,7 @@ __meta__ = {
 }
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Tip" to="." method="_on_tip_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer/ThemeButtonIcon2" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2/ThemeButtonIcon" to="." method="_on_tip_pressed"]
 [connection signal="pressed" from="PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/ButtonsContainer/Restart" to="." method="_on_home_pressed"]
