@@ -1970,6 +1970,7 @@ __meta__ = {
 }
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Home" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Tip" to="." method="_on_tip_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer/ThemeButtonIcon2" to="." method="_on_home_pressed"]
 [connection signal="pressed" from="AspectRatioContainer/Separador/HBoxContainer/AspectRatioContainer2/ThemeButtonIcon" to="." method="_on_tip_pressed"]
