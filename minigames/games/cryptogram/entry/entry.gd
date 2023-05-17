@@ -22,7 +22,7 @@ export (float, 0.1, 0.9) var proporcao = 0.23
 onready var Raiz : Control = find_parent("Raiz")
 onready var box : HBoxContainer = $Entry
 #onready var tip : RichTextLabel = $Entry/Tip
-onready var tip : RichTextLabel = $Entry/Tip
+onready var tip : Label = $Entry/Tip
 #onready var container : AspectRatioContainer = Raiz.find_node("AspectRatioContainer")
 #onready var pan : Panel = get_node("../..")
 

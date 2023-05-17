@@ -21,10 +21,14 @@ signal selected
 #  [PRIVATE_VARIABLES]
 
 #  [ONREADY_VARIABLES]
+
+var focus_blink: bool = false
+
 onready var Raiz : Control = find_parent("Raiz")
 onready var pic : Label = $letter/pic
 onready var letter : Button = $letter/letter
 #onready var pan : Panel = get_node("../../../..")
+onready var animation: AnimationPlayer = $AnimationPlayer
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]#9CF2D3
 #func _init() -> void:
@@ -52,10 +56,12 @@ func _ready():
 #  [PRIVATE_METHODS]
 
 func _update_theme() -> void:
+	focus_blink = true
+
 	# Background Panel
 	var panel : StyleBoxFlat = self.get("custom_styles/panel")
 #	panel.bg_color = API.theme.get_color(API.theme.PL2)
-#	panel.border_color = API.theme.get_color(API.theme.PB)
+	panel.border_color = API.theme.get_color(API.theme.PD1)
 #	panel.border_color = API.theme.get_color(API.theme.PD1)
 
 	# Label theme
@@ -71,12 +77,13 @@ func _update_theme() -> void:
 	var alpha_col : Color = Color(00,00,00,00)
 
 	hover.bg_color = API.theme.get_color(API.theme.PL2)
-	hover.border_color = API.theme.get_color(API.theme.PD1)
 	press.bg_color = API.theme.get_color(API.theme.PL2)
 	press.border_color = API.theme.get_color(API.theme.PD1)
-	focus.bg_color = API.theme.get_color(API.theme.PL2)
-	focus.border_color = API.theme.get_color(API.theme.PD1)
-#	disab.bg_color = API.theme.get_color(API.theme.PD2)
+	focus.bg_color = API.theme.get_color(API.theme.PD1)
+	focus.border_width_left = 22
+	focus.border_width_top = 5
+	focus.border_width_right = 22
+	focus.border_width_bottom = 5
 	disab.bg_color = alpha_col
 	disab.border_color = API.theme.get_color(API.theme.PD1)
 #	norma.bg_color = API.theme.get_color(API.theme.PB)
@@ -90,6 +97,8 @@ func _update_theme() -> void:
 	letter.set("custom_colors/font_color_pressed", API.theme.get_color(API.theme.PD2))
 
 func _update_invert_color():
+	focus_blink = false
+
 	# Label theme
 	pic.set("custom_colors/font_color", API.theme.get_color(API.theme.SL1))
 
@@ -102,11 +111,14 @@ func _update_invert_color():
 	var alpha_col : Color = Color(00,00,00,00)
 
 	hover.bg_color = API.theme.get_color(API.theme.SL2)
-	hover.border_color = API.theme.get_color(API.theme.SD1)
 	press.bg_color = API.theme.get_color(API.theme.SL2)
 	press.border_color = API.theme.get_color(API.theme.SD1)
 	focus.bg_color = API.theme.get_color(API.theme.SL2)
-	focus.border_color = API.theme.get_color(API.theme.SD1)
+	focus.border_width_left = 5
+	focus.border_width_top = 10
+	focus.border_width_right = 5
+	focus.border_width_bottom = 5
+#	focus.border_color = API.theme.get_color(API.theme.SD1)
 #	disab.bg_color = API.theme.get_color(API.theme.PD2)
 	disab.bg_color = alpha_col
 	disab.border_color = API.theme.get_color(API.theme.SD1)
@@ -127,6 +139,15 @@ func _invert_color() -> void:
 
 func _selected() -> void:
 	Raiz.set_selected_symbol(pic.text)
+
+func _focus_blink() -> void:
+	if focus_blink:
+		var focus : StyleBoxFlat = letter.get("custom_styles/focus")
+		if focus.bg_color.a == 1.0:
+			focus.bg_color.a = 0.0
+		else:
+			focus.bg_color.a = 1.0
+
 
 #  [SIGNAL_METHODS]
 
@@ -155,4 +176,5 @@ func _on_solution_changed():
 
 
 func _on_letter_focus_entered():
+	animation.play("letter_focus")
 	_on_letter_pressed()

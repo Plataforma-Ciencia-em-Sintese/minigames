@@ -42,7 +42,7 @@ var _article_link: String = "" \
 
 var _content_credits: String = "" \
 		setget set_content_credits, get_content_credits
-		
+
 var _mascot: ImageTexture = null \
 		setget set_mascot, get_mascot
 
@@ -91,7 +91,7 @@ func get_short_title() -> String:
 
 func set_article_summary(new_value: String) -> void:
 	_article_summary = new_value
-	
+
 
 
 func get_article_summary() -> String:
@@ -147,6 +147,6 @@ func get_sponsors_logo() -> ImageTexture:
 
 
 #  [PRIVATE_METHODS]
- 
+
 
 #  [SIGNAL_METHODS]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://games/cryptogram/cryptogram.gd" type="Script" id=1]
 [ext_resource path="res://assets/placeholder.png" type="Texture" id=2]
@@ -486,9 +486,6 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 anti_aliasing_size = 1.339
 
-[sub_resource type="StyleBoxFlat" id=53]
-bg_color = Color( 0.827451, 0.827451, 0.827451, 1 )
-
 [sub_resource type="StyleBoxFlat" id=31]
 bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
 border_width_left = 2
@@ -909,19 +906,34 @@ margin_top = 10.0
 margin_right = 1452.0
 margin_bottom = 890.0
 
-[node name="Pet" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer"]
-margin_right = 500.0
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_right = 1158.0
 margin_bottom = 880.0
-rect_min_size = Vector2( 500, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GameTable" type="VBoxContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+size_flags_horizontal = 3
+custom_constants/separation = 5
+
+[node name="Pet" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer"]
+margin_left = 1162.0
+margin_right = 1442.0
+margin_bottom = 880.0
+rect_min_size = Vector2( 280, 0 )
 size_flags_vertical = 7
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Pet"]
-margin_top = 190.0
-margin_right = 500.0
-margin_bottom = 690.0
+margin_top = 300.0
+margin_right = 280.0
+margin_bottom = 580.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 2 )
@@ -945,19 +957,6 @@ text = "PLACEHOLDER PET"
 align = 1
 valign = 1
 clip_text = true
-
-[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer"]
-margin_left = 504.0
-margin_right = 1442.0
-margin_bottom = 880.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_styles/panel = SubResource( 53 )
-
-[node name="GameTable" type="VBoxContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
 visible = false

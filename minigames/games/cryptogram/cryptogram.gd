@@ -203,7 +203,7 @@ func _populate_table() -> void:
 		var i_up : String = i.to_upper()
 #		var i_tip : Label = i_entry.get_node("Tip")
 #		var i_tip : RichTextLabel = i_entry.get_node("Entry/Tip")
-		var i_tip : RichTextLabel = i_entry.get_node("Entry/Tip")
+		var i_tip : Label = i_entry.get_node("Entry/Tip")
 #		var i_text: String = API.get_game_words()[i]
 #		print(API.get_game_words())
 #		print(i_tip)
