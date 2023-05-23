@@ -144,10 +144,9 @@ func _request_article_link() -> void:
 	if get_resources().has("dcterms:isPartOf"):
 		if get_resources()["dcterms:isPartOf"][0].has("@id"):
 			var url = get_resources()["dcterms:isPartOf"][0]["@id"]
-			if url is String and url.begins_with("url"):
-					set_article_link(url)
-			else:
-				push_warning("RequestCommonOmeka._request_article_link(): the url is not valid")
+			set_article_link(url)
+#			else:
+#				push_warning("RequestCommonOmeka._request_article_link(): the url is not valid")
 		else:
 			push_warning("RequestCommonOmeka._request_article_link(): the url is not valid")
 	else:
