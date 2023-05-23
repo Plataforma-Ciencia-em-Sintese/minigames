@@ -15,11 +15,6 @@ _global_script_classes=[ {
 "path": "res://games/quiz/alternative/alternative.gd"
 }, {
 "base": "Node",
-"class": "ProcessData",
-"language": "GDScript",
-"path": "res://games/cryptogram/process_data/process_data.gd"
-}, {
-"base": "Node",
 "class": "Request",
 "language": "GDScript",
 "path": "res://api/abstract/request.gd"
@@ -101,7 +96,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Alternative": "",
-"ProcessData": "",
 "Request": "",
 "RequestCommon": "",
 "RequestCommonOmeka": "",

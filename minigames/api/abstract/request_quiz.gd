@@ -30,7 +30,7 @@ signal all_request_game_completed
 	{
 		"question": "value",
 		"alternatives": [
-			{"correct": "value", "image_url": "value"}, 
+			{"correct": "value", "image_url": "value"},
 			{"incorrect": "value", "image_url": "value"},
 			{"incorrect": "value", "image_url": "value"},
 			{"incorrect": "value", "image_url": "value"},
@@ -71,29 +71,29 @@ func get_questions() -> Array:
 
 
 func has_levels() -> bool:
-	""" 
-	Must return TRUE if HOME scene 
-	is to display level selection 
+	"""
+	Must return TRUE if HOME scene
+	is to display level selection
 	"""
 	return false
 
 
 func has_locked_levels() -> Dictionary:
 	"""
-	Must return TRUE for a level to be 
-	locked. Levels are blocked when the 
+	Must return TRUE for a level to be
+	locked. Levels are blocked when the
 	SERVER doesn't provide enough data for a level.
-	
+
 	{"easy": true, "medium": true, "hard": true}
 	"""
 	var levels: Dictionary = Dictionary({})
-	
+
 	# Check all levels
-	
+
 	return levels
 
 
 #  [PRIVATE_METHODS]
- 
+
 
 #  [SIGNAL_METHODS]

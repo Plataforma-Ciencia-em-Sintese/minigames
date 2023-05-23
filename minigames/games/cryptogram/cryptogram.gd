@@ -93,8 +93,6 @@ var _selected: String
 #  [ONREADY_VARIABLES]
 
 onready var _table: VBoxContainer = $MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Panel/GameTable
-onready var _panel_info: Panel = $PanelInformation
-#onready var _back_panel: Panel = $AspectRatioContainer/Separador/Panel
 onready var _solution_letters: Dictionary = {}
 onready var _solution_mask: Dictionary = {}
 onready var _reverse_solution: Dictionary = {}
@@ -103,8 +101,6 @@ onready var _game_running: bool = true
 onready var _timer: Timer = $Timer
 onready var _timer_display: Label = $MarginContainer/VBoxContainer/BarContainer/Container/Time
 onready var _run_time: int = 0
-onready var _congratulation: RichTextLabel = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/CongratulationsContainer/TotalStars
-onready var _final_time: Label = $PanelInformation/GlobalContainer/MarginContainer/VBoxContainer/HBoxContainer/ResultContainer/StatisticsContainer/TimeContainer/TotalTime
 onready var _left_tips: int = 10
 onready var _tip_display: Label = $MarginContainer/VBoxContainer/BarContainer/Tip/Counter
 onready var _reset_color: int = -1
@@ -312,9 +308,8 @@ func _scoring_rules() -> int:
 
 
 func _verify_solution () -> void:
-#	print()
 	var win_rule = true
-#	printt(_solution_mask, _user_solution)
+
 	for i in _solution_mask: # "i" eh a letra a ser testada
 		var mask = _solution_mask[i] # se isso aqui eh verdadeiro, a rodada eh verdadeira
 		var simb = _solution_letters[i] # simbolo correto para a letra i
@@ -331,7 +326,7 @@ func _verify_solution () -> void:
 #		win_rule = win_rule and round_iteration
 ##		printt(i, win_rule)
 	if (win_rule):
-		print("fim de jogo")
+#		print("fim de jogo")
 		_timer.stop()
 		_game_running = false
 		emit_signal("game_over")
