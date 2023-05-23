@@ -57,6 +57,29 @@ func get_words() -> Dictionary:
 	return _words
 
 
+func has_levels() -> bool:
+	"""
+	Must return TRUE if HOME scene
+	is to display level selection
+	"""
+	return false
+
+
+func has_locked_levels() -> Dictionary:
+	"""
+	Must return TRUE for a level to be
+	locked. Levels are blocked when the
+	SERVER doesn't provide enough data for a level.
+
+	{"easy": true, "medium": true, "hard": true}
+	"""
+	var levels: Dictionary = Dictionary({})
+
+	# Check all levels
+
+	return levels
+
+
 #func set_clues(new_value: Array) -> void:
 #	pass
 #

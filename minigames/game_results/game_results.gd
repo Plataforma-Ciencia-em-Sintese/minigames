@@ -82,7 +82,7 @@ func get_total_stars() -> int:
 
 func set_current_mode(new_value: int) -> void:
 	_current_mode = new_value
-	
+
 	if API.game.has_levels():
 		match(_current_mode):
 			GameMode.EASY:
@@ -97,7 +97,7 @@ func set_current_mode(new_value: int) -> void:
 						continue_button.hint_tooltip = "Continue"
 						set_home_path("")
 						hide_panel.visible = true
-	
+
 			GameMode.MEDIUM:
 				if API.game.has_locked_levels().has("hard"):
 					if API.game.has_locked_levels()["hard"]:
@@ -110,7 +110,7 @@ func set_current_mode(new_value: int) -> void:
 						continue_button.hint_tooltip = "Continue"
 						set_home_path("")
 						hide_panel.visible = true
-	
+
 			GameMode.HARD:
 				continue_button.text = ""
 				continue_button.hint_tooltip = "Menu Principal"
@@ -143,12 +143,12 @@ func update_data(message_game: String, message_statistic: String, total_stars: i
 #  [PRIVATE_METHODS]
 func _load_theme() -> void:
 	title.set("custom_colors/font_color", API.theme.get_color(API.theme.PB))
-	
+
 	_update_stars_color()
-	
+
 	mascot_image.texture = API.common.get_mascot()
 	mascot_background.set("modulate", API.theme.get_color(API.theme.PL3))
- 
+
 
 func _update_stars_color() -> void:
 	match(get_total_stars()):

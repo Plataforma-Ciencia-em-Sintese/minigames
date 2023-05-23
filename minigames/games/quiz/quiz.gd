@@ -39,7 +39,7 @@ var _waiting_seconds: float = float(2) \
 
 var _total_questions: int = int(0) \
 		setget set_total_questions, get_total_questions
-		
+
 var _current_question: int = int(0) \
 		setget set_current_question, get_current_question
 
@@ -81,17 +81,17 @@ onready var question_image: TextureRect = $MarginContainer/VBoxContainer/GameCon
 func _ready() -> void:
 	_load_theme()
 	pet_image.texture = get_pet_images_state()["idle"]
-	
+
 	_load_current_question()
-	set_total_questions(int( API.game.get_questions().size())) 
-	
+	set_total_questions(int( API.game.get_questions().size()))
+
 	connect("end_game", self, "_on_Self_end_game")
-	
+
 	alternative_1.connect("pressed", self, "_on_Alternative1_Button_pressed")
 	alternative_2.connect("pressed", self, "_on_Alternative2_Button_pressed")
 	alternative_3.connect("pressed", self, "_on_Alternative3_Button_pressed")
 	alternative_4.connect("pressed", self, "_on_Alternative4_Button_pressed")
-	
+
 	tip_counter.text = str(get_tip_counter())
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
@@ -167,36 +167,36 @@ func _load_theme() -> void:
 
 func _scoring_rules() -> int:
 	var stars: int = int(0)
-	
+
 	var value: float = (float(get_point_counter() * 100)) / float(get_total_questions())
-	
+
 	# 0 estrelas: 0% a 20%
 	if value >= 0.0 and value < 20.0:
 		stars = 0
-	
+
 	# 1 estrela: 20% a 50%
 	if value >= 20.0 and value < 50.0:
 		stars = 1
-	
+
 	# 2 estrelas: 50% a 80%
 	if value >= 50.0 and value < 80.0:
 		stars = 2
-	
+
 	# 3 estrelas: 80% a 100%
 	if value >= 80.0 and value < 100.0:
 		stars = 3
-	
+
 	return stars
 
 
 func _load_current_question() -> void:
 	pet_image.texture = get_pet_images_state()["idle"]
-	
+
 	set_current_question(get_current_question())
 	var dictionary_questions: Dictionary = API.game.get_questions()[get_current_question()]
-	
+
 	question.text = dictionary_questions["question"]
-	
+
 	var random_alternatives: Array = Array([])
 	random_alternatives.append(dictionary_questions["alternatives"][0]["correct"])
 	if dictionary_questions["alternatives"].size() >= 2:
@@ -205,13 +205,13 @@ func _load_current_question() -> void:
 		random_alternatives.append(dictionary_questions["alternatives"][2]["incorrect"])
 	if dictionary_questions["alternatives"].size() >= 4:
 		random_alternatives.append(dictionary_questions["alternatives"][3]["incorrect"])
-	
+
 	randomize()
 	random_alternatives.shuffle()
 	var temp = random_alternatives[0]
 	random_alternatives[0] = random_alternatives[random_alternatives.size()-1]
 	random_alternatives[random_alternatives.size()-1] = temp
-	
+
 	# configure visibility state
 	var counter: int = 0
 	for alternative in question_container.get_children():
@@ -221,26 +221,26 @@ func _load_current_question() -> void:
 			alternative.disabled(true)
 			alternative.checker_visible(false)
 			alternative.set("modulate", Color(1.0, 1.0, 1.0, 1.0))
-	
+
 	# set text
 	if dictionary_questions["alternatives"].size() >= 1:
 		alternative_1.message.text = random_alternatives[0]
 		alternative_1.disabled(false)
 	else:
 		alternative_1.set("modulate", Color(0.0, 0.0, 0.0, 0.0))
-		
+
 	if dictionary_questions["alternatives"].size() >= 2:
 		alternative_2.message.text = random_alternatives[1]
 		alternative_2.disabled(false)
 	else:
 		alternative_2.set("modulate", Color(0.0, 0.0, 0.0, 0.0))
-		
+
 	if dictionary_questions["alternatives"].size() >= 3:
 		alternative_3.message.text = random_alternatives[2]
 		alternative_3.disabled(false)
 	else:
 		alternative_3.set("modulate", Color(0.0, 0.0, 0.0, 0.0))
-		
+
 	if dictionary_questions["alternatives"].size() >= 4:
 		alternative_4.message.text = random_alternatives[3]
 		alternative_4.disabled(false)
@@ -251,7 +251,7 @@ func _load_current_question() -> void:
 func _reveal_alternatives() -> void:
 	var dictionary_questions: Dictionary = API.game.get_questions()[get_current_question()]
 	var correct_alternative: String = dictionary_questions["alternatives"][0]["correct"]
-	
+
 	for alternative in question_container.get_children():
 		if alternative is Alternative:
 			if alternative.message.text == correct_alternative:
@@ -266,12 +266,12 @@ func _call_next_question() -> void:
 	set_state(State.WAITING)
 	yield(get_tree().create_timer(get_waiting_seconds()), "timeout")
 	set_state(State.FREE)
-	if (get_current_question() + 1) < get_total_questions(): 
+	if (get_current_question() + 1) < get_total_questions():
 		set_current_question(get_current_question() + 1)
 		_load_current_question()
 	else:
 		emit_signal("end_game")
- 
+
 
 #  [SIGNAL_METHODS]
 func _on_Home_pressed() -> void:
@@ -283,17 +283,17 @@ func _on_Alternative1_Button_pressed(message: String) -> void:
 	alternative_2.disabled(true)
 	alternative_3.disabled(true)
 	alternative_4.disabled(true)
-	
+
 	var dictionary_questions: Dictionary = API.game.get_questions()[get_current_question()]
 	if alternative_1.message.text == dictionary_questions["alternatives"][0]["correct"]:
 		set_point_counter(get_point_counter() + 1)
 		pet_image.texture = get_pet_images_state()["happy"]
 	else:
 		pet_image.texture = get_pet_images_state()["loser"]
-	
+
 	_reveal_alternatives()
 	_call_next_question()
-	
+
 
 
 func _on_Alternative2_Button_pressed(message: String) -> void:
@@ -301,14 +301,14 @@ func _on_Alternative2_Button_pressed(message: String) -> void:
 	alternative_2.disabled(true, true)
 	alternative_3.disabled(true)
 	alternative_4.disabled(true)
-	
+
 	var dictionary_questions: Dictionary = API.game.get_questions()[get_current_question()]
 	if alternative_2.message.text == dictionary_questions["alternatives"][0]["correct"]:
 		set_point_counter(get_point_counter() + 1)
 		pet_image.texture = get_pet_images_state()["happy"]
 	else:
 		pet_image.texture = get_pet_images_state()["loser"]
-	
+
 	_reveal_alternatives()
 	_call_next_question()
 
@@ -318,14 +318,14 @@ func _on_Alternative3_Button_pressed(message: String) -> void:
 	alternative_2.disabled(true)
 	alternative_3.disabled(true, true)
 	alternative_4.disabled(true)
-	
+
 	var dictionary_questions: Dictionary = API.game.get_questions()[get_current_question()]
 	if alternative_3.message.text == dictionary_questions["alternatives"][0]["correct"]:
 		set_point_counter(get_point_counter() + 1)
 		pet_image.texture = get_pet_images_state()["happy"]
 	else:
 		pet_image.texture = get_pet_images_state()["loser"]
-	
+
 	_reveal_alternatives()
 	_call_next_question()
 
@@ -335,48 +335,48 @@ func _on_Alternative4_Button_pressed(message: String) -> void:
 	alternative_2.disabled(true)
 	alternative_3.disabled(true)
 	alternative_4.disabled(true, true)
-	
+
 	var dictionary_questions: Dictionary = API.game.get_questions()[get_current_question()]
 	if alternative_4.message.text == dictionary_questions["alternatives"][0]["correct"]:
 		set_point_counter(get_point_counter() + 1)
 		pet_image.texture = get_pet_images_state()["happy"]
 	else:
 		pet_image.texture = get_pet_images_state()["loser"]
-	
+
 	_reveal_alternatives()
 	_call_next_question()
 
 
 func _on_Tip_pressed() -> void:
 	if get_state() == State.FREE:
-	
+
 		if get_tip_counter() > 0:
 			set_tip_counter(get_tip_counter() -1)
-		
+
 		if get_tip_counter() == 0:
 			tip_counter.visible = false
 			tip.disabled = true
-		
+
 		var dictionary_questions: Dictionary = API.game.get_questions()[get_current_question()]
-		
+
 		var incorrect_alternatives: Array = []
 		for alternative in dictionary_questions["alternatives"]:
 			if alternative.has("incorrect"):
 				incorrect_alternatives.append(alternative["incorrect"])
-		
+
 		for alternative in question_container.get_children():
 			if alternative is Alternative:
 				if alternative.message.text in incorrect_alternatives and not alternative.is_disabled():
 					print(alternative.message.text)
 					alternative.disabled(true)
-					
+
 					break
 
 
 func _on_Self_end_game() -> void:
 	var game_results_instance: Panel = GAME_RESULTS.instance()
 	add_child(game_results_instance)
-	
+
 	var message_game: String = String((
 		"Você acertou [color=#{color}][b]{record}[/b][/color]" +
 		" de [color=#{color}][b]{total}[/b][/color]\nperguntas."
@@ -385,9 +385,9 @@ func _on_Self_end_game() -> void:
 		"record": get_point_counter(),
 		"total": get_total_questions()
 	}))
-	
+
 	var message_statistic: String = String("")
-	
+
 	game_results_instance.update_data(message_game, message_statistic, _scoring_rules())
 	game_results_instance.connect("restart_level", self, "_on_GameResults_restart_level")
 	game_results_instance.connect("continue_level", self, "_on_GameResults_continue_level")

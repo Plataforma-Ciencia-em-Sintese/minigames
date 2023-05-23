@@ -18,6 +18,12 @@ enum SOLVE_TARGET {
 }
 
 #  [CONSTANTS]
+const GAME_RESULTS: PackedScene = preload("res://game_results/game_results.tscn")
+const HOW_TO_PLAY: PackedScene = preload("res://how_to_play/how_to_play.tscn")
+const HOW_TO_PLAY_TEXTURES: Array = Array([
+	preload("res://assets/images/htp_matching_game_0.png"),
+])
+
 const scene_entry = preload("res://games/cryptogram/entry/entry.tscn")
 const scene_letter = preload("res://games/cryptogram/entry/letter.tscn")
 
@@ -261,6 +267,49 @@ func _table_full() -> void:
 		if (_reset_color <= 0):
 			_reset_color = 5
 
+
+func _scoring_rules() -> int:
+	var target_attempt: int = 0
+	var margin_attempt: int = 0
+	var target_time: int = 0
+	var margin_time: int = 0
+	var stars: int = 0
+	var stars_check: bool = false
+
+	# define difficulty parameters
+	target_attempt = 30
+	margin_attempt = 5
+	target_time = 90
+	margin_time = 10
+
+	# three stars
+	if _run_time < target_time and 0 < target_attempt:
+		if not stars_check:
+			stars = 3
+			stars_check = true
+
+	# two stars
+	elif _run_time < (target_time + margin_time) and 0 < (target_attempt + margin_attempt):
+		if not stars_check:
+			stars = 2
+			stars_check = true
+
+	# one stars
+	elif (_run_time < (target_time + margin_time) and 0 > (target_attempt + margin_attempt)) or \
+			(_run_time > (target_time + margin_time) and 0 < (target_attempt + margin_attempt)):
+		if not stars_check:
+			stars = 1
+			stars_check = true
+
+	# zero stars
+	elif _run_time > (target_time + margin_time) and 0 > (target_attempt + margin_attempt):
+		if not stars_check:
+			stars = 0
+			stars_check = true
+
+	return stars
+
+
 func _verify_solution () -> void:
 #	print()
 	var win_rule = true
@@ -282,12 +331,35 @@ func _verify_solution () -> void:
 ##		printt(i, win_rule)
 	if (win_rule):
 		print("fim de jogo")
-		_panel_info.show()
+		_timer.stop()
 		_game_running = false
 		emit_signal("game_over")
-		var score: int = _score(_run_time)
-		_congratulation.bbcode_text = "Você completou o nível! Conseguiu [color=#666666][b]%d[/b][/color] estrelas."%score
-		_final_time.text = "%02d:%02d" % [(_run_time/60) % 60, _run_time % 60]
+
+		var game_results_instance: Panel = GAME_RESULTS.instance()
+		add_child(game_results_instance)
+
+		var message_game: String = String((
+			"Você completou o nível!\nConseguiu " +
+			"[color=#{color}][b]{stars}[/b][/color] estrelas."
+		).format({
+			"color": API.theme.get_color(API.theme.PB).to_html(false),
+			"stars": _scoring_rules()
+		}))
+
+		var message_statistic: String = String((
+			"Tempo: [color=#{color}][b]{time}[/b][/color]"
+#			"\nTentativas: [color=#{color}][b]{attempt}[/b][/color]"
+		).format({
+			"color": API.theme.get_color(API.theme.PB).to_html(false),
+			"time": "%02d:%02d" % [(_run_time/60) % 60, _run_time % 60],
+#			"attempt": "%02d" % [get_attempts_counter()]
+		}))
+
+		game_results_instance.hide_panel.show()
+		game_results_instance.update_data(message_game, message_statistic, _scoring_rules())
+		game_results_instance.connect("restart_level", self, "_on_GameResults_restart_level")
+		game_results_instance.connect("continue_level", self, "_on_GameResults_continue_level")
+
 
 func _simb_solution(simbol:String) -> String:
 	for i in _solution_letters:
@@ -296,6 +368,12 @@ func _simb_solution(simbol:String) -> String:
 	return simbol
 
 #  [SIGNAL_METHODS]
+func _on_GameResults_restart_level() -> void:
+	get_tree().change_scene("res://games/cryptogram/cryptogram.tscn")
+
+
+func _on_GameResults_continue_level() -> void:
+	get_tree().change_scene("res://home/home.tscn")
 
 
 func _on_home_pressed():
@@ -335,3 +413,17 @@ func _on_tip_pressed():
 			var flush_event = InputEventKey.new()
 			get_tree().input_event(flush_event)
 
+
+
+func _on_Help_pressed() -> void:
+	_timer.stop()
+
+	var how_to_play_instance := HOW_TO_PLAY.instance()
+	add_child(how_to_play_instance)
+	how_to_play_instance.set_textures(HOW_TO_PLAY_TEXTURES)
+	how_to_play_instance.connect("closed", self, "_on_HowToPlay_closed")
+
+
+func _on_HowToPlay_closed() -> void:
+	if _run_time > 0:
+		_timer.start()
