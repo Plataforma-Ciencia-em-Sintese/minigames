@@ -21,7 +21,8 @@ enum SOLVE_TARGET {
 const GAME_RESULTS: PackedScene = preload("res://game_results/game_results.tscn")
 const HOW_TO_PLAY: PackedScene = preload("res://how_to_play/how_to_play.tscn")
 const HOW_TO_PLAY_TEXTURES: Array = Array([
-	preload("res://assets/images/htp_matching_game_0.png"),
+	preload("res://assets/images/htp_cryptogram_0.png"),
+	preload("res://assets/images/htp_cryptogram_1.png"),
 ])
 
 const scene_entry = preload("res://games/cryptogram/entry/entry.tscn")
