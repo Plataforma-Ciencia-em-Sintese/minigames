@@ -26,7 +26,7 @@ const HOW_TO_PLAY_TEXTURES: Array = Array([
 ])
 
 const scene_entry = preload("res://games/cryptogram/entry/entry.tscn")
-const scene_letter = preload("res://games/cryptogram/entry/letter.tscn")
+const scene_letter = preload("res://games/cryptogram/letter/letter.tscn")
 
 const ALLOWED_KEYS = [81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 65, 83, 68, 70, 71, 72, 74, 75, 76, 90, 88, 67, 86, 66, 78, 77, 59, 16777220]
 const SPECIAL_CHAR_DICIO = {'Á': 'A', 'À': 'A', 'Ã': 'A', 'Â': 'A', 'É': 'E', 'È': 'E', 'Ẽ': 'E', 'Ê': 'E', 'Í': 'I', 'Ì': 'I', 'Ĩ': 'I', 'Î': 'I', 'Ó': 'O', 'Ò': 'O', 'Õ': 'O', 'Ô': 'O', 'Ú': 'U', 'Ù': 'U', 'Ũ': 'U', 'Û': 'U', 'Ç': 'C', 'Ñ': 'N', '': ' ', ' ': ' '}
@@ -89,36 +89,34 @@ const SYMBOL_LIST = ['\uf51c', # nf-mdi-airplane
 
 #  [PRIVATE_VARIABLES]
 var _selected: String
-
-#  [ONREADY_VARIABLES]
-
-onready var _table: VBoxContainer = $MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Panel/GameTable
 onready var _solution_letters: Dictionary = {}
 onready var _solution_mask: Dictionary = {}
 onready var _reverse_solution: Dictionary = {}
 onready var _user_solution: Dictionary = {}
 onready var _game_running: bool = true
-onready var _timer: Timer = $Timer
-onready var _timer_display: Label = $MarginContainer/VBoxContainer/BarContainer/Container/Time
 onready var _run_time: int = 0
 onready var _left_tips: int = 10
-onready var _tip_display: Label = $MarginContainer/VBoxContainer/BarContainer/Tip/Counter
 onready var _reset_color: int = -1
+
+#  [ONREADY_VARIABLES]
+onready var _table: VBoxContainer = $MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Panel/GameTable
+onready var _timer: Timer = $Timer
+onready var _timer_display: Label = $MarginContainer/VBoxContainer/BarContainer/Container/Time
+onready var _tip_display: Label = $MarginContainer/VBoxContainer/BarContainer/Tip/Counter
+onready var _pet: TextureRect = $MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Pet/PetTexture
+
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
 #func _init() -> void:
 #	pass
 
 func _ready():
+	_load_theme()
 	_gen_solution_table()
 	_populate_table()
 #	print(API.game.get_words())
-	if OS.has_virtual_keyboard():
-		$HidedText.text = "Há suporte"
-#		OS.show_virtual_keyboard()
-#	_timer.start()
 
-#	print(_solution_mask)
+
 #  [BUILT-IN_VIRTUAL_METHOD]
 
 func _unhandled_key_input(event):
@@ -160,7 +158,6 @@ func _unhandled_key_input(event):
 
 
 #  [PUBLIC_METHODS]
-
 func get_new_solution(valor: String) -> String:
 	return _user_solution[valor]
 
@@ -173,6 +170,10 @@ func get_correct_letter(valor: String) -> String:
 			return i
 	return "-1"
 #  [PRIVATE_METHODS]
+func _load_theme() -> void:
+	_pet.texture = API.common.get_pet()
+
+
 
 func _score(time : int) -> int:
 	if time <= SOLVE_TARGET.three:

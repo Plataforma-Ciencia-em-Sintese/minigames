@@ -1,8 +1,7 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://games/cryptogram/cryptogram.gd" type="Script" id=1]
 [ext_resource path="res://assets/placeholder.png" type="Texture" id=2]
-[ext_resource path="res://games/cryptogram/logo_load/logo_load.gd" type="Script" id=3]
 [ext_resource path="res://assets/components/background/background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://assets/fonts/JetBrainsMono/JetBrainsMonoNerdFontCompleteM-Regular.ttf" type="DynamicFontData" id=7]
@@ -680,7 +679,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Pet"]
+[node name="PetTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Pet"]
 margin_top = 300.0
 margin_right = 280.0
 margin_bottom = 580.0
@@ -689,15 +688,14 @@ size_flags_vertical = 3
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
-script = ExtResource( 3 )
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Pet/TextureRect"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Pet/PetTexture"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.921569, 0.109804, 0.109804, 1 )
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Pet/TextureRect"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/HBoxContainer/Pet/PetTexture"]
 visible = false
 modulate = Color( 1, 1, 1, 0.521569 )
 anchor_right = 1.0
