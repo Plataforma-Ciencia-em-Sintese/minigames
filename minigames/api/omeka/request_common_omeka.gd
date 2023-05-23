@@ -142,8 +142,8 @@ func _request_article_link() -> void:
 	yield(self, "request_game_logo_completed")
 
 	if get_resources().has("dcterms:isPartOf"):
-		if get_resources()["dcterms:isPartOf"][0].has("url"):
-			var url = get_resources()["dcterms:isPartOf"][0]["url"]
+		if get_resources()["dcterms:isPartOf"][0].has("@id"):
+			var url = get_resources()["dcterms:isPartOf"][0]["@id"]
 			if url is String and url.begins_with("url"):
 					set_article_link(url)
 			else:
