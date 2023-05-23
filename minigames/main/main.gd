@@ -58,12 +58,12 @@ func _ready() -> void:
 
 #  [SIGNAL_METHODS]
 func _on_init_game() -> void:
-	print("\nTodas as solicitações foram concluidas...\n")
-	print("\nJogo carregado!\n")
+	print("\nAll requests have been completed...\n")
+	print("\nFull game loading!\n")
 
 	get_tree().change_scene("res://opening/opening.tscn")
 
 func _on_return_error() -> void:
 	loading_status.show_error()
-	print("\nTodas as solicitações falharam...\n")
-	print("\nJogo não pode ser carregado!\n")
+	print("\nAll requests failed...\n")
+	print("\nGame cannot be loaded!\n")

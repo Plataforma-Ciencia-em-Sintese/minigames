@@ -116,7 +116,7 @@ onready var _reset_color: int = -1
 func _ready():
 	_gen_solution_table()
 	_populate_table()
-	print(API.game.get_words())
+#	print(API.game.get_words())
 	if OS.has_virtual_keyboard():
 		$HidedText.text = "Há suporte"
 #		OS.show_virtual_keyboard()

@@ -118,7 +118,7 @@ func is_all_request_completed() -> bool:
 
 #  [SIGNAL_METHODS]
 func _on_all_request_common_completed() -> void:
-	print("_on_all_request_common_completed()")
+	print("\nCommon requests were completed...")
 	set_is_common_completed(true)
 	emit_signal("a_request_completed")
 
@@ -129,7 +129,7 @@ func _on_all_request_common_completed() -> void:
 
 
 func _on_all_request_theme_completed() -> void:
-	print("_on_all_request_theme_completed()")
+	print("\nTheme requests were completed...")
 	set_is_theme_completed(true)
 	emit_signal("a_request_completed")
 
@@ -156,7 +156,7 @@ func _on_all_request_theme_completed() -> void:
 
 
 func _on_all_request_game_completed() -> void:
-	print("_on_all_request_game_completed()")
+	print("\nGame requests were completed...")
 	set_is_game_completed(true)
 	emit_signal("a_request_completed")
 

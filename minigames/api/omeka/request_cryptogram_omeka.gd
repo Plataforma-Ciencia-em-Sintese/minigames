@@ -39,7 +39,7 @@ var _resources: Dictionary = Dictionary() \
 
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
-	print("RequestGameOmeka call _ready()")
+#	print("RequestGameOmeka call _ready()")
 	_request_main()
 	_request_words()
 
@@ -69,17 +69,6 @@ func get_resources() -> Dictionary:
 
 
 #  [PRIVATE_METHODS]
-#func _request_main() -> void:
-#	var url_parameters := URL.get_parameters("https://.../?id=27829&skip=0")
-#	if url_parameters.has("id"):
-#		var http_request: HTTPRequest = HTTPRequest.new()
-#		add_child(http_request)
-#		http_request.connect("request_completed", self, "_on_request_main")
-#		request(http_request, URL_BASE + str(url_parameters["id"]))
-#	else:
-#		emit_signal("request_error", "RequestGameOmeka._request_main(): property not found")
-
-
 func _request_main() -> void:
 	var url_parameters := URL.get_parameters(URL.TEST_URL)
 	if url_parameters.has("id"):
@@ -125,14 +114,14 @@ func _on_request_main(_result: int, response_code: int, _headers: PoolStringArra
 		match(typeof(json.result)):
 			TYPE_DICTIONARY:
 
-				if json.result.has("o:resource_template"):
-					if int(json.result["o:resource_template"]["o:id"]) == RESOURCE_MODEL_ID:
-						set_resources(json.result)
-						emit_signal("request_main_completed")
+				if API.common.get_resource_id() == RESOURCE_MODEL_ID:
+					if json.result.has("o:resource_template"):
+							set_resources(json.result)
+							emit_signal("request_main_completed")
 					else:
-						emit_signal("request_error", "RequestGameOmeka._on_request_main(): The resource model ID is valid but does not match as expected")
+						emit_signal("request_error", "RequestGameOmeka._on_request_main(): property not found")
 				else:
-					emit_signal("request_error", "RequestGameOmeka._on_request_main(): property not found")
+					emit_signal("request_error", "RequestGameOmeka._on_request_main(): The resource model ID does not match as expected")
 
 			_:
 				emit_signal("request_error", "RequestGameOmeka._on_request_main(): Unexpected results from JSON response")

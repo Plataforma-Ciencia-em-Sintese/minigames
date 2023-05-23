@@ -47,7 +47,7 @@ var _resources: Dictionary = Dictionary() \
 
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
-	print("RequestCommonOmeka call _ready()")
+#	print("RequestCommonOmeka call _ready()")
 	_request_main()
 	_request_resource_id()
 	_request_short_title()
@@ -227,19 +227,8 @@ func _on_request_main(_result: int, response_code: int, _headers: PoolStringArra
 
 		match(typeof(json.result)):
 			TYPE_DICTIONARY:
-
 				set_resources(json.result)
 				emit_signal("request_main_completed")
-
-
-#				if json.result.has("o:resource_template"):
-#					if int(json.result["o:resource_template"]["o:id"]) in [list_ids]:
-#						""" IDS VALIDATION"""
-
-#					else:
-#						emit_signal("request_error", "RequestCommonOmeka._on_request_main(): The resource model ID is valid but does not match as expected")
-#				else:
-#					emit_signal("request_error", "RequestCommonOmeka._on_request_main(): property not found")
 
 			_:
 				emit_signal("request_error", "RequestCommonOmeka._on_request_main(): Unexpected results from JSON response")
