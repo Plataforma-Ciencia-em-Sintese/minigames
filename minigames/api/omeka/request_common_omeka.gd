@@ -226,8 +226,20 @@ func _on_request_main(_result: int, response_code: int, _headers: PoolStringArra
 
 		match(typeof(json.result)):
 			TYPE_DICTIONARY:
-				set_resources(json.result)
-				emit_signal("request_main_completed")
+				if json.result.has("o:resource_template") and \
+							json.result["o:resource_template"].has("o:id"):
+
+					var id: int = int(json.result["o:resource_template"]["o:id"])
+					if API.is_id_valid(id):
+						set_resources(json.result)
+						emit_signal("request_main_completed")
+					else:
+						emit_signal("request_error", "RequestCommonOmeka._on_request_main(): Resource template unknown or not registered")
+
+				else:
+					emit_signal("request_error", "RequestCommonOmeka._on_request_main(): Resource template was not provided")
+
+
 
 			_:
 				emit_signal("request_error", "RequestCommonOmeka._on_request_main(): Unexpected results from JSON response")

@@ -40,8 +40,8 @@ func _ready() -> void:
 		API.connect("all_request_failed", self, "_on_return_error")
 	else:
 		loading_status.show_error()
-		print("\nTodas as solicitações falharam...\n")
-		print("\nJogo não pode ser carregado!\n")
+		print("\nThe data request failed!\n")
+		print("\nThe game cannot be loaded!\n")
 
 
 
@@ -58,12 +58,12 @@ func _ready() -> void:
 
 #  [SIGNAL_METHODS]
 func _on_init_game() -> void:
-	print("\nAll requests have been completed...\n")
+	print("\nAll requests have been completed!\n")
 	print("\nFull game loading!\n")
 
 	get_tree().change_scene("res://opening/opening.tscn")
 
 func _on_return_error() -> void:
 	loading_status.show_error()
-	print("\nAll requests failed...\n")
-	print("\nGame cannot be loaded!\n")
+	print("\nThe data request failed!\n")
+	print("\nThe game cannot be loaded!\n")

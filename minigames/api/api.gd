@@ -113,12 +113,30 @@ func is_all_request_completed() -> bool:
 	return false
 
 
+func is_id_valid(id: int) -> bool:
+	var validation: bool = false
+
+	match(id):
+		ResourceID.CRYPTOGRAM:
+			validation = true
+		ResourceID.METCHING_GAME:
+			validation = true
+		ResourceID.MOMORY_GAME:
+			validation = true
+		ResourceID.PUZZLE:
+			validation = true
+		ResourceID.QUIZ:
+			validation = true
+
+	return validation
+
+
 #  [PRIVATE_METHODS]
 
 
 #  [SIGNAL_METHODS]
 func _on_all_request_common_completed() -> void:
-	print("\nCommon requests were completed...")
+	print("\nCommon requests were completed... [1/3]")
 	set_is_common_completed(true)
 	emit_signal("a_request_completed")
 
@@ -129,7 +147,7 @@ func _on_all_request_common_completed() -> void:
 
 
 func _on_all_request_theme_completed() -> void:
-	print("\nTheme requests were completed...")
+	print("\nTheme requests were completed... [2/3]")
 	set_is_theme_completed(true)
 	emit_signal("a_request_completed")
 
@@ -156,7 +174,7 @@ func _on_all_request_theme_completed() -> void:
 
 
 func _on_all_request_game_completed() -> void:
-	print("\nGame requests were completed...")
+	print("\nGame requests were completed... [3/3]")
 	set_is_game_completed(true)
 	emit_signal("a_request_completed")
 
