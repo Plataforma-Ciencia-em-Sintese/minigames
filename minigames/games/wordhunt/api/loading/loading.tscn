@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://api/loading/loading.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 46
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Loading" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+error_color = Color( 1, 0.266667, 0.223529, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_top = 860
+custom_constants/margin_bottom = 120
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+margin_top = 860.0
+margin_right = 1920.0
+margin_bottom = 960.0
+custom_colors/default_color = Color( 0.0941176, 0.207843, 0.368627, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true

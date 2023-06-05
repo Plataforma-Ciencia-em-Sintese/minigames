@@ -1,0 +1,207 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+use_filter = true
+extra_spacing_top = -20
+extra_spacing_bottom = -20
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=4]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id=7]
+script/source = "#tool
+#class_name Name #, res://class_name_icon.svg
+extends Button
+
+
+#  [DOCSTRING]
+
+
+#  [SIGNALS]
+
+
+#  [ENUMS]
+enum ColorOptions {PRIMARY, SECUNDARY}
+
+
+#  [CONSTANTS]
+
+
+#  [EXPORTED_VARIABLES]
+export(ColorOptions) var selected_color: int = ColorOptions.PRIMARY
+
+
+#  [PUBLIC_VARIABLES]
+
+
+#  [PRIVATE_VARIABLES]
+
+
+#  [ONREADY_VARIABLES]
+
+
+#  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
+#func _init() -> void:
+#	pass
+
+
+#  [BUILT-IN_VURTUAL_METHOD]
+func _ready() -> void:
+	match(selected_color):
+		ColorOptions.PRIMARY:
+			set_primary_color()
+		ColorOptions.SECUNDARY:
+			set_secondary_color()
+		_:
+			set_primary_color()
+	
+
+
+#  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
+#func _process(_delta: float) -> void:
+#	pass
+
+
+#  [PUBLIC_METHODS]
+func set_primary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.PB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+
+
+func set_secondary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.SB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+
+
+#  [PRIVATE_METHODS]
+ 
+
+#  [SIGNAL_METHODS]
+"
+
+[node name="ThemeButton" type="Button"]
+margin_right = 146.0
+margin_bottom = 88.0
+focus_mode = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+enabled_focus_mode = 0
+text = "Button"
+script = SubResource( 7 )
+__meta__ = {
+"_editor_description_": ""
+}
