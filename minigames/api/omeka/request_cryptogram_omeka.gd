@@ -128,5 +128,3 @@ func _on_request_main(_result: int, response_code: int, _headers: PoolStringArra
 
 	else:
 		emit_signal("request_error", str("RequestGameOmeka._on_request_main(): response code return error: ", response_code))
-
-

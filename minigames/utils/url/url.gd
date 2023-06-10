@@ -17,7 +17,8 @@ class_name URL #, res://class_name_icon.svg
 #const TEST_URL = "https://.../?id=23391&skip=0" # MEMORY GAME
 #const TEST_URL = "https://.../?id=24810&skip=0" # QUIZ
 #const TEST_URL = "https://.../?id=27837&skip=0" # PUZZLE
-const TEST_URL = "https://.../?id=27829&skip=0" # CRYPTOGRAM
+#const TEST_URL = "https://.../?id=27829&skip=0" # CRYPTOGRAM
+const TEST_URL = "https://.../?id=25308&skip=0" # WORDHUNT
 
 
 #  [EXPORTED_VARIABLES]

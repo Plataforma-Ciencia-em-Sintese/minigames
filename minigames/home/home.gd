@@ -80,6 +80,9 @@ func _ready() -> void:
 		API.ResourceID.CRYPTOGRAM:
 			_cryptogram_home()
 
+		API.ResourceID.WORDHUNT:
+			_wordhunt_home()
+
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
 #func _process(_delta: float) -> void:
@@ -221,6 +224,16 @@ func _cryptogram_home() -> void:
 
 	set_start_game_path("res://games/cryptogram/cryptogram.tscn")
 
+
+func _wordhunt_home() -> void:
+	logo.texture = load("res://assets/images/logo_cryptogram.png")
+
+	game_name.text = "CAÇA-PALAVRAS"
+
+	start_game_button.visible = true
+	levels_panel.visible = false
+
+	set_start_game_path("res://games/wordhunt/wordhunt.tscn")
 
 
 #  [SIGNAL_METHODS]

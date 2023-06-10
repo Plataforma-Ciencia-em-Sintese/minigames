@@ -15,24 +15,19 @@ _global_script_classes=[ {
 "path": "res://games/quiz/alternative/alternative.gd"
 }, {
 "base": "Node",
-"class": "ProcessData",
-"language": "GDScript",
-"path": "res://games/wordhunt/process_data/process_data.gd"
-}, {
-"base": "Reference",
 "class": "Request",
 "language": "GDScript",
-"path": "res://games/wordhunt/api/abstract/request.gd"
+"path": "res://api/abstract/request.gd"
 }, {
-"base": "Reference",
+"base": "Request",
 "class": "RequestCommon",
 "language": "GDScript",
-"path": "res://games/wordhunt/api/abstract/request_common.gd"
+"path": "res://api/abstract/request_common.gd"
 }, {
-"base": "Reference",
+"base": "RequestCommon",
 "class": "RequestCommonOmeka",
 "language": "GDScript",
-"path": "res://games/wordhunt/api/omeka/request_common_omeka.gd"
+"path": "res://api/omeka/request_common_omeka.gd"
 }, {
 "base": "Request",
 "class": "RequestCryptogram",
@@ -43,16 +38,6 @@ _global_script_classes=[ {
 "class": "RequestCryptogramOmeka",
 "language": "GDScript",
 "path": "res://api/omeka/request_cryptogram_omeka.gd"
-}, {
-"base": "Request",
-"class": "RequestGame",
-"language": "GDScript",
-"path": "res://games/wordhunt/api/abstract/request_game.gd"
-}, {
-"base": "RequestGame",
-"class": "RequestGameOmeka",
-"language": "GDScript",
-"path": "res://games/wordhunt/api/omeka/request_game_omeka.gd"
 }, {
 "base": "Request",
 "class": "RequestMatchingGame",
@@ -94,15 +79,25 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://api/omeka/request_quiz_omeka.gd"
 }, {
-"base": "Reference",
+"base": "Request",
 "class": "RequestTheme",
 "language": "GDScript",
-"path": "res://games/wordhunt/api/abstract/request_theme.gd"
+"path": "res://api/abstract/request_theme.gd"
 }, {
-"base": "Reference",
+"base": "RequestTheme",
 "class": "RequestThemeOmeka",
 "language": "GDScript",
-"path": "res://games/wordhunt/api/omeka/request_theme_omeka.gd"
+"path": "res://api/omeka/request_theme_omeka.gd"
+}, {
+"base": "Request",
+"class": "RequestWordhunt",
+"language": "GDScript",
+"path": "res://api/abstract/request_wordhunt.gd"
+}, {
+"base": "RequestWordhunt",
+"class": "RequestWordhuntOmeka",
+"language": "GDScript",
+"path": "res://api/omeka/request_wordhunt_omeka.gd"
 }, {
 "base": "Reference",
 "class": "URL",
@@ -111,14 +106,11 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Alternative": "",
-"ProcessData": "",
 "Request": "",
 "RequestCommon": "",
 "RequestCommonOmeka": "",
 "RequestCryptogram": "",
 "RequestCryptogramOmeka": "",
-"RequestGame": "",
-"RequestGameOmeka": "",
 "RequestMatchingGame": "",
 "RequestMatchingGameOmeka": "",
 "RequestMemoryGame": "",
@@ -129,6 +121,8 @@ _global_script_class_icons={
 "RequestQuizOmeka": "",
 "RequestTheme": "",
 "RequestThemeOmeka": "",
+"RequestWordhunt": "",
+"RequestWordhuntOmeka": "",
 "URL": ""
 }
 
@@ -168,6 +162,10 @@ ssl=false
 [gui]
 
 theme/custom="res://assets/theme.tres"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 

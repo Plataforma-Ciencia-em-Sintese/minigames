@@ -1,5 +1,5 @@
 #tool
-class_name RequestGame #, res://class_name_icon.svg
+class_name RequestWordhunt #, res://class_name_icon.svg
 extends Request
 
 
@@ -23,12 +23,9 @@ signal all_request_game_completed
 
 
 #  [PRIVATE_VARIABLES]
-# _cards, expected value: [{"image": value, "subtitle": value}, ...]
 var _words: Dictionary = Dictionary() \
 		setget set_words, get_words
 
-#var _clues: Array = Array()\
-#		setget set_clues, get_clues
 
 #  [ONREADY_VARIABLES]
 
@@ -57,15 +54,30 @@ func get_words() -> Dictionary:
 	return _words
 
 
-#func set_clues(new_value: Array) -> void:
-#	pass
-#
-#
-#func get_clues() -> Array:
-#	return _clues
+func has_levels() -> bool:
+	"""
+	Must return TRUE if HOME scene
+	is to display level selection
+	"""
+	return false
+
+
+func has_locked_levels() -> Dictionary:
+	"""
+	Must return TRUE for a level to be
+	locked. Levels are blocked when the
+	SERVER doesn't provide enough data for a level.
+
+	{"easy": true, "medium": true, "hard": true}
+	"""
+	var levels: Dictionary = Dictionary({})
+
+	# Check all levels
+
+	return levels
 
 
 #  [PRIVATE_METHODS]
- 
+
 
 #  [SIGNAL_METHODS]

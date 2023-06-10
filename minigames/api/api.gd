@@ -19,6 +19,7 @@ enum ResourceID {
 	QUIZ = 24
 	PUZZLE = 31
 	CRYPTOGRAM = 30
+	WORDHUNT = 20
 }
 
 
@@ -127,6 +128,8 @@ func is_id_valid(id: int) -> bool:
 			validation = true
 		ResourceID.QUIZ:
 			validation = true
+		ResourceID.WORDHUNT:
+			validation = true
 
 	return validation
 
@@ -166,6 +169,9 @@ func _on_all_request_theme_completed() -> void:
 
 		ResourceID.CRYPTOGRAM:
 			game = RequestCryptogramOmeka.new()
+
+		ResourceID.WORDHUNT:
+			game = RequestWordhuntOmeka.new()
 
 	if not game == null:
 		add_child(game)

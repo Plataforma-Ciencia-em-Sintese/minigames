@@ -63,6 +63,7 @@ func _on_init_game() -> void:
 
 	get_tree().change_scene("res://opening/opening.tscn")
 
+
 func _on_return_error() -> void:
 	loading_status.show_error()
 	print("\nThe data request failed!\n")
