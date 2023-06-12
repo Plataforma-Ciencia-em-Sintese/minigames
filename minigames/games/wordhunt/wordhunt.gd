@@ -14,21 +14,24 @@ extends Control
 
 #  [CONSTANTS]
 const ROWS: int = 16
-const COLUMNS: int = 21
-const WORDS: Array = ["abacaxi", "laranja", "limao", "melancia", "banana", "morango", "uva", "maça", "pera", "manga"]
+const COLUMNS: int = 19
+const EMPTY_LETTER: String = "@"
+const WORDS: Array = ["ABACAXI", "LARANJA", "LIMAO", "MELANCIA", "BANANA", "MORANGO", "UVA", "MACA", "PERA", "MANGA"]
 
 
 #  [EXPORTED_VARIABLES]
 
 
 #  [PUBLIC_VARIABLES]
-var grid: Array = []
 
 
 #  [PRIVATE_VARIABLES]
+var _grid: Array = [] \
+		setget set_grid, get_grid
 
 
 #  [ONREADY_VARIABLES]
+onready var grid_container: GridContainer = $"%GridContainer"
 
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
@@ -39,11 +42,12 @@ var grid: Array = []
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
 	randomize()
-	initialize_grid()
-	insert_words()
-	fill_empty_spaces()
-	print_grid()
-#	save_grid_to_file("wordhunt.txt")
+	_initialize_grid()
+	_insert_words()
+	_fill_empty_spaces()
+#	_print_grid()
+#	_save_grid_to_file("wordhunt.txt")
+	_initialize_ui_grid()
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
@@ -52,15 +56,25 @@ func _ready() -> void:
 
 
 #  [PUBLIC_METHODS]
-func initialize_grid():
-	grid = []
+func set_grid(new_value: Array) -> void:
+	_grid = new_value
+
+
+func get_grid() -> Array:
+	return _grid
+
+
+#  [PRIVATE_METHODS]
+func _initialize_grid():
+	set_grid([])
 	for i in range(ROWS):
 		var row = []
 		for j in range(COLUMNS):
-			row.append("@")
-		grid.append(row)
+			row.append(EMPTY_LETTER)
+		get_grid().append(row)
 
-func insert_words():
+
+func _insert_words() -> void:
 	for word in WORDS:
 		var inserted = false
 		while not inserted:
@@ -68,19 +82,20 @@ func insert_words():
 			var col = randi() % COLUMNS
 			var direction = randi() % 4  # 0: vertical, 1: horizontal, 2: diagonal-up, 3: diagonal-down
 
-			if check_position_validity(word, row, col, direction):
-				insert_word_at_position(word, row, col, direction)
+			if _check_position_validity(word, row, col, direction):
+				_insert_word_at_position(word, row, col, direction)
 				inserted = true
 
-func check_position_validity(word: String, row: int, col: int, direction: int) -> bool:
+
+func _check_position_validity(word: String, row: int, col: int, direction: int) -> bool:
 	var word_length = word.length()
 
 	if direction == 0:  # vertical
 		if row + word_length <= ROWS:
 			for i in range(word_length):
-				var grid_letter = grid[row + i][col]
+				var grid_letter = get_grid()[row + i][col]
 				var word_letter = word[i]
-				if grid_letter != "@" and grid_letter != word_letter:
+				if grid_letter != EMPTY_LETTER and grid_letter != word_letter:
 					return false
 		else:
 			return false
@@ -88,9 +103,9 @@ func check_position_validity(word: String, row: int, col: int, direction: int) -
 	if direction == 1:  # horizontal
 		if col + word_length <= COLUMNS:
 			for i in range(word_length):
-				var grid_letter = grid[row][col + i]
+				var grid_letter = get_grid()[row][col + i]
 				var word_letter = word[i]
-				if grid_letter != "@" and grid_letter != word_letter:
+				if grid_letter != EMPTY_LETTER and grid_letter != word_letter:
 					return false
 		else:
 			return false
@@ -98,9 +113,9 @@ func check_position_validity(word: String, row: int, col: int, direction: int) -
 	if direction == 2:  # diagonal-up
 		if row - word_length >= -1 and col + word_length <= COLUMNS:
 			for i in range(word_length):
-				var grid_letter = grid[row - i][col + i]
+				var grid_letter = get_grid()[row - i][col + i]
 				var word_letter = word[i]
-				if grid_letter != "@" and grid_letter != word_letter:
+				if grid_letter != EMPTY_LETTER and grid_letter != word_letter:
 					return false
 		else:
 			return false
@@ -108,52 +123,57 @@ func check_position_validity(word: String, row: int, col: int, direction: int) -
 	if direction == 3:  # diagonal-down
 		if row + word_length <= ROWS and col + word_length <= COLUMNS:
 			for i in range(word_length):
-				var grid_letter = grid[row + i][col + i]
+				var grid_letter = get_grid()[row + i][col + i]
 				var word_letter = word[i]
-				if grid_letter != "@" and grid_letter != word_letter:
+				if grid_letter != EMPTY_LETTER and grid_letter != word_letter:
 					return false
 		else:
 			return false
 
 	return true
 
-func insert_word_at_position(word: String, row: int, col: int, direction: int):
+
+func _insert_word_at_position(word: String, row: int, col: int, direction: int) -> void:
 	var word_length = word.length()
 
 	if direction == 0:  # vertical
 		for i in range(word_length):
-			grid[row + i][col] = word[i]
+			get_grid()[row + i][col] = word[i]
 
 	if direction == 1:  # horizontal
 		for i in range(word_length):
-			grid[row][col + i] = word[i]
+			get_grid()[row][col + i] = word[i]
 
 	if direction == 2:  # diagonal-up
 		for i in range(word_length):
-			grid[row - i][col + i] = word[i]
+			get_grid()[row - i][col + i] = word[i]
 
 	if direction == 3:  # diagonal-down
 		for i in range(word_length):
-			grid[row + i][col + i] = word[i]
+			get_grid()[row + i][col + i] = word[i]
 
-func fill_empty_spaces():
+
+func _fill_empty_spaces() -> void:
 	for row in range(ROWS):
 		for col in range(COLUMNS):
-			if grid[row][col] == "@":
-				grid[row][col] = random_letter()
+			if get_grid()[row][col] == EMPTY_LETTER:
+				get_grid()[row][col] = _random_letter()
 
-func random_letter() -> String:
-	var ascii_code = ord("a") + randi() % 26  # ASCII codes for lowercase letters
-	return "-"#char(ascii_code)
 
-func print_grid():
-	for i in range(ROWS):
-		var row_str = ""
-		for j in range(COLUMNS):
-			row_str += str(grid[i][j])
-		print(row_str)
+func _random_letter() -> String:
+	var ascii_code = ord("A") + randi() % 26  # ASCII codes for lowercase letters
+	return " "#char(ascii_code)
 
-#func save_grid_to_file(filename: String):
+
+#func _print_grid() -> void:
+#	for i in range(ROWS):
+#		var row_str = ""
+#		for j in range(COLUMNS):
+#			row_str += str(get_grid()[i][j])
+#		print(row_str)
+
+
+#func _save_grid_to_file(filename: String) -> void:
 #	var file = File.new()
 #	if file.open(filename, File.WRITE) == OK:
 #		for i in range(ROWS):
@@ -167,18 +187,13 @@ func print_grid():
 #		print("Failed to save grid to file.")
 
 
-#  [PRIVATE_METHODS]
-
+func _initialize_ui_grid() -> void:
+	var count: int = 0
+	for row in range(0, ROWS):
+		for col in range(0, COLUMNS):
+			grid_container.get_child(count).set_text(get_grid()[row][col])
+			count += 1
 
 #  [SIGNAL_METHODS]
-
-
-
-
-
-
-
-
-
-
-
+func _on_Home_pressed() -> void:
+	get_tree().change_scene("res://home/home.tscn")
