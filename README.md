@@ -13,6 +13,8 @@
 
 - [CRYPTOGRAM](https://plataforma-ciencia-em-sintese.github.io/minigames/deploy/index.html?id=27829&skip=0)
 
+- [WORDHUNT](https://plataforma-ciencia-em-sintese.github.io/minigames/deploy/index.html?id=25308&skip=0)
+
 
 ## CHANGELOG
 - [Click here](CHANGELOG.md)
