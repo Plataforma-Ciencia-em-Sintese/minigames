@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=103]
+size = 24
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=104]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+anti_aliasing = false
+
+[node name="LetterSlot" type="Button"]
+anchor_left = 0.014
+anchor_top = 0.024
+anchor_right = 0.014
+anchor_bottom = 0.024
+margin_left = -26.88
+margin_top = -25.92
+margin_right = 27.12
+margin_bottom = 26.08
+rect_min_size = Vector2( 54, 52 )
+rect_pivot_offset = Vector2( 27, 26 )
+mouse_default_cursor_shape = 2
+input_pass_on_modal_close_click = false
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_focus = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 103 )
+custom_styles/hover = SubResource( 104 )
+custom_styles/pressed = SubResource( 104 )
+custom_styles/focus = SubResource( 104 )
+custom_styles/disabled = SubResource( 104 )
+custom_styles/normal = SubResource( 104 )

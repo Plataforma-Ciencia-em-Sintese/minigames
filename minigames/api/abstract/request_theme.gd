@@ -104,7 +104,7 @@ func get_background_texture() -> ImageTexture:
 func get_color(name: int) -> Color:
 	var color: Color = Color()
 	var intensity: float = 0.25
-	
+
 	match(name):
 		# PRIMARY COLORS
 		PL3:
@@ -115,29 +115,29 @@ func get_color(name: int) -> Color:
 			color = get_primary_color().lightened(intensity)
 		PB:
 			color = get_primary_color()
-		PD1: 
+		PD1:
 			color = get_primary_color().darkened(intensity)
-		PD2: 
+		PD2:
 			color = get_primary_color().darkened(intensity * 2.0)
 		PD3:
 			color = get_primary_color().darkened(intensity * 3.0)
 
 		# SECONDARY COLORS
-		SL3: 
+		SL3:
 			color = get_secondary_color().lightened(intensity * 3.0)
-		SL2: 
+		SL2:
 			color = get_secondary_color().lightened(intensity * 2.0)
-		SL1: 
+		SL1:
 			color = get_secondary_color().lightened(intensity)
-		SB:  
+		SB:
 			color = get_secondary_color()
 		SD1:
 			color = get_secondary_color().darkened(intensity)
-		SD2: 
+		SD2:
 			color = get_secondary_color().darkened(intensity * 2.0)
 		SD3:
 			color = get_secondary_color().darkened(intensity * 3.0)
-		
+
 		# FIXED COLORS
 		RED:
 			color = Color("#F5333F")
@@ -156,6 +156,6 @@ func get_color(name: int) -> Color:
 
 
 #  [PRIVATE_METHODS]
- 
+
 
 #  [SIGNAL_METHODS]

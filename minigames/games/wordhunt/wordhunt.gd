@@ -14,9 +14,11 @@ extends Control
 
 #  [CONSTANTS]
 const ROWS: int = 16
-const COLUMNS: int = 19
+const COLUMNS: int = 18
+const GRID_SLOTS: int = ROWS * COLUMNS
 const EMPTY_LETTER: String = "@"
 const WORDS: Array = ["ABACAXI", "LARANJA", "LIMAO", "MELANCIA", "BANANA", "MORANGO", "UVA", "MACA", "PERA", "MANGA"]
+const LETTER_SLOT: PackedScene = preload("res://games/wordhunt/letter_slot/letter_slot.tscn")
 
 
 #  [EXPORTED_VARIABLES]
@@ -32,6 +34,7 @@ var _grid: Array = [] \
 
 #  [ONREADY_VARIABLES]
 onready var grid_container: GridContainer = $"%GridContainer"
+onready var line_marker: CanvasLayer = $LineMarker
 
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
@@ -48,6 +51,10 @@ func _ready() -> void:
 #	_print_grid()
 #	_save_grid_to_file("wordhunt.txt")
 	_initialize_ui_grid()
+	_initialize_tip_words()
+
+
+
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
@@ -75,7 +82,12 @@ func _initialize_grid():
 
 
 func _insert_words() -> void:
-	for word in WORDS:
+	var list_words: Array = []
+	for word in API.game.get_words().keys():
+		list_words.append(_remove_accent_and_upper_case(str(word)))
+
+	#	for word in WORDS:
+	for word in list_words:
 		var inserted = false
 		while not inserted:
 			var row = randi() % ROWS
@@ -161,8 +173,8 @@ func _fill_empty_spaces() -> void:
 
 
 func _random_letter() -> String:
-	var ascii_code = ord("A") + randi() % 26  # ASCII codes for lowercase letters
-	return " "#char(ascii_code)
+	var ascii_code = ord("a") + randi() % 26  # ASCII codes for lowercase letters
+	return char(ascii_code)
 
 
 #func _print_grid() -> void:
@@ -187,13 +199,60 @@ func _random_letter() -> String:
 #		print("Failed to save grid to file.")
 
 
+func _remove_accent_and_upper_case(default_string: String) -> String:
+	var accent_map: Dictionary = {
+		"á": "a", "à": "a", "ã": "a", "â": "a", "ä": "a",
+		"é": "e", "è": "e", "ê": "e", "ë": "e",
+		"í": "i", "ì": "i", "î": "i", "ï": "i",
+		"ó": "o", "ò": "o", "õ": "o", "ô": "o", "ö": "o",
+		"ú": "u", "ù": "u", "û": "u", "ü": "u",
+		"ç": "c",
+		"Á": "A", "À": "A", "Ã": "A", "Â": "A", "Ä": "A",
+		"É": "E", "È": "E", "Ê": "E", "Ë": "E",
+		"Í": "I", "Ì": "I", "Î": "I", "Ï": "I",
+		"Ó": "O", "Ò": "O", "Õ": "O", "Ô": "O", "Ö": "O",
+		"Ú": "U", "Ù": "U", "Û": "U", "Ü": "U",
+		"Ç": "C"
+	}
+
+	var string_without_accent: String = ""
+
+	for letter in default_string:
+		if accent_map.has(letter):
+			string_without_accent += accent_map[letter]
+		else:
+			string_without_accent += letter
+
+	return string_without_accent.to_upper()
+
+
+
 func _initialize_ui_grid() -> void:
+	for index in range(0, GRID_SLOTS):
+		var new_letter_slot: Button = LETTER_SLOT.instance()
+		new_letter_slot.connect("pressed", self, "_on_selected_letter", [new_letter_slot])
+		grid_container.add_child(new_letter_slot)
+
+
 	var count: int = 0
 	for row in range(0, ROWS):
 		for col in range(0, COLUMNS):
 			grid_container.get_child(count).set_text(get_grid()[row][col])
 			count += 1
 
+
+func _initialize_tip_words() -> void:
+	pass
+
+
 #  [SIGNAL_METHODS]
 func _on_Home_pressed() -> void:
 	get_tree().change_scene("res://home/home.tscn")
+
+
+func _on_selected_letter(letter: Button) -> void:
+	print("\nletter: " + letter.text)
+	if line_marker.get_draw_line():
+		line_marker.add_last_point(letter.rect_global_position + (letter.rect_size / 2.0))
+	else:
+		line_marker.add_first_point(letter.rect_global_position + (letter.rect_size / 2.0))
