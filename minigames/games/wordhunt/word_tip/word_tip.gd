@@ -22,12 +22,12 @@ extends MarginContainer
 
 
 #  [PRIVATE_VARIABLES]
-var _tip: RichTextLabel
-var _letter_counter: RichTextLabel
-var _word: RichTextLabel
 
 
 #  [ONREADY_VARIABLES]
+onready var _tip: RichTextLabel = $MarginContainer/VBoxContainer/Tip
+onready var _letter_counter: RichTextLabel = $MarginContainer/VBoxContainer/LetterCounter
+onready var _word: RichTextLabel = $MarginContainer/VBoxContainer/Word
 
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
@@ -46,9 +46,29 @@ var _word: RichTextLabel
 
 
 #  [PUBLIC_METHODS]
+func get_tip() -> RichTextLabel:
+	return _tip
+
+
+func get_letter_counter() -> RichTextLabel:
+	return _letter_counter
+
+
+func get_word() -> RichTextLabel:
+	return _word
 
 
 #  [PRIVATE_METHODS]
+func set_tip_text(text: String) -> void:
+	get_tip().set_bbcode(text)
+
+
+func set_letter_counter_text(text: String) -> void:
+	get_letter_counter().set_bbcode(text)
+
+
+func set_word_text(text: String) -> void:
+	get_word().set_bbcode(text)
 
 
 #  [SIGNAL_METHODS]

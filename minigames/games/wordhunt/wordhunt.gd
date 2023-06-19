@@ -19,6 +19,7 @@ const GRID_SLOTS: int = ROWS * COLUMNS
 const EMPTY_LETTER: String = "@"
 const WORDS: Array = ["ABACAXI", "LARANJA", "LIMAO", "MELANCIA", "BANANA", "MORANGO", "UVA", "MACA", "PERA", "MANGA"]
 const LETTER_SLOT: PackedScene = preload("res://games/wordhunt/letter_slot/letter_slot.tscn")
+const WORD_TIP: PackedScene = preload("res://games/wordhunt/word_tip/word_tip.tscn")
 
 
 #  [EXPORTED_VARIABLES]
@@ -35,6 +36,7 @@ var _grid: Array = [] \
 #  [ONREADY_VARIABLES]
 onready var grid_container: GridContainer = $"%GridContainer"
 onready var line_marker: CanvasLayer = $LineMarker
+onready var tip_list: VBoxContainer = $"%TipList"
 
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
@@ -47,11 +49,12 @@ func _ready() -> void:
 	randomize()
 	_initialize_grid()
 	_insert_words()
+	_insert_tip_words()
 	_fill_empty_spaces()
 #	_print_grid()
 #	_save_grid_to_file("wordhunt.txt")
 	_initialize_ui_grid()
-	_initialize_tip_words()
+
 
 
 
@@ -233,7 +236,6 @@ func _initialize_ui_grid() -> void:
 		new_letter_slot.connect("pressed", self, "_on_selected_letter", [new_letter_slot])
 		grid_container.add_child(new_letter_slot)
 
-
 	var count: int = 0
 	for row in range(0, ROWS):
 		for col in range(0, COLUMNS):
@@ -241,8 +243,14 @@ func _initialize_ui_grid() -> void:
 			count += 1
 
 
-func _initialize_tip_words() -> void:
-	pass
+func _insert_tip_words() -> void:
+	var words_and_tips: Dictionary = API.game.get_words()
+	for word in words_and_tips:
+		var new_word_tip: MarginContainer = WORD_TIP.instance()
+		tip_list.add_child(new_word_tip)
+		new_word_tip.set_tip_text(str(words_and_tips.get(word)["clue"]))
+		new_word_tip.set_letter_counter_text(str(str(word).length()) + " Letras")
+		new_word_tip.set_word_text(str(word).to_upper())
 
 
 #  [SIGNAL_METHODS]
@@ -251,7 +259,7 @@ func _on_Home_pressed() -> void:
 
 
 func _on_selected_letter(letter: Button) -> void:
-	print("\nletter: " + letter.text)
+#	print("\nletter: " + letter.text)
 	if line_marker.get_draw_line():
 		line_marker.add_last_point(letter.rect_global_position + (letter.rect_size / 2.0))
 	else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/fonts/JetBrainsMono/JetBrainsMonoNerdFontCompleteM-Regular.ttf" type="DynamicFontData" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://assets/components/theme_button_icon/theme_button_icon.tscn" type="PackedScene" id=4]
 [ext_resource path="res://games/wordhunt/wordhunt.gd" type="Script" id=5]
 [ext_resource path="res://assets/theme.tres" type="Theme" id=6]
-[ext_resource path="res://games/wordhunt/word_tip/word_tip.tscn" type="PackedScene" id=7]
 [ext_resource path="res://games/wordhunt/line_marker/line_marker.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=82]
@@ -601,60 +600,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel/ScrollContainer"]
-margin_right = 384.0
-margin_bottom = 1362.0
+[node name="TipList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel/ScrollContainer"]
+unique_name_in_owner = true
+margin_right = 404.0
+margin_bottom = 878.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
 
-[node name="WordTip" parent="MarginContainer/VBoxContainer/GameContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource( 7 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 384.0
-margin_bottom = 186.0
-
-[node name="WordTip2" parent="MarginContainer/VBoxContainer/GameContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource( 7 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 196.0
-margin_right = 384.0
-margin_bottom = 382.0
-
-[node name="WordTip3" parent="MarginContainer/VBoxContainer/GameContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource( 7 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 392.0
-margin_right = 384.0
-margin_bottom = 578.0
-
-[node name="WordTip4" parent="MarginContainer/VBoxContainer/GameContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource( 7 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 588.0
-margin_right = 384.0
-margin_bottom = 774.0
-
-[node name="WordTip5" parent="MarginContainer/VBoxContainer/GameContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource( 7 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 784.0
-margin_right = 384.0
-margin_bottom = 970.0
-
-[node name="WordTip6" parent="MarginContainer/VBoxContainer/GameContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource( 7 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 980.0
-margin_right = 384.0
-margin_bottom = 1166.0
-
-[node name="WordTip7" parent="MarginContainer/VBoxContainer/GameContainer/Panel/ScrollContainer/VBoxContainer" instance=ExtResource( 7 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 1176.0
-margin_right = 384.0
-margin_bottom = 1362.0
-
-[connection signal="gui_input" from="." to="." method="_on_Wordhunt_gui_input"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Home" to="." method="_on_Home_pressed"]
