@@ -87,7 +87,7 @@ func _initialize_grid():
 func _insert_words() -> void:
 	var list_words: Array = []
 	for word in API.game.get_words().keys():
-		list_words.append(_remove_accent_and_upper_case(str(word)))
+		list_words.append(_remove_replace_and_upper_case_chars(str(word)))
 
 	#	for word in WORDS:
 	for word in list_words:
@@ -202,7 +202,7 @@ func _random_letter() -> String:
 #		print("Failed to save grid to file.")
 
 
-func _remove_accent_and_upper_case(default_string: String) -> String:
+func _remove_replace_and_upper_case_chars(default_string: String) -> String:
 	var accent_map: Dictionary = {
 		"á": "a", "à": "a", "ã": "a", "â": "a", "ä": "a",
 		"é": "e", "è": "e", "ê": "e", "ë": "e",
@@ -219,21 +219,26 @@ func _remove_accent_and_upper_case(default_string: String) -> String:
 	}
 
 	var string_without_accent: String = ""
-
 	for letter in default_string:
 		if accent_map.has(letter):
 			string_without_accent += accent_map[letter]
 		else:
 			string_without_accent += letter
 
-	return string_without_accent.to_upper()
+	var result_string: String = string_without_accent
+	var remove_chars: = " !-#$?()[]*+.,"
+	for i in range(0, len(remove_chars)):
+		result_string = result_string.replace(remove_chars[i],"")
+
+
+	return result_string.to_upper()
 
 
 
 func _initialize_ui_grid() -> void:
 	for index in range(0, GRID_SLOTS):
-		var new_letter_slot: Button = LETTER_SLOT.instance()
-		new_letter_slot.connect("pressed", self, "_on_selected_letter", [new_letter_slot])
+		var new_letter_slot: Label = LETTER_SLOT.instance()
+		new_letter_slot.connect("mouse_entered", self, "_on_mouse_hover_letter", [new_letter_slot])
 		grid_container.add_child(new_letter_slot)
 
 	var count: int = 0
@@ -258,9 +263,9 @@ func _on_Home_pressed() -> void:
 	get_tree().change_scene("res://home/home.tscn")
 
 
-func _on_selected_letter(letter: Button) -> void:
-#	print("\nletter: " + letter.text)
-	if line_marker.get_draw_line():
-		line_marker.add_last_point(letter.rect_global_position + (letter.rect_size / 2.0))
-	else:
-		line_marker.add_first_point(letter.rect_global_position + (letter.rect_size / 2.0))
+func _on_mouse_hover_letter(letter: Label) -> void:
+	print("\nletter: " + letter.text)
+#	if line_marker.get_draw_line():
+#		line_marker.add_last_point(letter.rect_global_position + (letter.rect_size / 2.0))
+#	else:
+#		line_marker.add_first_point(letter.rect_global_position + (letter.rect_size / 2.0))
