@@ -36,13 +36,17 @@ export(ColorOptions) var selected_color: int = ColorOptions.PRIMARY
 
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
-	match(selected_color):
-		ColorOptions.PRIMARY:
-			set_primary_color()
-		ColorOptions.SECUNDARY:
-			set_secondary_color()
-		_:
-			set_primary_color()
+	if get_name() == get_tree().get_current_scene().get_name():
+		pass
+
+	else:
+		match(selected_color):
+			ColorOptions.PRIMARY:
+				_define_to_primary_color()
+			ColorOptions.SECUNDARY:
+				_define_to_secondary_color()
+			_:
+				_define_to_primary_color()
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
@@ -51,7 +55,10 @@ func _ready() -> void:
 
 
 #  [PUBLIC_METHODS]
-func set_primary_color() -> void:
+
+
+#  [PRIVATE_METHODS]
+func _define_to_primary_color() -> void:
 	self.set("custom_colors/font_color", API.theme.get_color(API.theme.WHITE))
 	self.set("custom_colors/font_color_hover", API.theme.get_color(API.theme.WHITE))
 	self.set("custom_colors/font_color_pressed", API.theme.get_color(API.theme.PB))
@@ -77,7 +84,7 @@ func set_primary_color() -> void:
 	state_normal.set("border_color", API.theme.get_color(API.theme.PD2))
 
 
-func set_secondary_color() -> void:
+func _define_to_secondary_color() -> void:
 	self.set("custom_colors/font_color", API.theme.get_color(API.theme.WHITE))
 	self.set("custom_colors/font_color_hover", API.theme.get_color(API.theme.WHITE))
 	self.set("custom_colors/font_color_pressed", API.theme.get_color(API.theme.SB))
@@ -103,7 +110,5 @@ func set_secondary_color() -> void:
 	state_normal.set("border_color", API.theme.get_color(API.theme.SD2))
 
 
-#  [PRIVATE_METHODS]
- 
 
 #  [SIGNAL_METHODS]
