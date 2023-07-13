@@ -58,13 +58,8 @@ var _is_request_error: bool = bool(false) \
 
 
 #  [BUILT-IN_VURTUAL_METHOD]
-func _ready() -> void:
-	connect("a_request_completed", self, "_on_a_request_completed")
-
-	common = RequestCommonOmeka.new()
-	add_child(common)
-	common.connect("all_request_common_completed", self, "_on_all_request_common_completed")
-	common.connect("request_error", self, "_on_request_error")
+# func _ready() -> void:
+# 	pass
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
