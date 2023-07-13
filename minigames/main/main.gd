@@ -36,6 +36,7 @@ onready var loading_status: Control = $"Loading"
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
 	if URL.is_parameters():
+		API.start_requests()
 		API.connect("all_request_completed", self, "_on_init_game")
 		API.connect("all_request_failed", self, "_on_return_error")
 	else:
