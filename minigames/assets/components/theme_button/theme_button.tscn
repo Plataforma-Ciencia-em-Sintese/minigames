@@ -127,7 +127,7 @@ func _ready() -> void:
 			set_secondary_color()
 		_:
 			set_primary_color()
-	
+
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
@@ -140,23 +140,23 @@ func set_primary_color() -> void:
 	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
 	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
 	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.PB))
-	
+
 	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
 	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
 	state_hover.set(\"border_color\", API.theme.get_color(API.theme.PD2))
-	
+
 	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
 	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
 	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.PD2))
-	
+
 	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
 	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
 	state_focus.set(\"border_color\", API.theme.get_color(API.theme.PD2))
-	
+
 	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
 	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.PB))
 	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.PD2))
-	
+
 	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
 	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.PB))
 	state_normal.set(\"border_color\", API.theme.get_color(API.theme.PD2))
@@ -166,30 +166,30 @@ func set_secondary_color() -> void:
 	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
 	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
 	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.SB))
-	
+
 	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
 	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
 	state_hover.set(\"border_color\", API.theme.get_color(API.theme.SD2))
-	
+
 	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
 	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
 	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.SD2))
-	
+
 	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
 	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
 	state_focus.set(\"border_color\", API.theme.get_color(API.theme.SD2))
-	
+
 	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
 	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.SB))
 	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.SD2))
-	
+
 	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
 	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.SB))
 	state_normal.set(\"border_color\", API.theme.get_color(API.theme.SD2))
 
 
 #  [PRIVATE_METHODS]
- 
+
 
 #  [SIGNAL_METHODS]
 "
