@@ -105,6 +105,15 @@ func get_is_request_error() -> bool:
 	return _is_request_error
 
 
+func start_requests() -> void:
+	connect("a_request_completed", self, "_on_a_request_completed")
+
+	common = RequestCommonOmeka.new()
+	add_child(common)
+	common.connect("all_request_common_completed", self, "_on_all_request_common_completed")
+	common.connect("request_error", self, "_on_request_error")
+
+
 func is_all_request_completed() -> bool:
 	if get_is_common_completed():
 		if get_is_game_completed():
