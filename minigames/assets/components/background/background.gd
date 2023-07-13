@@ -17,7 +17,7 @@ extends Control
 
 #  [EXPORTED_VARIABLES]
 export var background_color: bool = true
-export var background_texture: bool = true 
+export var background_texture: bool = true
 
 
 #  [PUBLIC_VARIABLES]
@@ -38,16 +38,13 @@ onready var texture_rect: TextureRect = $"TextureRect"
 
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
-	if background_color:
-		color_rect.color = API.theme.get_color(API.theme.PB)
-	else:
-		color_rect.visible = false
+	if get_name() == get_tree().get_current_scene().get_name():
+		pass
 
-	if background_texture:
-		texture_rect.texture = API.theme.get_background_texture()
-		texture_rect.set("modulate", API.theme.get_color(API.theme.PD1))
 	else:
-		texture_rect.visible = false
+		_change_background_color(API.theme.get_color(API.theme.PB))
+		_change_background_texture(API.theme.get_background_texture())
+		
 
 
 #  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
@@ -59,6 +56,19 @@ func _ready() -> void:
 
 
 #  [PRIVATE_METHODS]
- 
+func _change_background_color(color: Color) -> void:
+	if background_color:
+		color_rect.color = color
+	else:
+		color_rect.visible = false
+
+
+func _change_background_texture(texture: ImageTexture) -> void:
+	if background_texture:
+		texture_rect.texture = texture
+		texture_rect.set("modulate", API.theme.get_color(API.theme.PD1))
+	else:
+		texture_rect.visible = false
+
 
 #  [SIGNAL_METHODS]
