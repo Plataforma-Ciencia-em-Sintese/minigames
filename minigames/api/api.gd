@@ -19,7 +19,7 @@ enum ResourceID {
 	QUIZ = 24
 	PUZZLE = 31
 	CRYPTOGRAM = 30
-	WORDHUNT = 20
+	WORDHUNT = 33
 }
 
 
