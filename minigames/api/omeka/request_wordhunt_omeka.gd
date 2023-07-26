@@ -81,27 +81,19 @@ func _request_main() -> void:
 func _request_words() -> void:
 	yield(self, "request_main_completed")
 	if get_resources().has("game:contains"):
-		for i in get_resources()["game:contains"]:
-			var value = i["@value"]
-			var word = ""
-			var clue = ""
-			var entry = {}
-			if "|" in value:
-				var spli = value.split("|")
-				word = spli[0]
-				clue = spli[1]
-			elif ":" in value:
-				var spli = value.split(":")
-				word = spli[0]
-				clue = spli[1]
+		for values in get_resources()["game:contains"]:
+			if values.has("@value"):
+				if "|" in str(values["@value"]):
+					var key: String = values["@value"].split("|")[0]
+					var value: String = values["@value"].split("|")[1]
+					get_words()[key] = value
+				else:
+					emit_signal("request_error", "RequestGameOmeka._request_words(): expected 'key|value'")
 			else:
-				emit_signal("request_error", "RequestGameOmeka._request_main(): invalid game data")
-			entry["clue"] = clue
-			_words[word] = entry
-
+				emit_signal("request_error", "RequestGameOmeka._request_words(): property not found")
 		emit_signal("request_words_completed")
 	else:
-		emit_signal("request_error", "RequestGameOmeka._request_main(): property not found")
+		emit_signal("request_error", "RequestGameOmeka._request_words(): property not found")
 
 
 #  [SIGNAL_METHODS]
