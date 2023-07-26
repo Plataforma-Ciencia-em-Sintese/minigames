@@ -15,7 +15,7 @@ signal request_words_completed
 
 
 #  [CONSTANTS]
-const RESOURCE_MODEL_ID: int = 20
+const RESOURCE_MODEL_ID: int = 33
 const URL_BASE := "https://repositorio.canalciencia.ibict.br/api/items/"
 
 #  [EXPORTED_VARIABLES]
