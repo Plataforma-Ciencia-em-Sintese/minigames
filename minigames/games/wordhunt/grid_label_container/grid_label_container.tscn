@@ -1,0 +1,2266 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://games/wordhunt/grid_label_container/grid_label_container.gd" type="Script" id=2]
+[ext_resource path="res://games/wordhunt/grid_label_item/grid_label_item.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=103]
+size = 42
+use_filter = true
+extra_spacing_top = -10
+extra_spacing_bottom = -10
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=104]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 0 )
+anti_aliasing = false
+
+[node name="GridLabelContainer" type="GridContainer"]
+unique_name_in_owner = true
+margin_right = 1028.0
+margin_bottom = 882.0
+custom_constants/vseparation = 14
+custom_constants/hseparation = 16
+columns = 18
+script = ExtResource( 2 )
+
+[node name="LetterSlot0" parent="." instance=ExtResource( 4 )]
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot1" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_right = 100.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot2" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_right = 158.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot3" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_right = 216.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot4" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_right = 274.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot5" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_right = 332.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot6" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_right = 390.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot7" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_right = 448.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot8" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_right = 506.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot9" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_right = 564.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot10" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_right = 622.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot11" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_right = 680.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot12" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_right = 738.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot13" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_right = 796.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot14" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_right = 854.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot15" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_right = 912.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot16" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_right = 970.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot17" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_right = 1028.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot18" parent="." instance=ExtResource( 4 )]
+margin_top = 56.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot19" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 56.0
+margin_right = 100.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot20" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 56.0
+margin_right = 158.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot21" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 56.0
+margin_right = 216.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot22" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 56.0
+margin_right = 274.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot23" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 56.0
+margin_right = 332.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot24" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 56.0
+margin_right = 390.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot25" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 56.0
+margin_right = 448.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot26" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 56.0
+margin_right = 506.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot27" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 56.0
+margin_right = 564.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot28" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 56.0
+margin_right = 622.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot29" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 56.0
+margin_right = 680.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot30" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 56.0
+margin_right = 738.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot31" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 56.0
+margin_right = 796.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot32" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 56.0
+margin_right = 854.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot33" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 56.0
+margin_right = 912.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot34" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 56.0
+margin_right = 970.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot35" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 56.0
+margin_right = 1028.0
+margin_bottom = 98.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot36" parent="." instance=ExtResource( 4 )]
+margin_top = 112.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot37" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 112.0
+margin_right = 100.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot38" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 112.0
+margin_right = 158.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot39" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 112.0
+margin_right = 216.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot40" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 112.0
+margin_right = 274.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot41" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 112.0
+margin_right = 332.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot42" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 112.0
+margin_right = 390.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot43" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 112.0
+margin_right = 448.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot44" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 112.0
+margin_right = 506.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot45" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 112.0
+margin_right = 564.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot46" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 112.0
+margin_right = 622.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot47" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 112.0
+margin_right = 680.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot48" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 112.0
+margin_right = 738.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot49" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 112.0
+margin_right = 796.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot50" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 112.0
+margin_right = 854.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot51" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 112.0
+margin_right = 912.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot52" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 112.0
+margin_right = 970.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot53" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 112.0
+margin_right = 1028.0
+margin_bottom = 154.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot54" parent="." instance=ExtResource( 4 )]
+margin_top = 168.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot55" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 168.0
+margin_right = 100.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot56" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 168.0
+margin_right = 158.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot57" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 168.0
+margin_right = 216.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot58" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 168.0
+margin_right = 274.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot59" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 168.0
+margin_right = 332.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot60" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 168.0
+margin_right = 390.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot61" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 168.0
+margin_right = 448.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot62" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 168.0
+margin_right = 506.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot63" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 168.0
+margin_right = 564.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot64" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 168.0
+margin_right = 622.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot65" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 168.0
+margin_right = 680.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot66" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 168.0
+margin_right = 738.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot67" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 168.0
+margin_right = 796.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot68" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 168.0
+margin_right = 854.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot69" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 168.0
+margin_right = 912.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot70" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 168.0
+margin_right = 970.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot71" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 168.0
+margin_right = 1028.0
+margin_bottom = 210.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot72" parent="." instance=ExtResource( 4 )]
+margin_top = 224.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot73" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 224.0
+margin_right = 100.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot74" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 224.0
+margin_right = 158.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot75" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 224.0
+margin_right = 216.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot76" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 224.0
+margin_right = 274.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot77" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 224.0
+margin_right = 332.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot78" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 224.0
+margin_right = 390.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot79" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 224.0
+margin_right = 448.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot80" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 224.0
+margin_right = 506.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot81" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 224.0
+margin_right = 564.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot82" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 224.0
+margin_right = 622.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot83" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 224.0
+margin_right = 680.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot84" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 224.0
+margin_right = 738.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot85" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 224.0
+margin_right = 796.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot86" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 224.0
+margin_right = 854.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot87" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 224.0
+margin_right = 912.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot88" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 224.0
+margin_right = 970.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot89" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 224.0
+margin_right = 1028.0
+margin_bottom = 266.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot90" parent="." instance=ExtResource( 4 )]
+margin_top = 280.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot91" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 280.0
+margin_right = 100.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot92" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 280.0
+margin_right = 158.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot93" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 280.0
+margin_right = 216.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot94" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 280.0
+margin_right = 274.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot95" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 280.0
+margin_right = 332.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot96" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 280.0
+margin_right = 390.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot97" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 280.0
+margin_right = 448.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot98" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 280.0
+margin_right = 506.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot99" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 280.0
+margin_right = 564.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot100" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 280.0
+margin_right = 622.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot101" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 280.0
+margin_right = 680.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot102" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 280.0
+margin_right = 738.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot103" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 280.0
+margin_right = 796.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot104" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 280.0
+margin_right = 854.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot105" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 280.0
+margin_right = 912.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot106" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 280.0
+margin_right = 970.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot107" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 280.0
+margin_right = 1028.0
+margin_bottom = 322.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot108" parent="." instance=ExtResource( 4 )]
+margin_top = 336.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot109" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 336.0
+margin_right = 100.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot110" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 336.0
+margin_right = 158.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot111" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 336.0
+margin_right = 216.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot112" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 336.0
+margin_right = 274.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot113" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 336.0
+margin_right = 332.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot114" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 336.0
+margin_right = 390.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot115" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 336.0
+margin_right = 448.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot116" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 336.0
+margin_right = 506.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot117" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 336.0
+margin_right = 564.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot118" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 336.0
+margin_right = 622.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot119" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 336.0
+margin_right = 680.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot120" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 336.0
+margin_right = 738.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot121" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 336.0
+margin_right = 796.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot122" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 336.0
+margin_right = 854.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot123" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 336.0
+margin_right = 912.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot124" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 336.0
+margin_right = 970.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot125" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 336.0
+margin_right = 1028.0
+margin_bottom = 378.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot126" parent="." instance=ExtResource( 4 )]
+margin_top = 392.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot127" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 392.0
+margin_right = 100.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot128" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 392.0
+margin_right = 158.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot129" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 392.0
+margin_right = 216.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot130" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 392.0
+margin_right = 274.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot131" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 392.0
+margin_right = 332.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot132" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 392.0
+margin_right = 390.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot133" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 392.0
+margin_right = 448.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot134" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 392.0
+margin_right = 506.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot135" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 392.0
+margin_right = 564.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot136" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 392.0
+margin_right = 622.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot137" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 392.0
+margin_right = 680.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot138" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 392.0
+margin_right = 738.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot139" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 392.0
+margin_right = 796.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot140" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 392.0
+margin_right = 854.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot141" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 392.0
+margin_right = 912.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot142" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 392.0
+margin_right = 970.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot143" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 392.0
+margin_right = 1028.0
+margin_bottom = 434.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot144" parent="." instance=ExtResource( 4 )]
+margin_top = 448.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot145" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 448.0
+margin_right = 100.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot146" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 448.0
+margin_right = 158.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot147" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 448.0
+margin_right = 216.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot148" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 448.0
+margin_right = 274.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot149" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 448.0
+margin_right = 332.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot150" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 448.0
+margin_right = 390.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot151" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 448.0
+margin_right = 448.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot152" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 448.0
+margin_right = 506.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot153" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 448.0
+margin_right = 564.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot154" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 448.0
+margin_right = 622.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot155" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 448.0
+margin_right = 680.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot156" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 448.0
+margin_right = 738.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot157" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 448.0
+margin_right = 796.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot158" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 448.0
+margin_right = 854.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot159" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 448.0
+margin_right = 912.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot160" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 448.0
+margin_right = 970.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot161" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 448.0
+margin_right = 1028.0
+margin_bottom = 490.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot162" parent="." instance=ExtResource( 4 )]
+margin_top = 504.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot163" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 504.0
+margin_right = 100.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot164" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 504.0
+margin_right = 158.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot165" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 504.0
+margin_right = 216.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot166" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 504.0
+margin_right = 274.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot167" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 504.0
+margin_right = 332.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot168" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 504.0
+margin_right = 390.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot169" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 504.0
+margin_right = 448.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot170" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 504.0
+margin_right = 506.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot171" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 504.0
+margin_right = 564.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot172" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 504.0
+margin_right = 622.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot173" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 504.0
+margin_right = 680.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot174" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 504.0
+margin_right = 738.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot175" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 504.0
+margin_right = 796.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot176" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 504.0
+margin_right = 854.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot177" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 504.0
+margin_right = 912.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot178" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 504.0
+margin_right = 970.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot179" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 504.0
+margin_right = 1028.0
+margin_bottom = 546.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot180" parent="." instance=ExtResource( 4 )]
+margin_top = 560.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot181" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 560.0
+margin_right = 100.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot182" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 560.0
+margin_right = 158.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot183" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 560.0
+margin_right = 216.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot184" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 560.0
+margin_right = 274.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot185" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 560.0
+margin_right = 332.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot186" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 560.0
+margin_right = 390.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot187" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 560.0
+margin_right = 448.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot188" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 560.0
+margin_right = 506.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot189" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 560.0
+margin_right = 564.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot190" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 560.0
+margin_right = 622.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot191" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 560.0
+margin_right = 680.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot192" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 560.0
+margin_right = 738.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot193" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 560.0
+margin_right = 796.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot194" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 560.0
+margin_right = 854.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot195" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 560.0
+margin_right = 912.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot196" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 560.0
+margin_right = 970.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot197" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 560.0
+margin_right = 1028.0
+margin_bottom = 602.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot198" parent="." instance=ExtResource( 4 )]
+margin_top = 616.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot199" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 616.0
+margin_right = 100.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot200" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 616.0
+margin_right = 158.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot201" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 616.0
+margin_right = 216.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot202" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 616.0
+margin_right = 274.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot203" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 616.0
+margin_right = 332.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot204" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 616.0
+margin_right = 390.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot205" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 616.0
+margin_right = 448.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot206" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 616.0
+margin_right = 506.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot207" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 616.0
+margin_right = 564.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot208" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 616.0
+margin_right = 622.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot209" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 616.0
+margin_right = 680.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot210" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 616.0
+margin_right = 738.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot211" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 616.0
+margin_right = 796.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot212" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 616.0
+margin_right = 854.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot213" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 616.0
+margin_right = 912.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot214" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 616.0
+margin_right = 970.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot215" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 616.0
+margin_right = 1028.0
+margin_bottom = 658.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot216" parent="." instance=ExtResource( 4 )]
+margin_top = 672.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot217" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 672.0
+margin_right = 100.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot218" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 672.0
+margin_right = 158.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot219" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 672.0
+margin_right = 216.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot220" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 672.0
+margin_right = 274.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot221" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 672.0
+margin_right = 332.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot222" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 672.0
+margin_right = 390.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot223" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 672.0
+margin_right = 448.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot224" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 672.0
+margin_right = 506.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot225" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 672.0
+margin_right = 564.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot226" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 672.0
+margin_right = 622.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot227" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 672.0
+margin_right = 680.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot228" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 672.0
+margin_right = 738.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot229" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 672.0
+margin_right = 796.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot230" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 672.0
+margin_right = 854.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot231" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 672.0
+margin_right = 912.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot232" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 672.0
+margin_right = 970.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot233" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 672.0
+margin_right = 1028.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot234" parent="." instance=ExtResource( 4 )]
+margin_top = 728.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot235" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 728.0
+margin_right = 100.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot236" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 728.0
+margin_right = 158.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot237" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 728.0
+margin_right = 216.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot238" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 728.0
+margin_right = 274.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot239" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 728.0
+margin_right = 332.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot240" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 728.0
+margin_right = 390.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot241" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 728.0
+margin_right = 448.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot242" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 728.0
+margin_right = 506.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot243" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 728.0
+margin_right = 564.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot244" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 728.0
+margin_right = 622.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot245" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 728.0
+margin_right = 680.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot246" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 728.0
+margin_right = 738.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot247" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 728.0
+margin_right = 796.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot248" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 728.0
+margin_right = 854.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot249" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 728.0
+margin_right = 912.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot250" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 728.0
+margin_right = 970.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot251" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 728.0
+margin_right = 1028.0
+margin_bottom = 770.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot252" parent="." instance=ExtResource( 4 )]
+margin_top = 784.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot253" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 784.0
+margin_right = 100.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot254" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 784.0
+margin_right = 158.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot255" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 784.0
+margin_right = 216.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot256" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 784.0
+margin_right = 274.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot257" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 784.0
+margin_right = 332.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot258" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 784.0
+margin_right = 390.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot259" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 784.0
+margin_right = 448.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot260" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 784.0
+margin_right = 506.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot261" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 784.0
+margin_right = 564.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot262" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 784.0
+margin_right = 622.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot263" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 784.0
+margin_right = 680.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot264" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 784.0
+margin_right = 738.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot265" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 784.0
+margin_right = 796.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot266" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 784.0
+margin_right = 854.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot267" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 784.0
+margin_right = 912.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot268" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 784.0
+margin_right = 970.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot269" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 784.0
+margin_right = 1028.0
+margin_bottom = 826.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot270" parent="." instance=ExtResource( 4 )]
+margin_top = 840.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot271" parent="." instance=ExtResource( 4 )]
+margin_left = 58.0
+margin_top = 840.0
+margin_right = 100.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot272" parent="." instance=ExtResource( 4 )]
+margin_left = 116.0
+margin_top = 840.0
+margin_right = 158.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot273" parent="." instance=ExtResource( 4 )]
+margin_left = 174.0
+margin_top = 840.0
+margin_right = 216.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot274" parent="." instance=ExtResource( 4 )]
+margin_left = 232.0
+margin_top = 840.0
+margin_right = 274.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot275" parent="." instance=ExtResource( 4 )]
+margin_left = 290.0
+margin_top = 840.0
+margin_right = 332.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot276" parent="." instance=ExtResource( 4 )]
+margin_left = 348.0
+margin_top = 840.0
+margin_right = 390.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot277" parent="." instance=ExtResource( 4 )]
+margin_left = 406.0
+margin_top = 840.0
+margin_right = 448.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot278" parent="." instance=ExtResource( 4 )]
+margin_left = 464.0
+margin_top = 840.0
+margin_right = 506.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot279" parent="." instance=ExtResource( 4 )]
+margin_left = 522.0
+margin_top = 840.0
+margin_right = 564.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot280" parent="." instance=ExtResource( 4 )]
+margin_left = 580.0
+margin_top = 840.0
+margin_right = 622.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot281" parent="." instance=ExtResource( 4 )]
+margin_left = 638.0
+margin_top = 840.0
+margin_right = 680.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot282" parent="." instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_top = 840.0
+margin_right = 738.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot283" parent="." instance=ExtResource( 4 )]
+margin_left = 754.0
+margin_top = 840.0
+margin_right = 796.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot284" parent="." instance=ExtResource( 4 )]
+margin_left = 812.0
+margin_top = 840.0
+margin_right = 854.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot285" parent="." instance=ExtResource( 4 )]
+margin_left = 870.0
+margin_top = 840.0
+margin_right = 912.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot286" parent="." instance=ExtResource( 4 )]
+margin_left = 928.0
+margin_top = 840.0
+margin_right = 970.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
+
+[node name="LetterSlot287" parent="." instance=ExtResource( 4 )]
+margin_left = 986.0
+margin_top = 840.0
+margin_right = 1028.0
+margin_bottom = 882.0
+custom_fonts/font = SubResource( 103 )
+custom_styles/normal = SubResource( 104 )
