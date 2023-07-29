@@ -138,9 +138,20 @@ func fill_empty_spaces() -> Array:
 	for row in range(ROWS):
 		for col in range(COLUMNS):
 			if _grid[row][col] == EMPTY_LETTER:
-				_grid[row][col] = StringHandler.random_letter(false)
+				_grid[row][col] = random_letter(false)
 
 	return _grid
+
+
+func random_letter(uppercase: bool ) -> String:
+	randomize()
+
+	if uppercase:
+		# "A" for uppercase ascii_code letters
+		return char(ord("A") + randi() % 26)
+	else:
+		# "a" for lowercase ascii_code letters
+		return char(ord("a") + randi() % 26)
 
 
 func _print_grid() -> void:
