@@ -40,13 +40,15 @@ func _ready() -> void:
 		pass
 
 	else:
-		match(selected_color):
-			ColorOptions.PRIMARY:
-				_define_to_primary_color()
-			ColorOptions.SECUNDARY:
-				_define_to_secondary_color()
-			_:
-				_define_to_primary_color()
+
+		if API.theme != null:
+			match(selected_color):
+				ColorOptions.PRIMARY:
+					_define_to_primary_color()
+				ColorOptions.SECUNDARY:
+					_define_to_secondary_color()
+				_:
+					_define_to_primary_color()
 	
 
 
