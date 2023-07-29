@@ -3,8 +3,6 @@ extends Resource
 
 
 static func random_letter(uppercase: bool ) -> String:
-	randomize()
-
 	if uppercase:
 		# "A" for uppercase ascii_code letters
 		return char(ord("A") + randi() % 26)
