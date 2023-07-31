@@ -194,3 +194,7 @@ func _on_game_results_continue_level() -> void:
 	get_tree().change_scene("res://home/home.tscn")
 
 
+func _on_home_pressed() -> void:
+	get_tree().change_scene("res://home/home.tscn")
+
+
