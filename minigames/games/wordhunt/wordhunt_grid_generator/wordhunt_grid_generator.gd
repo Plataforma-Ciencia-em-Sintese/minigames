@@ -138,7 +138,7 @@ func fill_empty_spaces() -> Array:
 	for row in range(ROWS):
 		for col in range(COLUMNS):
 			if _grid[row][col] == EMPTY_LETTER:
-				_grid[row][col] = StringHandler.random_letter(false)
+				_grid[row][col] = StringHandler.random_letter(true)
 
 	return _grid
 
