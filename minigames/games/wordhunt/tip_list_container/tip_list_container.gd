@@ -7,6 +7,10 @@ const _TipListItem: PackedScene = preload("res://games/wordhunt/tip_list_item/ti
 onready var _list: VBoxContainer = $"%List"
 
 
+func get_list() -> VBoxContainer:
+	return _list
+
+
 func _ready() -> void:
 	insert_tips_into_tip_list(API.game.get_words())
 

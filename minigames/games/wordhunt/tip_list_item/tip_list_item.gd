@@ -53,7 +53,7 @@ func define_tip_solved() -> void:
 	var new_bbcode: String = String((
 		"[s][color=#{color}]{text}[/color][/s]"
 	).format({
-		"color": API.theme.get_color(API.theme.GREEN).to_html(false),
+		"color": API.theme.get_color(API.theme.PB).to_html(false),
 		"text": _tip.get_bbcode(),
 	}))
 

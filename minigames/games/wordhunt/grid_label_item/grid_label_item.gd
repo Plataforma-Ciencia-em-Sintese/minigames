@@ -2,8 +2,8 @@ class_name GridLabelItem
 extends Label
 
 
-signal item_has_selected(slot)
-signal item_has_deselected(slot)
+signal letter_has_selected(slot)
+signal letter_has_deselected(slot)
 
 
 var _emitted_selected: bool = false
@@ -13,12 +13,12 @@ func _process(_delta: float) -> void:
 	if is_mouse_pressed_on_item():
 		if not is_emitted_selected():
 			_emitted_selected = true
-			emit_signal("item_has_selected", self)
+			emit_signal("letter_has_selected", self)
 #			print(text + ": selecionado!")
 	else:
 		if is_emitted_selected() and not Input.is_mouse_button_pressed(BUTTON_LEFT):
 			_emitted_selected = false
-			emit_signal("item_has_deselected", self)
+			emit_signal("letter_has_deselected", self)
 #			print(text + ": desselecionado!")
 
 

@@ -18,8 +18,8 @@ __meta__ = {
 
 [node name="List" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
-margin_right = 530.561
-margin_bottom = 1053.6
+margin_right = 510.561
+margin_bottom = 1082.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 10
@@ -27,19 +27,82 @@ custom_constants/separation = 10
 [node name="WordTip0" parent="List" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 530.0
+margin_right = 510.0
 margin_bottom = 81.0
 
 [node name="WordTip1" parent="List" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 91.0
-margin_right = 530.0
+margin_right = 510.0
 margin_bottom = 172.0
 
 [node name="WordTip2" parent="List" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 182.0
-margin_right = 530.0
+margin_right = 510.0
 margin_bottom = 263.0
+
+[node name="WordTip3" parent="List" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 273.0
+margin_right = 510.0
+margin_bottom = 354.0
+
+[node name="WordTip4" parent="List" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 364.0
+margin_right = 510.0
+margin_bottom = 445.0
+
+[node name="WordTip5" parent="List" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 455.0
+margin_right = 510.0
+margin_bottom = 536.0
+
+[node name="WordTip6" parent="List" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 546.0
+margin_right = 510.0
+margin_bottom = 627.0
+
+[node name="WordTip7" parent="List" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 637.0
+margin_right = 510.0
+margin_bottom = 718.0
+
+[node name="WordTip8" parent="List" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 728.0
+margin_right = 510.0
+margin_bottom = 809.0
+
+[node name="WordTip9" parent="List" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 819.0
+margin_right = 510.0
+margin_bottom = 900.0
+
+[node name="WordTip10" parent="List" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 910.0
+margin_right = 510.0
+margin_bottom = 991.0
+
+[node name="WordTip11" parent="List" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 1001.0
+margin_right = 510.0
+margin_bottom = 1082.0
