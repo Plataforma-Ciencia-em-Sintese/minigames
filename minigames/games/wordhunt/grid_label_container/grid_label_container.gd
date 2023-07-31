@@ -3,7 +3,8 @@ extends GridContainer
 
 signal selected_word(word)
 signal first_letter_selected(letter)
-signal end_letter_selected(letter)
+signal last_letter_selected(letter)
+signal selection_finish(first_letter, last_letter, word)
 
 
 const COLOR_DIRECTION_HORIZONTAL: Color = Color("#98c0f0")
@@ -29,8 +30,8 @@ const _GridLabelItem: PackedScene = preload("res://games/wordhunt/grid_label_ite
 
 
 var _grid_generator: WordhuntGridGenerator = WordhuntGridGenerator.new()
-var _first_item: GridLabelItem = null
-var _end_item: GridLabelItem = null
+var _first_letter: GridLabelItem = null
+var _last_letter: GridLabelItem = null
 var _current_direction = null
 var _paint: bool = false
 var _word: String = ""
@@ -51,32 +52,32 @@ func insert_letters_into_grid(matrix_letters: Array) -> void:
 			var new_letter: GridLabelItem = _GridLabelItem.instance()
 			new_letter.set_text(matrix_letters[row][col])
 			add_child(new_letter)
-			new_letter.connect("item_has_selected", self, "_on_item_has_selected")
-			new_letter.connect("item_has_deselected", self, "_on_item_has_deselected")
+			new_letter.connect("letter_has_selected", self, "_on_letter_has_selected")
+			new_letter.connect("letter_has_deselected", self, "_on_letter_has_deselected")
 
 
-func selected_first_item(item: GridLabelItem) -> void:
+func selected_first_letter(letter: GridLabelItem) -> void:
 	if _paint:
-		item.set("custom_colors/font_color", Color.red)
-		paint_intermediate_items()
+		letter.set("custom_colors/font_color", Color.red)
+		paint_intermediate_letters()
 
 
-func selected_end_item(item: GridLabelItem) -> void:
+func selected_last_letter(letter: GridLabelItem) -> void:
 	if _paint:
-		item.set("custom_colors/font_color", Color.red)
+		letter.set("custom_colors/font_color", Color.red)
 
 
-func paint_intermediate_items() -> void:
+func paint_intermediate_letters() -> void:
 	if _paint:
-		var first_item_row: int = _first_item.get_row_in_parent()
-		var first_item_column: int = _first_item.get_column_in_parent()
+		var first_letter_row: int = _first_letter.get_row_in_parent()
+		var first_letter_column: int = _first_letter.get_column_in_parent()
 
 		for child in get_children():
-			if child != _first_item:
+			if child != _first_letter:
 				var child_row: int = child.get_row_in_parent()
 				var child_column: int = child.get_column_in_parent()
-				var row_difference = child_row - first_item_row
-				var column_difference = child_column - first_item_column
+				var row_difference = child_row - first_letter_row
+				var column_difference = child_column - first_letter_column
 
 				# DIAGONAL
 				if abs(row_difference) == abs(column_difference):
@@ -101,35 +102,35 @@ func paint_intermediate_items() -> void:
 				else:
 
 					# DIRECTION_HORIZONTAL
-					if child_row == first_item_row and child_column >= first_item_column:
+					if child_row == first_letter_row and child_column >= first_letter_column:
 						child.set("custom_colors/font_color", COLOR_DIRECTION_HORIZONTAL)
 
 					# DIRECTION_HORIZONTAL_REVERSE
-					if child_row == first_item_row and child_column <= first_item_column:
+					if child_row == first_letter_row and child_column <= first_letter_column:
 						child.set("custom_colors/font_color", COLOR_DIRECTION_HORIZONTAL_REVERSE)
 
 					# DIRECTION_VERTICAL
-					if child_row >= first_item_row and child_column == first_item_column:
+					if child_row >= first_letter_row and child_column == first_letter_column:
 						child.set("custom_colors/font_color", COLOR_DIRECTION_VERTICAL)
 
 					# DIRECTION_VERTICAL_REVERSE
-					if child_row <= first_item_row and child_column == first_item_column:
+					if child_row <= first_letter_row and child_column == first_letter_column:
 						child.set("custom_colors/font_color", COLOR_DIRECTION_VERTICAL_REVERSE)
 
 
-func calculate_direction_item(item: GridLabelItem) -> int:
-	var first_item_row: int = _first_item.get_row_in_parent()
-	var first_item_column: int = _first_item.get_column_in_parent()
-	var item_row: int = item.get_row_in_parent()
-	var item_column: int = item.get_column_in_parent()
-	var row_difference = item_row - first_item_row
-	var column_difference = item_column - first_item_column
+func calculate_direction_letter(letter: GridLabelItem) -> int:
+	var first_letter_row: int = _first_letter.get_row_in_parent()
+	var first_letter_column: int = _first_letter.get_column_in_parent()
+	var letter_row: int = letter.get_row_in_parent()
+	var letter_column: int = letter.get_column_in_parent()
+	var row_difference = letter_row - first_letter_row
+	var column_difference = letter_column - first_letter_column
 
-	if item != _first_item:
+	if letter != _first_letter:
 
 		# DIAGONAL
 		if abs(row_difference) == abs(column_difference):
-			# O item está em uma das diagonais
+			# O letter está em uma das diagonais
 
 			# DIRECTION_DIAGONAL_RIGHT
 			if row_difference > 0 and column_difference > 0:
@@ -151,105 +152,110 @@ func calculate_direction_item(item: GridLabelItem) -> int:
 		else:
 
 			# DIRECTION_HORIZONTAL
-			if item_row == first_item_row and item_column >= first_item_column:
+			if letter_row == first_letter_row and letter_column >= first_letter_column:
 				return DIRECTION_HORIZONTAL
 
 			# DIRECTION_HORIZONTAL_REVERSE
-			if item_row == first_item_row and item_column <= first_item_column:
+			if letter_row == first_letter_row and letter_column <= first_letter_column:
 				return DIRECTION_HORIZONTAL_REVERSE
 
 			# DIRECTION_VERTICAL
-			if item_row >= first_item_row and item_column == first_item_column:
+			if letter_row >= first_letter_row and letter_column == first_letter_column:
 				return DIRECTION_VERTICAL
 
 			# DIRECTION_VERTICAL_REVERSE
-			if item_row <= first_item_row and item_column == first_item_column:
+			if letter_row <= first_letter_row and letter_column == first_letter_column:
 				return DIRECTION_VERTICAL_REVERSE
 
 	return -1
 
 
-func select_items_along_line(first_item: GridLabelItem, last_item: GridLabelItem) -> void:
-	var first_item_row: int = first_item.get_row_in_parent()
-	var first_item_column: int = first_item.get_column_in_parent()
-	var last_item_row: int = last_item.get_row_in_parent()
-	var last_item_column: int = last_item.get_column_in_parent()
+func select_letters_along_line(first_letter: GridLabelItem, last_letter: GridLabelItem) -> void:
+	var first_letter_row: int = first_letter.get_row_in_parent()
+	var first_letter_column: int = first_letter.get_column_in_parent()
+	var last_letter_row: int = last_letter.get_row_in_parent()
+	var last_letter_column: int = last_letter.get_column_in_parent()
 
-	var column_distance = abs(last_item_column - first_item_column)
-	var row_distance = abs(last_item_row - first_item_row)
-	var step_x = 1 if first_item_column < last_item_column else -1
-	var step_y = 1 if first_item_row < last_item_row else -1
+	var column_distance = abs(last_letter_column - first_letter_column)
+	var row_distance = abs(last_letter_row - first_letter_row)
+	var step_x = 1 if first_letter_column < last_letter_column else -1
+	var step_y = 1 if first_letter_row < last_letter_row else -1
 	var error = column_distance - row_distance
 
 	var selected_letters: String = ""
 	while true:
-		var current_item: GridLabelItem = get_item_at_position(first_item_row, first_item_column)
+		var current_letter: GridLabelItem = get_letter_at_position(first_letter_row, first_letter_column)
 		if _paint:
-			current_item.set("custom_colors/font_color", Color.red)
+			current_letter.set("custom_colors/font_color", Color.red)
 
-		selected_letters += current_item.text
+		selected_letters += current_letter.text
 
-		# Check if we arrived at the last item
-		if first_item_column == last_item_column and first_item_row == last_item_row:
+		# Check if we arrived at the last letter
+		if first_letter_column == last_letter_column and first_letter_row == last_letter_row:
 			break
 
 		var double_error = 2 * error
 		if double_error > -row_distance:
 			error -= row_distance
-			first_item_column += step_x
+			first_letter_column += step_x
 		if double_error < column_distance:
 			error += column_distance
-			first_item_row += step_y
+			first_letter_row += step_y
 
 	if _word != selected_letters:
 		_word = selected_letters
 		emit_signal("selected_word", _word)
 
 
-func get_item_at_position(row: int, column: int) -> GridLabelItem:
+func get_letter_at_position(row: int, column: int) -> GridLabelItem:
 	for child in get_children():
 		if child.get_row_in_parent() == row and child.get_column_in_parent() == column:
 			return child
 	return null
 
 
-func _on_item_has_selected(item: GridLabelItem) -> void:
-	if _first_item == null:
+func _on_letter_has_selected(letter: GridLabelItem) -> void:
+	if _first_letter == null:
 
-		_first_item = item
-		_word = _first_item.text
+		_first_letter = letter
+		_word = _first_letter.text
 
-		selected_first_item(_first_item)
+		selected_first_letter(_first_letter)
 		emit_signal("selected_word", _word)
-		emit_signal("first_letter_selected", _first_item)
+		emit_signal("first_letter_selected", _first_letter)
 
 	else:
 
-		var direction: int = calculate_direction_item(item)
+		var direction: int = calculate_direction_letter(letter)
 		if direction != -1:
 
 			_current_direction = direction
-			_end_item = item
+			_last_letter = letter
 
 			for child in get_children():
-				if child != _first_item:
+				if child != _first_letter:
 					child.reset_emitted_selected()
 					if _paint:
 						child.set("custom_colors/font_color", Color.black)
 
-			selected_end_item(_end_item)
-			emit_signal("end_letter_selected", _end_item)
+			selected_last_letter(_last_letter)
+			emit_signal("last_letter_selected", _last_letter)
 
-			paint_intermediate_items()
-			select_items_along_line(_first_item, _end_item)
-
-
+			paint_intermediate_letters()
+			select_letters_along_line(_first_letter, _last_letter)
 
 
-func _on_item_has_deselected(item: GridLabelItem) -> void:
-	if item == _first_item:
-		_first_item = null
-		_end_item = null
+
+
+func _on_letter_has_deselected(letter: GridLabelItem) -> void:
+	var first_letter: GridLabelItem = _first_letter
+	var last_letter: GridLabelItem = _last_letter
+	var word: String = _word
+	emit_signal("selection_finish", first_letter, last_letter, word)
+
+	if letter == _first_letter:
+		_first_letter = null
+		_last_letter = null
 		_current_direction = null
 
 	if _paint:
