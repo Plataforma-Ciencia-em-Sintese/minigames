@@ -5,6 +5,11 @@ signal end_game
 
 
 const _GameResults: PackedScene = preload("res://game_results/game_results.tscn")
+const _HowToPlay: PackedScene = preload("res://how_to_play/how_to_play.tscn")
+const _HowToPlayTextures: Array = Array([
+#	preload("res://assets/images/htp_puzzle_game_0.png"),
+])
+
 
 var _timer_has_started: bool = false \
 		setget set_timer_has_starded, get_timer_has_started
@@ -198,3 +203,15 @@ func _on_home_pressed() -> void:
 	get_tree().change_scene("res://home/home.tscn")
 
 
+func _on_help_pressed() -> void:
+	_timer.stop()
+
+	var how_to_play_instance := _HowToPlay.instance()
+	add_child(how_to_play_instance)
+	how_to_play_instance.set_textures(_HowToPlayTextures)
+	how_to_play_instance.connect("closed", self, "_on_HowToPlay_closed")
+
+
+func _on_HowToPlay_closed() -> void:
+	if get_timer_counter() > 0:
+		_timer.start()

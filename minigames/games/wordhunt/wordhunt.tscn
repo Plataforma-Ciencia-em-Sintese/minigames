@@ -188,6 +188,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 5 )
 
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="GameResultsLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+
 [node name="LineMarker" parent="." instance=ExtResource( 3 )]
 unique_name_in_owner = true
 
@@ -236,6 +243,7 @@ custom_styles/focus = SubResource( 85 )
 custom_styles/disabled = SubResource( 86 )
 custom_styles/normal = SubResource( 87 )
 text = ""
+selected_color = 1
 
 [node name="Container" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BarContainer"]
 margin_left = 254.0
@@ -245,6 +253,7 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="Time" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container"]
+unique_name_in_owner = true
 margin_left = 35.0
 margin_top = 20.0
 margin_right = 215.0
@@ -308,8 +317,8 @@ custom_styles/pressed = SubResource( 98 )
 custom_styles/focus = SubResource( 99 )
 custom_styles/disabled = SubResource( 100 )
 custom_styles/normal = SubResource( 101 )
-disabled = true
 text = "?"
+selected_color = 1
 
 [node name="GameContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -326,12 +335,20 @@ margin_bottom = 900.0
 custom_styles/panel = SubResource( 10 )
 
 [node name="GridLabelContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel" instance=ExtResource( 10 )]
-margin_left = 423.0
-margin_top = 8.0
-margin_right = 1451.0
-margin_bottom = 890.0
+anchor_left = 0.291382
+anchor_top = 0.00888889
+anchor_right = 0.994528
+anchor_bottom = 0.988889
+margin_right = 0.0
+margin_bottom = 0.0
+custom_constants/hseparation = 14
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="TipListContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel" instance=ExtResource( 2 )]
 unique_name_in_owner = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Home" to="." method="_on_Home_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Help" to="." method="_on_help_pressed"]
