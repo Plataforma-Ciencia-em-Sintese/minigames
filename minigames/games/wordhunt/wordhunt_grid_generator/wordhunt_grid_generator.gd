@@ -14,7 +14,7 @@ var _words: Array = []
 
 func generate_grid(words: Array) -> Array:
 	if not words.empty():
-		for i in range(0, words.size() - 1):
+		for i in range(0, words.size()):
 			_words.append(sanitization_rules(words[i]))
 
 		randomize()
