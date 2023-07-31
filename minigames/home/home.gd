@@ -128,7 +128,7 @@ func _load_theme() -> void:
 		panel_logo_api.visible = false
 		panel_logo_placeholder.visible = true
 		var logo_background_style: StyleBoxFlat = logo_background.get("custom_styles/panel")
-		logo_background_style.set("bg_color", API.theme.get_color(API.theme.PB))
+		logo_background_style.set("bg_color", API.theme.get_color(API.theme.SB))
 	else:
 		panel_logo_api.visible = true
 		panel_logo_placeholder.visible = false
@@ -226,7 +226,7 @@ func _cryptogram_home() -> void:
 
 
 func _wordhunt_home() -> void:
-	logo.texture = load("res://assets/images/logo_cryptogram.png")
+	logo.texture = load("res://assets/images/logo_wordhunt.png")
 
 	game_name.text = "CAÇA-PALAVRAS"
 
