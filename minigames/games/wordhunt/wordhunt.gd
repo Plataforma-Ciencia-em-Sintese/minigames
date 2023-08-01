@@ -27,7 +27,7 @@ onready var _selected_word: Label = $"%SelectedWord"
 onready var _line_marker: CanvasLayer = $"%LineMarker"
 onready var _timer: Timer = $"%Timer"
 onready var _timer_label: Label = $"%Time"
-onready var _game_results_layer: CanvasLayer = $"%GameResultsLayer"
+onready var _floating_screen_layer: CanvasLayer = $"%FloatingScreenLayer"
 
 
 func _ready() -> void:
@@ -166,7 +166,7 @@ func _on_self_end_game() -> void:
 	_timer.stop()
 
 	var game_results_instance: Panel = _GameResults.instance()
-	_game_results_layer.add_child(game_results_instance)
+	_floating_screen_layer.add_child(game_results_instance)
 
 	game_results_instance.hide_panel.visible = true
 
@@ -204,7 +204,7 @@ func _on_help_pressed() -> void:
 	_timer.stop()
 
 	var how_to_play_instance := _HowToPlay.instance()
-	add_child(how_to_play_instance)
+	_floating_screen_layer.add_child(how_to_play_instance)
 	how_to_play_instance.set_textures(_HowToPlayTextures)
 	how_to_play_instance.connect("closed", self, "_on_HowToPlay_closed")
 

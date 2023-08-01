@@ -191,7 +191,7 @@ script = ExtResource( 5 )
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 
-[node name="GameResultsLayer" type="CanvasLayer" parent="."]
+[node name="FloatingScreenLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 layer = 2
 
