@@ -64,6 +64,16 @@ func add_last_point(reference_position: Node) -> void:
 		_last_point_added = true
 
 
+func add_permanent_line(start: Node, end: Node) -> void:
+	var line = ResponsiveLine2D.new()
+	add_child(line)
+	line.add_first_reference(start)
+	line.add_last_reference(end)
+	var color: Color = API.theme.get_color(API.theme.PB)
+	color.a = 0.5
+	line.change_color(color)
+
+
 func change_color_on_current_line(reference: int) -> void:
 	if _current_line != null:
 		var color: Color = Color.black

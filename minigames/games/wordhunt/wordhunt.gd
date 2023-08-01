@@ -145,10 +145,7 @@ func _on_selection_finish(first_letter: GridLabelItem, last_letter: GridLabelIte
 
 
 	if word_found == true:
-		_line_marker.add_first_point(first_letter)
-		_line_marker.change_color_on_current_line(_line_marker.ThemeColor.THEME)
-		_line_marker.add_last_point(last_letter)
-
+		_line_marker.add_permanent_line(first_letter, last_letter)
 		has_game_finished()
 
 	else:
