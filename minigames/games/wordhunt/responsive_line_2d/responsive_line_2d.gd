@@ -15,7 +15,7 @@ func _init() -> void:
 	_line = Line2D.new()
 	add_child(_line)
 	_line.set_default_color(Color(0.5, 0.5, 0.5, 0.5))
-	_line.set_width(30.0)
+	_line.set_width(46.0)
 	_line.set_begin_cap_mode(Line2D.LINE_CAP_ROUND)
 	_line.set_end_cap_mode(Line2D.LINE_CAP_ROUND)
 
