@@ -82,6 +82,7 @@ onready var question_image: TextureRect = $MarginContainer/VBoxContainer/GameCon
 
 #  [BUILT-IN_VURTUAL_METHOD]
 func _ready() -> void:
+	randomize()
 	_load_theme()
 	pet_image.texture = get_pet_images_state()["idle"]
 
@@ -234,7 +235,6 @@ func _load_current_question() -> void:
 	if dictionary_questions["alternatives"].size() >= 4:
 		random_alternatives.append(dictionary_questions["alternatives"][3]["incorrect"])
 
-	randomize()
 	random_alternatives.shuffle()
 	var temp = random_alternatives[0]
 	random_alternatives[0] = random_alternatives[random_alternatives.size()-1]
