@@ -264,9 +264,13 @@ func _disable_main_buttons() -> void:
 	var home: Button = $MarginContainer/VBoxContainer/BarContainer/Home
 	var help: Button = $MarginContainer/VBoxContainer/BarContainer/Help
 	var tip: Button = $MarginContainer/VBoxContainer/BarContainer/Tip
+	var restart: Button = $MarginContainer/VBoxContainer/BarContainer/Restart
 	home.disabled = true
 	help.disabled = true
 	tip.disabled = true
+	restart.disabled = true
+	var button_font: Font = restart.get("custom_fonts/font")
+	button_font.set("outline_color", Color(1.0, 1.0, 1.0, 0.0))
 	tip_counter.set("modulate", Color(1.0, 1.0, 1.0, 0.2))
 
 
@@ -362,3 +366,7 @@ func _on_Tip_pressed() -> void:
 		slots[index].get_child(0).set("modulate", Color(1.0, 1.0, 1.0, 0.5))
 
 		set_tip_counter(get_tip_counter() - 1)
+
+
+func _on_Restart_pressed() -> void:
+	get_tree().reload_current_scene()
