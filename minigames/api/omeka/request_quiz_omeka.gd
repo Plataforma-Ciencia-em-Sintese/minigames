@@ -86,7 +86,7 @@ func _request_questions() -> void:
 #		print(question["display_title"])
 
 	var question_counter: int = int(get_resources()["bibo:content"].size())
-	prints("\n\nPERGUNTAS: ", question_counter)
+#	prints("\n\nPERGUNTAS: ", question_counter)
 
 	for question in get_resources()["bibo:content"]:
 		var http_request: HTTPRequest = HTTPRequest.new()
@@ -123,7 +123,7 @@ func _on_request_questions(_result: int, response_code: int, _headers: PoolStrin
 		var json := JSON.parse(body.get_string_from_utf8())
 		#print(str(JSON.print(json.result, "\t")))
 
-		print("--------------------------------------------")
+#		print("--------------------------------------------")
 
 		var new_question: Dictionary = Dictionary({})
 
@@ -132,7 +132,7 @@ func _on_request_questions(_result: int, response_code: int, _headers: PoolStrin
 				"question": str(json.result["dcterms:title"][0]["@value"]),
 				"alternatives": []
 			}
-			prints("PERGUNTA: ", new_question["question"])
+#			prints("PERGUNTA: ", new_question["question"])
 
 		if json.result.has("dcterms:description"):
 			new_question["alternatives"].append((
@@ -141,7 +141,7 @@ func _on_request_questions(_result: int, response_code: int, _headers: PoolStrin
 					"image_url": ""
 				}
 			))
-			prints("CORRETA: ", new_question["alternatives"][0]["correct"])
+#			prints("CORRETA: ", new_question["alternatives"][0]["correct"])
 
 
 		if json.result.has("bibo:content"):
@@ -155,7 +155,7 @@ func _on_request_questions(_result: int, response_code: int, _headers: PoolStrin
 							"image_url": ""
 						}
 					))
-					prints("INCORRETA: ", new_question["alternatives"][counter]["incorrect"])
+#					prints("INCORRETA: ", new_question["alternatives"][counter]["incorrect"])
 
 
 

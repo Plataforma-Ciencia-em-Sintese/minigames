@@ -400,7 +400,7 @@ func _on_Tip_pressed() -> void:
 		for alternative in question_container.get_children():
 			if alternative is Alternative:
 				if alternative.message.text in incorrect_alternatives and not alternative.is_disabled():
-					print(alternative.message.text)
+#					print(alternative.message.text)
 					alternative.disabled(true)
 
 					break
