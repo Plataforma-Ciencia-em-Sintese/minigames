@@ -40,6 +40,9 @@ var _waiting_seconds: float = float(2) \
 var _total_questions: int = int(0) \
 		setget set_total_questions, get_total_questions
 
+var _old_question: int = int(-1) \
+		setget set_old_question, get_old_question
+
 var _current_question: int = int(0) \
 		setget set_current_question, get_current_question
 
@@ -118,8 +121,20 @@ func get_total_questions() -> int:
 	return _total_questions
 
 
+func set_old_question(new_value: int) -> void:
+	_old_question = new_value
+
+
+func get_old_question() -> int:
+	return _old_question
+
+
 func set_current_question(new_value: int) -> void:
 	_current_question = new_value
+
+	if get_old_question() != new_value:
+		set_old_question(new_value)
+
 	conter_questions.text = "Pergunta: %s/%s" % [str(new_value + 1), str(get_total_questions())]
 
 
@@ -197,6 +212,19 @@ func _load_current_question() -> void:
 
 	question.text = dictionary_questions["question"]
 
+	# On tips
+	if dictionary_questions["alternatives"].size() <= 2:
+		if get_tip_counter() > 0:
+			tip.disabled = true
+			tip_counter.set("modulate", Color(1.0, 1.0, 1.0, 0.2))
+	else:
+		if get_tip_counter() <= 0:
+			tip.disabled = true
+			tip_counter.set("modulate", Color(1.0, 1.0, 1.0, 0.2))
+		else:
+			tip.disabled = false
+			tip_counter.set("modulate", Color(1.0, 1.0, 1.0, 1.0))
+
 	var random_alternatives: Array = Array([])
 	random_alternatives.append(dictionary_questions["alternatives"][0]["correct"])
 	if dictionary_questions["alternatives"].size() >= 2:
@@ -269,6 +297,7 @@ func _call_next_question() -> void:
 	if (get_current_question() + 1) < get_total_questions():
 		set_current_question(get_current_question() + 1)
 		_load_current_question()
+
 	else:
 		emit_signal("end_game")
 
@@ -352,10 +381,14 @@ func _on_Tip_pressed() -> void:
 
 		if get_tip_counter() > 0:
 			set_tip_counter(get_tip_counter() -1)
+			if get_current_question() == get_old_question():
+				tip.disabled = true
+				tip_counter.set("modulate", Color(1.0, 1.0, 1.0, 0.2))
 
-		if get_tip_counter() == 0:
-			tip_counter.visible = false
+		if get_tip_counter() <= 0:
 			tip.disabled = true
+			tip_counter.set("modulate", Color(1.0, 1.0, 1.0, 0.2))
+
 
 		var dictionary_questions: Dictionary = API.game.get_questions()[get_current_question()]
 
