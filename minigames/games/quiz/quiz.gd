@@ -70,9 +70,10 @@ onready var alternative_3: Control = $MarginContainer/VBoxContainer/GameContaine
 onready var alternative_4: Control = $MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/pergunta/QuestionContainer/Alternative4
 onready var tip: Button = $MarginContainer/VBoxContainer/BarContainer/HBoxContainer/Tip
 onready var tip_counter: Label = $MarginContainer/VBoxContainer/BarContainer/HBoxContainer/Tip/Counter
-onready var pet_background: TextureRect = $MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/AspectRatioContainer/Background
-onready var pet_image: TextureRect = $MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/AspectRatioContainer/Pet
-onready var question_image: TextureRect = $MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/AspectRatioContainer/QuestionImage
+onready var pet_background: TextureRect = $MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/VBoxContainer/AspectRatioContainer/Background
+onready var pet_image: TextureRect = $MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/VBoxContainer/AspectRatioContainer/Pet
+onready var question_image: TextureRect = $MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/VBoxContainer/AspectRatioContainer/QuestionImage
+onready var next_question: Button = $MarginContainer/VBoxContainer/GameContainer/MarginContainer/HBoxContainer/VBoxContainer/NextQuestion
 
 
 #  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
@@ -292,14 +293,7 @@ func _reveal_alternatives() -> void:
 
 func _call_next_question() -> void:
 	set_state(State.WAITING)
-	yield(get_tree().create_timer(get_waiting_seconds()), "timeout")
-	set_state(State.FREE)
-	if (get_current_question() + 1) < get_total_questions():
-		set_current_question(get_current_question() + 1)
-		_load_current_question()
-
-	else:
-		emit_signal("end_game")
+	next_question.visible = true
 
 
 #  [SIGNAL_METHODS]
@@ -438,3 +432,17 @@ func _on_Help_pressed() -> void:
 	var how_to_play_instance := HOW_TO_PLAY.instance()
 	add_child(how_to_play_instance)
 	how_to_play_instance.set_textures(HOW_TO_PLAY_TEXTURES)
+
+
+func _on_NextQuestion_pressed() -> void:
+	next_question.visible = false
+	set_state(State.FREE)
+	if (get_current_question() + 1) < get_total_questions():
+		set_current_question(get_current_question() + 1)
+		_load_current_question()
+
+		if (get_current_question() + 1) == get_total_questions():
+			next_question.text = "Resultado"
+
+	else:
+		emit_signal("end_game")

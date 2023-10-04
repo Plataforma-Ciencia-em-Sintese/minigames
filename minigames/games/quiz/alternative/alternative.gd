@@ -57,10 +57,10 @@ func set_checker_state(new_value: bool) -> void:
 	match(new_value):
 		true:
 			checker.texture = CHECKER_TEXTURE_CORRECT
-		
+
 		false:
 			checker.texture = CHECKER_TEXTURE_INCORRECT
-		
+
 		_:
 			pass
 
@@ -77,11 +77,11 @@ func disabled(value: bool, visibility: bool = false) -> void:
 			else:
 				panel.set("modulate", Color(1.0, 1.0, 1.0, 0.5))
 			panel.get_node("TextureButton").disabled = true
-		
+
 		false:
 			panel.set("modulate", Color(1.0, 1.0, 1.0, 1.0))
 			panel.get_node("TextureButton").disabled = false
-		
+
 		_:
 			pass
 
@@ -94,10 +94,10 @@ func checker_visible(value: bool) -> void:
 	match(value):
 		true:
 			checker.set("modulate", Color(1.0, 1.0, 1.0, 1.0))
-		
+
 		false:
 			checker.set("modulate", Color(1.0, 1.0, 1.0, 0.0))
-		
+
 		_:
 			pass
 
@@ -106,7 +106,7 @@ func checker_visible(value: bool) -> void:
 func _load_theme() -> void:
 	var number_style: StyleBoxFlat = number.get("custom_styles/normal")
 	number_style.set("bg_color", API.theme.get_color(API.theme.SB))
-	
+
 	var panel_style: StyleBoxFlat = panel.get("custom_styles/panel")
 	panel_style.set("bg_color", API.theme.get_color(API.theme.PB))
 
