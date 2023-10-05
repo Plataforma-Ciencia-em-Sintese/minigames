@@ -1,0 +1,704 @@
+[gd_scene load_steps=21 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "#tool
+#class_name Name #, res://class_name_icon.svg
+extends MarginContainer
+
+
+#  [DOCSTRING]
+
+
+#  [SIGNALS]
+
+
+#  [ENUMS]
+
+
+#  [CONSTANTS]
+const TARGET: PackedScene = preload(\"res://games/matching_game/target/target.tscn\")
+const BULLET: PackedScene = preload(\"res://games/matching_game/bullet/bullet.tscn\")
+const CARD_COUNTER: int = int(9) 
+
+
+#  [EXPORTED_VARIABLES]
+
+
+#  [PUBLIC_VARIABLES]
+
+
+#  [PRIVATE_VARIABLES]
+
+
+#  [ONREADY_VARIABLES]
+onready var target_panel: PanelContainer = $MainContainer/HBoxContainer/Targets/Panel
+onready var bullet_panels: Array = Array([
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer1/Panel,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer2/Panel,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer3/Panel,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer4/Panel,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer5/Panel,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer6/Panel,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer7/Panel,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer8/Panel,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer9/Panel
+])
+
+onready var target_slots: Array = Array([
+	$MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer1/Slot1,
+	$MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer2/Slot2,
+	$MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer3/Slot3,
+	$MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer4/Slot4,
+	$MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer5/Slot5,
+	$MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer6/Slot6,
+	$MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer7/Slot7,
+	$MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer8/Slot8,
+	$MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer9/Slot9
+])
+
+onready var bullet_slots: Array = Array([
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer1/Panel/Slot1,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer2/Panel/Slot2,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer3/Panel/Slot3,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer4/Panel/Slot4,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer5/Panel/Slot5,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer6/Panel/Slot6,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer7/Panel/Slot7,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer8/Panel/Slot8,
+	$MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer9/Panel/Slot9
+])
+
+
+#  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
+#func _init() -> void:
+#	pass
+
+
+#  [BUILT-IN_VURTUAL_METHOD]
+func _ready() -> void:
+	_load_theme()
+	_load_cards()
+
+
+#  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
+#func _process(_delta: float) -> void:
+#	pass
+
+
+#  [PUBLIC_METHODS]
+
+
+#  [PRIVATE_METHODS]
+func _load_theme() -> void:
+	var panel_style: StyleBoxFlat = target_panel.get(\"custom_styles/panel\")
+	panel_style.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+
+	for panel in bullet_panels:
+		panel_style = panel.get(\"custom_styles/panel\")
+		panel_style.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+
+
+func _load_cards() -> void:
+	var api_targets: Array = API.game.get_targets()
+	var api_bullets: Array = API.game.get_bullets()
+	var random_bullets: Array = Array([])
+	
+	randomize()
+	api_targets.shuffle()
+	
+	var index: int = 0
+	if api_targets.size() >= CARD_COUNTER and api_bullets.size() >= CARD_COUNTER:
+		for slot in target_slots:
+			var target_instance := TARGET.instance()
+			slot.add_child(target_instance)
+			target_instance.create(
+				api_targets[index][\"image\"], 
+				api_targets[index][\"matching_id\"], 
+				api_targets[index][\"subtitle\"]
+			)
+			
+			for bullet in api_bullets:
+				if bullet[\"matching_id\"] == api_targets[index][\"matching_id\"]:
+					random_bullets.append(bullet)
+			
+			index += 1
+		
+		randomize()
+		random_bullets.shuffle()
+		index = 0
+		for slot in bullet_slots:
+			var bullet_instance := BULLET.instance()
+			bullet_slots[index].add_child(bullet_instance)
+			bullet_instance.create(
+				random_bullets[index][\"image\"], 
+				random_bullets[index][\"matching_id\"], 
+				random_bullets[index][\"subtitle\"]
+			)
+			index += 1
+
+
+#  [SIGNAL_METHODS]
+"
+
+[sub_resource type="StyleBoxFlat" id=2]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=3]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=4]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=5]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=6]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=7]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=8]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=9]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=10]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=11]
+border_width_bottom = 8
+border_color = Color( 0.294118, 0.294118, 0.294118, 0 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MediumLevel" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 60
+custom_constants/margin_top = 120
+custom_constants/margin_left = 60
+custom_constants/margin_bottom = 120
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MainContainer" type="Panel" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 60.0
+margin_top = 120.0
+margin_right = 1860.0
+margin_bottom = 960.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 40
+alignment = 1
+
+[node name="Bullets" type="AspectRatioContainer" parent="MainContainer/HBoxContainer"]
+margin_right = 880.0
+margin_bottom = 840.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="MainContainer/HBoxContainer/Bullets"]
+margin_left = 20.0
+margin_right = 860.0
+margin_bottom = 840.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 3
+
+[node name="AspectRatioContainer1" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer"]
+margin_right = 274.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer1"]
+margin_right = 274.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Slot1" type="MarginContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer1/Panel"]
+margin_right = 274.0
+margin_bottom = 274.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer"]
+margin_left = 284.0
+margin_right = 557.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer2"]
+margin_top = 0.5
+margin_right = 273.0
+margin_bottom = 273.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 3 )
+
+[node name="Slot2" type="MarginContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer2/Panel"]
+margin_right = 273.0
+margin_bottom = 273.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer"]
+margin_left = 567.0
+margin_right = 840.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer3"]
+margin_top = 0.5
+margin_right = 273.0
+margin_bottom = 273.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 4 )
+
+[node name="Slot3" type="MarginContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer3/Panel"]
+margin_right = 273.0
+margin_bottom = 273.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer"]
+margin_top = 284.0
+margin_right = 274.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer4"]
+margin_left = 0.5
+margin_right = 273.5
+margin_bottom = 273.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 5 )
+
+[node name="Slot4" type="MarginContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer4/Panel"]
+margin_right = 273.0
+margin_bottom = 273.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer"]
+margin_left = 284.0
+margin_top = 284.0
+margin_right = 557.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer5"]
+margin_right = 273.0
+margin_bottom = 273.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 6 )
+
+[node name="Slot5" type="MarginContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer5/Panel"]
+margin_right = 273.0
+margin_bottom = 273.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="AspectRatioContainer6" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer"]
+margin_left = 567.0
+margin_top = 284.0
+margin_right = 840.0
+margin_bottom = 557.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer6"]
+margin_right = 273.0
+margin_bottom = 273.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 7 )
+
+[node name="Slot6" type="MarginContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer6/Panel"]
+margin_right = 273.0
+margin_bottom = 273.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="AspectRatioContainer7" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer"]
+margin_top = 567.0
+margin_right = 274.0
+margin_bottom = 840.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer7"]
+margin_left = 0.5
+margin_right = 273.5
+margin_bottom = 273.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 8 )
+
+[node name="Slot7" type="MarginContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer7/Panel"]
+margin_right = 273.0
+margin_bottom = 273.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="AspectRatioContainer8" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer"]
+margin_left = 284.0
+margin_top = 567.0
+margin_right = 557.0
+margin_bottom = 840.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer8"]
+margin_right = 273.0
+margin_bottom = 273.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 9 )
+
+[node name="Slot8" type="MarginContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer8/Panel"]
+margin_right = 273.0
+margin_bottom = 273.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="AspectRatioContainer9" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer"]
+margin_left = 567.0
+margin_top = 567.0
+margin_right = 840.0
+margin_bottom = 840.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer9"]
+margin_right = 273.0
+margin_bottom = 273.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 10 )
+
+[node name="Slot9" type="MarginContainer" parent="MainContainer/HBoxContainer/Bullets/GridContainer/AspectRatioContainer9/Panel"]
+margin_right = 273.0
+margin_bottom = 273.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="Targets" type="AspectRatioContainer" parent="MainContainer/HBoxContainer"]
+margin_left = 920.0
+margin_right = 1800.0
+margin_bottom = 840.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="PanelContainer" parent="MainContainer/HBoxContainer/Targets"]
+margin_left = 20.0
+margin_right = 860.0
+margin_bottom = 840.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 11 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/HBoxContainer/Targets/Panel"]
+margin_right = 840.0
+margin_bottom = 832.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 830.0
+margin_bottom = 822.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 3
+
+[node name="AspectRatioContainer1" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer"]
+margin_right = 267.0
+margin_bottom = 264.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot1" type="PanelContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer1"]
+margin_left = 1.5
+margin_right = 265.5
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AspectRatioContainer2" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer"]
+margin_left = 277.0
+margin_right = 544.0
+margin_bottom = 264.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot2" type="PanelContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer2"]
+margin_left = 1.5
+margin_right = 265.5
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 13 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AspectRatioContainer3" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer"]
+margin_left = 554.0
+margin_right = 820.0
+margin_bottom = 264.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot3" type="PanelContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer3"]
+margin_left = 1.0
+margin_right = 265.0
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 14 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AspectRatioContainer4" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer"]
+margin_top = 274.0
+margin_right = 267.0
+margin_bottom = 538.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot4" type="PanelContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer4"]
+margin_left = 1.5
+margin_right = 265.5
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AspectRatioContainer5" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer"]
+margin_left = 277.0
+margin_top = 274.0
+margin_right = 544.0
+margin_bottom = 538.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot5" type="PanelContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer5"]
+margin_left = 1.5
+margin_right = 265.5
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 16 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AspectRatioContainer6" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer"]
+margin_left = 554.0
+margin_top = 274.0
+margin_right = 820.0
+margin_bottom = 538.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot6" type="PanelContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer6"]
+margin_left = 1.0
+margin_right = 265.0
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 17 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AspectRatioContainer7" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer"]
+margin_top = 548.0
+margin_right = 267.0
+margin_bottom = 812.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot7" type="PanelContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer7"]
+margin_left = 1.5
+margin_right = 265.5
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 18 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AspectRatioContainer8" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer"]
+margin_left = 277.0
+margin_top = 548.0
+margin_right = 544.0
+margin_bottom = 812.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot8" type="PanelContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer8"]
+margin_left = 1.5
+margin_right = 265.5
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 19 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AspectRatioContainer9" type="AspectRatioContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer"]
+margin_left = 554.0
+margin_top = 548.0
+margin_right = 820.0
+margin_bottom = 812.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot9" type="PanelContainer" parent="MainContainer/HBoxContainer/Targets/Panel/MarginContainer/GridContainer/AspectRatioContainer9"]
+margin_left = 1.0
+margin_right = 265.0
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 20 )
+__meta__ = {
+"_editor_description_": ""
+}

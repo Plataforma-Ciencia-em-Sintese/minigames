@@ -1,0 +1,1632 @@
+[gd_scene load_steps=64 format=2]
+
+[ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/JetBrainsMono/JetBrainsMonoNerdFontCompleteM-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/components/theme_button_icon/theme_button_icon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/components/background/background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://games/puzzle/puzzle.gd" type="Script" id=5]
+[ext_resource path="res://assets/shader/rounded_edges.shader" type="Shader" id=6]
+[ext_resource path="res://games/puzzle/piece/piece.tscn" type="PackedScene" id=7]
+[ext_resource path="res://games/puzzle/slot/slot.gd" type="Script" id=8]
+[ext_resource path="res://assets/placeholder.png" type="Texture" id=9]
+
+[sub_resource type="Animation" id=151]
+resource_name = "mess_the_pieces"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 581, 20 ), Vector2( 33, 644 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 793, 19 ), Vector2( 335, 178 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1005, 20 ), Vector2( 127, 357 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece4:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1216, 20 ), Vector2( 300, 537 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece5:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 581, 231 ), Vector2( 33, 19 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece6:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 793, 231 ), Vector2( 112, 500 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece7:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1005, 231 ), Vector2( 329, 19 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece8:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1216, 231 ), Vector2( 33, 231 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece9:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 581, 443 ), Vector2( 329, 654 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece10:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 793, 443 ), Vector2( 181, 47 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece11:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1005, 443 ), Vector2( 181, 249 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece12:rect_position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1216, 443 ), Vector2( 335, 380 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece13:rect_position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 581, 654 ), Vector2( 151, 644 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece14:rect_position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 793, 654 ), Vector2( 33, 433 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece15:rect_position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1005, 654 ), Vector2( 62, 178 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree/Piece16:rect_position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1216, 654 ), Vector2( 232, 380 ) ]
+}
+
+[sub_resource type="Animation" id=142]
+resource_name = "show_full_image"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/DropFree:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer:custom_constants/margin_left")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 594, 298 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer:custom_constants/margin_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 32, 298 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/FullImage:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/FullImage:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=82]
+size = 86
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=83]
+bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=84]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=85]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=86]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=87]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id=88]
+script/source = "#tool
+#class_name Name #, res://class_name_icon.svg
+extends Button
+
+
+#  [DOCSTRING]
+
+
+#  [SIGNALS]
+
+
+#  [ENUMS]
+enum ColorOptions {PRIMARY, SECUNDARY}
+
+
+#  [CONSTANTS]
+
+
+#  [EXPORTED_VARIABLES]
+export(ColorOptions) var selected_color: int = ColorOptions.PRIMARY
+
+
+#  [PUBLIC_VARIABLES]
+
+
+#  [PRIVATE_VARIABLES]
+
+
+#  [ONREADY_VARIABLES]
+
+
+#  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
+#func _init() -> void:
+#	pass
+
+
+#  [BUILT-IN_VURTUAL_METHOD]
+func _ready() -> void:
+	match(selected_color):
+		ColorOptions.PRIMARY:
+			set_primary_color()
+		ColorOptions.SECUNDARY:
+			set_secondary_color()
+		_:
+			set_primary_color()
+	
+
+
+#  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
+#func _process(_delta: float) -> void:
+#	pass
+
+
+#  [PUBLIC_METHODS]
+func set_primary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.PB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+
+
+func set_secondary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.SB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+
+
+#  [PRIVATE_METHODS]
+ 
+
+#  [SIGNAL_METHODS]
+"
+
+[sub_resource type="DynamicFont" id=143]
+size = 86
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=144]
+bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=145]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=146]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=147]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=148]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=149]
+size = 36
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=138]
+size = 40
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=139]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=140]
+size = 30
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=152]
+size = 86
+outline_size = 1
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=153]
+bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=154]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=155]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=100]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=157]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id=158]
+script/source = "#tool
+#class_name Name #, res://class_name_icon.svg
+extends Button
+
+
+#  [DOCSTRING]
+
+
+#  [SIGNALS]
+
+
+#  [ENUMS]
+enum ColorOptions {PRIMARY, SECUNDARY}
+
+
+#  [CONSTANTS]
+
+
+#  [EXPORTED_VARIABLES]
+export(ColorOptions) var selected_color: int = ColorOptions.PRIMARY
+
+
+#  [PUBLIC_VARIABLES]
+
+
+#  [PRIVATE_VARIABLES]
+
+
+#  [ONREADY_VARIABLES]
+
+
+#  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
+#func _init() -> void:
+#	pass
+
+
+#  [BUILT-IN_VURTUAL_METHOD]
+func _ready() -> void:
+	match(selected_color):
+		ColorOptions.PRIMARY:
+			set_primary_color()
+		ColorOptions.SECUNDARY:
+			set_secondary_color()
+		_:
+			set_primary_color()
+	
+
+
+#  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
+#func _process(_delta: float) -> void:
+#	pass
+
+
+#  [PUBLIC_METHODS]
+func set_primary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.PB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+
+
+func set_secondary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.SB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+
+
+#  [PRIVATE_METHODS]
+ 
+
+#  [SIGNAL_METHODS]
+"
+
+[sub_resource type="DynamicFont" id=96]
+size = 74
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=97]
+bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=98]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=99]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=101]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="GDScript" id=102]
+script/source = "#tool
+#class_name Name #, res://class_name_icon.svg
+extends Button
+
+
+#  [DOCSTRING]
+
+
+#  [SIGNALS]
+
+
+#  [ENUMS]
+enum ColorOptions {PRIMARY, SECUNDARY}
+
+
+#  [CONSTANTS]
+
+
+#  [EXPORTED_VARIABLES]
+export(ColorOptions) var selected_color: int = ColorOptions.PRIMARY
+
+
+#  [PUBLIC_VARIABLES]
+
+
+#  [PRIVATE_VARIABLES]
+
+
+#  [ONREADY_VARIABLES]
+
+
+#  [OPTIONAL_BUILT-IN_VIRTUAL_METHOD]
+#func _init() -> void:
+#	pass
+
+
+#  [BUILT-IN_VURTUAL_METHOD]
+func _ready() -> void:
+	match(selected_color):
+		ColorOptions.PRIMARY:
+			set_primary_color()
+		ColorOptions.SECUNDARY:
+			set_secondary_color()
+		_:
+			set_primary_color()
+	
+
+
+#  [REMAINIG_BUILT-IN_VIRTUAL_METHODS]
+#func _process(_delta: float) -> void:
+#	pass
+
+
+#  [PUBLIC_METHODS]
+func set_primary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.PB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.PL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.PB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.PD2))
+
+
+func set_secondary_color() -> void:
+	self.set(\"custom_colors/font_color\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_hover\", API.theme.get_color(API.theme.WHITE))
+	self.set(\"custom_colors/font_color_pressed\", API.theme.get_color(API.theme.SB))
+	
+	var state_hover: StyleBoxFlat = self.get(\"custom_styles/hover\")
+	state_hover.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_hover.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_pressed: StyleBoxFlat = self.get(\"custom_styles/pressed\")
+	state_pressed.set(\"bg_color\", API.theme.get_color(API.theme.WHITE))
+	state_pressed.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_focus: StyleBoxFlat = self.get(\"custom_styles/focus\")
+	state_focus.set(\"bg_color\", API.theme.get_color(API.theme.SL1))
+	state_focus.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_disabled: StyleBoxFlat = self.get(\"custom_styles/disabled\")
+	state_disabled.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_disabled.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+	
+	var state_normal: StyleBoxFlat = self.get(\"custom_styles/normal\")
+	state_normal.set(\"bg_color\", API.theme.get_color(API.theme.SB))
+	state_normal.set(\"border_color\", API.theme.get_color(API.theme.SD2))
+
+
+#  [PRIVATE_METHODS]
+ 
+
+#  [SIGNAL_METHODS]
+"
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing_size = 1.339
+
+[sub_resource type="StyleBoxFlat" id=103]
+corner_radius_top_left = 20
+
+[sub_resource type="ShaderMaterial" id=134]
+shader = ExtResource( 6 )
+shader_param/top_left = true
+shader_param/top_right = false
+shader_param/bottom_left = false
+shader_param/bottom_right = false
+shader_param/radius = 1.0
+shader_param/animate = false
+shader_param/square_scale = 0.02
+
+[sub_resource type="StyleBoxFlat" id=105]
+
+[sub_resource type="StyleBoxFlat" id=107]
+
+[sub_resource type="StyleBoxFlat" id=109]
+corner_radius_top_right = 20
+
+[sub_resource type="ShaderMaterial" id=135]
+shader = ExtResource( 6 )
+shader_param/top_left = false
+shader_param/top_right = true
+shader_param/bottom_left = false
+shader_param/bottom_right = false
+shader_param/radius = 1.0
+shader_param/animate = false
+shader_param/square_scale = 0.02
+
+[sub_resource type="StyleBoxFlat" id=111]
+
+[sub_resource type="StyleBoxFlat" id=113]
+
+[sub_resource type="StyleBoxFlat" id=115]
+
+[sub_resource type="StyleBoxFlat" id=117]
+
+[sub_resource type="StyleBoxFlat" id=119]
+
+[sub_resource type="StyleBoxFlat" id=121]
+
+[sub_resource type="StyleBoxFlat" id=123]
+
+[sub_resource type="StyleBoxFlat" id=125]
+
+[sub_resource type="StyleBoxFlat" id=127]
+corner_radius_bottom_left = 20
+
+[sub_resource type="ShaderMaterial" id=136]
+shader = ExtResource( 6 )
+shader_param/top_left = false
+shader_param/top_right = false
+shader_param/bottom_left = true
+shader_param/bottom_right = false
+shader_param/radius = 1.0
+shader_param/animate = false
+shader_param/square_scale = 0.02
+
+[sub_resource type="StyleBoxFlat" id=129]
+
+[sub_resource type="StyleBoxFlat" id=131]
+
+[sub_resource type="StyleBoxFlat" id=133]
+corner_radius_bottom_right = 20
+
+[sub_resource type="ShaderMaterial" id=137]
+shader = ExtResource( 6 )
+shader_param/top_left = false
+shader_param/top_right = false
+shader_param/bottom_left = false
+shader_param/bottom_right = true
+shader_param/radius = 1.0
+shader_param/animate = false
+shader_param/square_scale = 0.02
+
+[node name="Puzzle" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/mess_the_pieces = SubResource( 151 )
+anims/show_full_image = SubResource( 142 )
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
+custom_constants/margin_right = 229
+custom_constants/margin_top = 25
+custom_constants/margin_left = 229
+custom_constants/margin_bottom = 25
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 229.0
+margin_top = 25.0
+margin_right = 1691.0
+margin_bottom = 1055.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="BarContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 1462.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 1462, 120 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+custom_constants/separation = 20
+
+[node name="Home" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 3 )]
+hint_tooltip = "Menu Principal"
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 82 )
+custom_styles/hover = SubResource( 83 )
+custom_styles/pressed = SubResource( 84 )
+custom_styles/focus = SubResource( 85 )
+custom_styles/disabled = SubResource( 86 )
+custom_styles/normal = SubResource( 87 )
+text = ""
+script = SubResource( 88 )
+
+[node name="Tip" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 3 )]
+margin_left = 140.0
+margin_right = 260.0
+hint_tooltip = "Dicas Restantes"
+size_flags_horizontal = 2
+custom_fonts/font = SubResource( 143 )
+custom_styles/hover = SubResource( 144 )
+custom_styles/pressed = SubResource( 145 )
+custom_styles/focus = SubResource( 146 )
+custom_styles/disabled = SubResource( 147 )
+custom_styles/normal = SubResource( 148 )
+text = "ﯦ"
+selected_color = 1
+
+[node name="Counter" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Tip"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -15.0
+margin_top = -10.0
+margin_right = -15.0
+margin_bottom = -10.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 149 )
+text = "3"
+align = 2
+valign = 2
+
+[node name="Container" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BarContainer"]
+margin_left = 494.0
+margin_right = 828.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Time" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container"]
+margin_left = 77.0
+margin_top = 20.0
+margin_right = 257.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 180, 80 )
+size_flags_horizontal = 4
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 138 )
+custom_styles/normal = SubResource( 139 )
+text = "00:00"
+align = 1
+valign = 1
+
+[node name="Level" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container"]
+visible = false
+margin_left = 143.0
+margin_top = 84.0
+margin_right = 219.0
+margin_bottom = 122.0
+size_flags_horizontal = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 140 )
+text = "Nível"
+align = 1
+valign = 1
+
+[node name="Gap" type="Panel" parent="MarginContainer/VBoxContainer/BarContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 848.0
+margin_right = 1182.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+
+[node name="Restart" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 3 )]
+margin_left = 1202.0
+margin_right = 1322.0
+hint_tooltip = "Recomeçar"
+size_flags_horizontal = 8
+custom_fonts/font = SubResource( 152 )
+custom_styles/hover = SubResource( 153 )
+custom_styles/pressed = SubResource( 154 )
+custom_styles/focus = SubResource( 155 )
+custom_styles/disabled = SubResource( 100 )
+custom_styles/normal = SubResource( 157 )
+text = ""
+script = SubResource( 158 )
+
+[node name="Help" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 3 )]
+margin_left = 1342.0
+margin_right = 1462.0
+hint_tooltip = "Como Jogar"
+size_flags_horizontal = 8
+custom_fonts/font = SubResource( 96 )
+custom_styles/hover = SubResource( 97 )
+custom_styles/pressed = SubResource( 98 )
+custom_styles/focus = SubResource( 99 )
+custom_styles/disabled = SubResource( 100 )
+custom_styles/normal = SubResource( 101 )
+text = "?"
+script = SubResource( 102 )
+
+[node name="GameContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 130.0
+margin_right = 1462.0
+margin_bottom = 1030.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_styles/panel = SubResource( 9 )
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer"]
+margin_right = 1462.0
+margin_bottom = 900.0
+custom_styles/panel = SubResource( 10 )
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 594
+custom_constants/margin_bottom = 32
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 594.0
+margin_top = 32.0
+margin_right = 1430.0
+margin_bottom = 868.0
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 4
+
+[node name="Panel1" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_right = 202.0
+margin_bottom = 202.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 103 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel1"]
+visible = false
+material = SubResource( 134 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel2" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 212.0
+margin_right = 414.0
+margin_bottom = 202.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 105 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel3" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 424.0
+margin_right = 625.0
+margin_bottom = 202.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 107 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel3"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel4" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 635.0
+margin_right = 836.0
+margin_bottom = 202.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 109 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel4"]
+visible = false
+material = SubResource( 135 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel5" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_top = 212.0
+margin_right = 202.0
+margin_bottom = 414.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 111 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel5"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel6" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 212.0
+margin_top = 212.0
+margin_right = 414.0
+margin_bottom = 414.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 113 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel6"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel7" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 424.0
+margin_top = 212.0
+margin_right = 625.0
+margin_bottom = 414.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 115 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel7"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel8" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 635.0
+margin_top = 212.0
+margin_right = 836.0
+margin_bottom = 414.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 117 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel8"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel9" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_top = 424.0
+margin_right = 202.0
+margin_bottom = 625.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 119 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel9"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel10" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 212.0
+margin_top = 424.0
+margin_right = 414.0
+margin_bottom = 625.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 121 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel10"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel11" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 424.0
+margin_top = 424.0
+margin_right = 625.0
+margin_bottom = 625.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 123 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel11"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel12" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 635.0
+margin_top = 424.0
+margin_right = 836.0
+margin_bottom = 625.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 125 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel12"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel13" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_top = 635.0
+margin_right = 202.0
+margin_bottom = 836.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 127 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel13"]
+visible = false
+material = SubResource( 136 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel14" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 212.0
+margin_top = 635.0
+margin_right = 414.0
+margin_bottom = 836.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 129 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel14"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel15" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 424.0
+margin_top = 635.0
+margin_right = 625.0
+margin_bottom = 836.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 131 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel15"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="Panel16" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer"]
+margin_left = 635.0
+margin_top = 635.0
+margin_right = 836.0
+margin_bottom = 836.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 133 )
+script = ExtResource( 8 )
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel/MarginContainer/Panel/GridContainer/Panel16"]
+visible = false
+material = SubResource( 137 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+
+[node name="DropFree" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer/Panel"]
+self_modulate = Color( 1, 1, 1, 0.294118 )
+margin_left = 13.0
+margin_top = 13.0
+margin_right = 581.0
+margin_bottom = 886.0
+
+[node name="Piece1" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.0580986
+anchor_top = 0.737686
+anchor_right = 0.413733
+anchor_bottom = 0.969072
+margin_left = 548.0
+margin_top = -624.0
+margin_right = 548.001
+margin_bottom = -623.998
+
+[node name="Piece2" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.589789
+anchor_top = 0.203895
+anchor_right = 0.945422
+anchor_bottom = 0.435281
+margin_left = 458.0
+margin_top = -159.0
+margin_right = 458.005
+margin_bottom = -159.001
+
+[node name="Piece3" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.223592
+anchor_top = 0.408935
+anchor_right = 0.579226
+anchor_bottom = 0.640321
+margin_left = 878.0
+margin_top = -337.0
+margin_right = 878.002
+margin_bottom = -337.0
+
+[node name="Piece4" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.528169
+anchor_top = 0.61512
+anchor_right = 0.883803
+anchor_bottom = 0.846506
+margin_left = 916.0
+margin_top = -517.0
+margin_right = 916.001
+margin_bottom = -517.0
+
+[node name="Piece5" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.0580986
+anchor_top = 0.021764
+anchor_right = 0.413732
+anchor_bottom = 0.25315
+margin_left = 548.0
+margin_top = 212.0
+margin_right = 548.0
+margin_bottom = 212.001
+
+[node name="Piece6" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.197183
+anchor_top = 0.572738
+anchor_right = 0.552816
+anchor_bottom = 0.804124
+margin_left = 681.0
+margin_top = -269.0
+margin_right = 681.002
+margin_bottom = -269.0
+
+[node name="Piece7" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.579225
+anchor_top = 0.021764
+anchor_right = 0.934859
+anchor_bottom = 0.253151
+margin_left = 676.0
+margin_top = 212.0
+margin_right = 676.001
+margin_bottom = 212.001
+
+[node name="Piece8" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.0580986
+anchor_top = 0.264605
+anchor_right = 0.413733
+anchor_bottom = 0.495991
+margin_left = 1183.0
+margin_right = 1183.0
+
+[node name="Piece9" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.579225
+anchor_top = 0.749141
+anchor_right = 0.934859
+anchor_bottom = 0.980527
+margin_left = 252.0
+margin_top = -211.0
+margin_right = 252.002
+margin_bottom = -211.0
+
+[node name="Piece10" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.318662
+anchor_top = 0.0538373
+anchor_right = 0.674296
+anchor_bottom = 0.285223
+margin_left = 612.0
+margin_top = 396.0
+margin_right = 611.999
+margin_bottom = 396.001
+
+[node name="Piece11" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.318662
+anchor_top = 0.285223
+anchor_right = 0.674294
+anchor_bottom = 0.516609
+margin_left = 824.0
+margin_top = 194.0
+margin_right = 823.999
+margin_bottom = 194.001
+
+[node name="Piece12" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.589789
+anchor_top = 0.435281
+anchor_right = 0.945422
+anchor_bottom = 0.666667
+margin_left = 881.0
+margin_top = 63.0
+margin_right = 881.0
+margin_bottom = 62.9985
+
+[node name="Piece13" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.265845
+anchor_top = 0.737686
+anchor_right = 0.621479
+anchor_bottom = 0.969072
+margin_left = 430.0
+margin_top = 10.0
+margin_right = 430.001
+margin_bottom = 10.0
+
+[node name="Piece14" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.0580986
+anchor_top = 0.495991
+anchor_right = 0.413733
+anchor_bottom = 0.727377
+margin_left = 760.0
+margin_top = 221.0
+margin_right = 760.001
+margin_bottom = 220.997
+
+[node name="Piece15" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.109155
+anchor_top = 0.203895
+anchor_right = 0.464788
+anchor_bottom = 0.435281
+margin_left = 943.0
+margin_top = 476.0
+margin_right = 943.0
+margin_bottom = 475.997
+
+[node name="Piece16" parent="MarginContainer/VBoxContainer/GameContainer/Panel/DropFree" instance=ExtResource( 7 )]
+anchor_left = 0.408451
+anchor_top = 0.435281
+anchor_right = 0.764084
+anchor_bottom = 0.666666
+margin_left = 984.0
+margin_top = 274.0
+margin_right = 984.001
+margin_bottom = 274.002
+
+[node name="FullImage" type="TextureRect" parent="MarginContainer/VBoxContainer/GameContainer/Panel"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -418.0
+margin_top = -418.0
+margin_right = 418.0
+margin_bottom = 418.0
+texture = ExtResource( 9 )
+expand = true
+stretch_mode = 6
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Home" to="." method="_on_Home_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Tip" to="." method="_on_Tip_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Help" to="." method="_on_Help_pressed"]

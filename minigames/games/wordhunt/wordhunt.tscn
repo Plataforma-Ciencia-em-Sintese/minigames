@@ -1,0 +1,354 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://assets/fonts/FredokaOne/FredokaOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://games/wordhunt/tip_list_container/tip_list_container.tscn" type="PackedScene" id=2]
+[ext_resource path="res://games/wordhunt/line_marker_2d/line_marker_2d.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/fonts/JetBrainsMono/JetBrainsMonoNerdFontCompleteM-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://games/wordhunt/wordhunt.gd" type="Script" id=5]
+[ext_resource path="res://assets/components/theme_button_icon/theme_button_icon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/components/background/background.tscn" type="PackedScene" id=9]
+[ext_resource path="res://games/wordhunt/grid_label_container/grid_label_container.tscn" type="PackedScene" id=10]
+
+[sub_resource type="DynamicFont" id=82]
+size = 86
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=83]
+bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=84]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=85]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=86]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=87]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=104]
+size = 36
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=105]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=106]
+size = 30
+use_filter = true
+extra_spacing_bottom = -2
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=96]
+size = 74
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=97]
+bg_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id=98]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=99]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=100]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=101]
+bg_color = Color( 0.4, 0.4, 0.4, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing_size = 1.339
+
+[node name="Wordhunt" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="FloatingScreenLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 2
+
+[node name="LineMarker" parent="." instance=ExtResource( 3 )]
+unique_name_in_owner = true
+
+[node name="Background" parent="." instance=ExtResource( 9 )]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
+custom_constants/margin_right = 229
+custom_constants/margin_top = 25
+custom_constants/margin_left = 229
+custom_constants/margin_bottom = 25
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 229.0
+margin_top = 25.0
+margin_right = 1691.0
+margin_bottom = 1055.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 10
+
+[node name="BarContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_right = 1462.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 1462, 120 )
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Home" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 8 )]
+hint_tooltip = "Menu Principal"
+size_flags_horizontal = 2
+custom_fonts/font = SubResource( 82 )
+custom_styles/hover = SubResource( 83 )
+custom_styles/pressed = SubResource( 84 )
+custom_styles/focus = SubResource( 85 )
+custom_styles/disabled = SubResource( 86 )
+custom_styles/normal = SubResource( 87 )
+text = ""
+selected_color = 1
+
+[node name="Container" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BarContainer"]
+margin_left = 254.0
+margin_right = 504.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Time" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container"]
+unique_name_in_owner = true
+margin_left = 35.0
+margin_top = 20.0
+margin_right = 215.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 180, 80 )
+size_flags_horizontal = 4
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 104 )
+custom_styles/normal = SubResource( 105 )
+text = "00:00"
+align = 1
+valign = 1
+
+[node name="Level" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container"]
+visible = false
+margin_left = 204.0
+margin_top = 84.0
+margin_right = 280.0
+margin_bottom = 120.0
+size_flags_horizontal = 4
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 106 )
+text = "Nível"
+align = 1
+valign = 1
+
+[node name="Container2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BarContainer"]
+margin_left = 508.0
+margin_right = 1208.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SelectedWord" type="Label" parent="MarginContainer/VBoxContainer/BarContainer/Container2"]
+unique_name_in_owner = true
+margin_top = 20.0
+margin_right = 700.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 700, 80 )
+size_flags_horizontal = 4
+size_flags_vertical = 1
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 104 )
+custom_styles/normal = SubResource( 105 )
+text = "@@@@@@@@@@@@@@@@@@@@"
+align = 1
+valign = 1
+
+[node name="Help" parent="MarginContainer/VBoxContainer/BarContainer" instance=ExtResource( 8 )]
+margin_left = 1342.0
+margin_right = 1462.0
+hint_tooltip = "Como Jogar"
+size_flags_horizontal = 10
+custom_fonts/font = SubResource( 96 )
+custom_styles/hover = SubResource( 97 )
+custom_styles/pressed = SubResource( 98 )
+custom_styles/focus = SubResource( 99 )
+custom_styles/disabled = SubResource( 100 )
+custom_styles/normal = SubResource( 101 )
+text = "?"
+selected_color = 1
+
+[node name="GameContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_top = 130.0
+margin_right = 1462.0
+margin_bottom = 1030.0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+custom_styles/panel = SubResource( 9 )
+
+[node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer/GameContainer"]
+margin_right = 1462.0
+margin_bottom = 900.0
+custom_styles/panel = SubResource( 10 )
+
+[node name="GridLabelContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel" instance=ExtResource( 10 )]
+anchor_left = 0.291382
+anchor_top = 0.00888889
+anchor_right = 0.994528
+anchor_bottom = 0.988889
+margin_right = 0.0
+margin_bottom = 0.0
+custom_constants/hseparation = 14
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TipListContainer" parent="MarginContainer/VBoxContainer/GameContainer/Panel" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BarContainer/Help" to="." method="_on_help_pressed"]
