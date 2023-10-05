@@ -40,6 +40,15 @@
 ### SECURITY
 
 
+# 2.0.0 - 2023/10/05
 
+### ADDED
+	- Game Data API Connection
+	- Customizable memory game feature
+	- Customizable quiz game feature
+	- Customizable matching game feature
+	- Customizable puzzle game feature
+	- Customizable cryptogram game feature
+	- Customizable wordhunt game feature
 
 
